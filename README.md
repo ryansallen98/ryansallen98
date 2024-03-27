@@ -1,7 +1,7 @@
 Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif)My name is Ryan Allen
 ==================================================================================================================================
 
-Web Developer turned Designer
+Web Designer turned Developer
 -----------------------------
 
 💼 After a career switch in 2020 from graphic design to web design, I found my passion in crafting digital experiences. Starting with tools like Wix, Webflow, and WordPress Page Builders, I honed my skills in creating visually stunning and user-friendly websites.
