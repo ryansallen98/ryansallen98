@@ -11,6 +11,6 @@ Web Designer turned Developer
 🌱 Constantly learning and adapting, I'm excited to collaborate, innovate, and contribute to the ever-evolving web development landscape. Let's build something amazing together!
 
 *   🌍  I'm based in London
-*   ✉️  You can contact me at [ryansallen53@gmail.com](mailto:ryansallen53@gmail.com)
+*   ✉️  You can contact me at [ryan@gatewaypay.io](mailto:ryan@gatewaypay.io)
 *   🚀  I'm currently working on [Gateway Pay](http://gatewaypay.io)
 *   🧠  I'm learning Next Js
