@@ -1,4 +1,4 @@
-Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif)My name is Ryan Allen
+Hi my name is Ryan Allen ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif)
 ==================================================================================================================================
 
 I’m a **Web Developer & Designer** focused on crafting modern, scalable, and user-friendly digital experiences. I specialize in building custom applications, dashboards, and WordPress solutions that combine clean design with robust engineering.  
