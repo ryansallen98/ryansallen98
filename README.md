@@ -18,7 +18,7 @@ I’m a **Web Developer & Designer** focused on crafting modern, scalable, and u
 **UI Frameworks:** ShadCN, MUI  
 **Backend:** Node.js, Express.js, PHP  
 **Auth & ORM:** NextAuth, Prisma  
-**CMS:** WordPress (custom themes & plugins)  
+**CMS:** WordPress (custom themes & plugins, preferring Sage with Blade templates & components)
 **Cloud & Databases:** AWS, Firebase, Supabase, MySQL, MongoDB  
 **Deployment:** Vercel, Netlify  
 **Design:** Figma, Adobe Creative Suite  
