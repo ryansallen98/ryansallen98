@@ -3,16 +3,12 @@ Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-912
 
 I’m a **Web Developer & Designer** focused on crafting modern, scalable, and user-friendly digital experiences. I specialize in building custom applications, dashboards, and WordPress solutions that combine clean design with robust engineering.  
 
----
-
 ## 🔧 What I Do  
 - **Next.js Applications** – full-stack apps, custom dashboards, and performant frontends  
 - **Custom WordPress Development** – themes, plugins, and tailored solutions  
 - **Web Design** – UI/UX with a strong design background  
 - **Cloud & Backend Services** – integrating and deploying with AWS, Firebase, and Supabase  
 - **Deployment** – hosting and deploying projects with Vercel and Netlify  
-
----
 
 ## 🛠️ Tech Stack  
 **Preferred:** Next.js, TypeScript, TailwindCSS  
@@ -26,8 +22,6 @@ I’m a **Web Developer & Designer** focused on crafting modern, scalable, and u
 **Deployment:** Vercel, Netlify  
 **Design:** Figma, Adobe Creative Suite  
 **Other Tools:** Git, GitHub, REST APIs, GraphQL  
-
----
 
 ## 🌱 Always Exploring  
 Continuously learning, experimenting, and building solutions that bridge design and development.  
