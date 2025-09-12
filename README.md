@@ -17,6 +17,7 @@ I’m a **Web Developer & Designer** focused on crafting modern, scalable, and u
 **Styling:** TailwindCSS, Styled Components, SCSS, CSS  
 **UI Frameworks:** ShadCN, MUI  
 **Backend:** Node.js, Express.js, PHP  
+**Auth & ORM:** NextAuth, Prisma  
 **CMS:** WordPress (custom themes & plugins)  
 **Cloud & Databases:** AWS, Firebase, Supabase, MySQL, MongoDB  
 **Deployment:** Vercel, Netlify  
