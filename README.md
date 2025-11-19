@@ -8,7 +8,7 @@ I’m a **Web Developer & Designer** focused on crafting modern, scalable, and u
 - **Custom WordPress Development** – themes, plugins, and tailored solutions  
 - **Web Design** – UI/UX with a strong design background  
 - **Cloud & Backend Services** – integrating and deploying with AWS, Firebase, and Supabase  
-- **Deployment** – hosting and deploying projects with Vercel and Netlify  
+- **Deployment** – hosting and deploying projects with Vercel, Netlify, WP Engine and Hostinger
 
 ## 🛠️ Tech Stack  
 **Preferred:** Next.js, TypeScript, TailwindCSS  
