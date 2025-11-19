@@ -5,7 +5,7 @@ I’m a **Web Developer & Designer** focused on crafting modern, scalable, and u
 
 ## 🔗 Portfolio
 
-Website: [https://rallen.dev]
+Website: https://rallen.dev
 
 ## 🔧 What I Do  
 - **Next.js Applications** – full-stack apps, custom dashboards, and performant frontends  
