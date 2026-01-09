@@ -1,11 +1,3 @@
-::view-transition-new(resume-toolbar) {
-animation: resume-toolbar-fade-down 500ms ease-out;
-}
-
-::view-transition-new(resume) {
-  animation: resume-fade-up 500ms ease-out;
-}
-
 @keyframes resume-fade-up {
   from {
     opacity: 0;
@@ -29,3 +21,18 @@ animation: resume-toolbar-fade-down 500ms ease-out;
     transform: translateY(0);
   }
 }
+.resume-toolbar {
+  animation: resume-toolbar-fade-down 500ms ease-out;
+}
+
+.resume-paper {
+  animation: resume-fade-up 500ms ease-out;
+}
+
+/* ::view-transition-new(resume-toolbar) {
+animation: resume-toolbar-fade-down 500ms ease-out;
+}
+
+::view-transition-new(resume) {
+  animation: resume-fade-up 500ms ease-out;
+} */
