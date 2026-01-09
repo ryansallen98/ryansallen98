@@ -1,7 +1,8 @@
 ---
 import SubHeading from "../typography/SubHeading.astro";
+import Button from "../ui/Button.astro";
 
-const { title, subHeading, description } = Astro.props;
+const { title, subHeading, description, buttons } = Astro.props;
 ---
 
 <section class="pb-30 pt-40 bg-background-dark text-foreground-dark">
@@ -27,6 +28,25 @@ const { title, subHeading, description } = Astro.props;
             <li><span></span><span>Web Developer</span></li>
           </ul>
         </div>
+
+        <!-- Buttons -->
+        {
+          buttons && (
+            <div class="flex flex-row flex-wrap gap-2 mt-8">
+              {buttons.map(
+                (button: { text: string; href: string; variant: string }) => (
+                  <Button 
+                    text={button.text}
+                    href={button.href}
+                    variant={button.variant}
+                    as="a"
+                    iconEnd="lucide:arrow-right"
+                  />
+                )
+              )}
+            </div>
+          )
+        }
       </div>
 
       <!-- Image -->
