@@ -2,14 +2,15 @@
 import Layout from "@layouts/BaseLayout.astro";
 import Hero from "@components/layout/Hero.astro";
 
-const subtitle = "More about me";
+const subHeading = "More about me";
 const pageTitle = "About Me";
 ---
 
 <Layout>
   <Hero 
     title={pageTitle} 
-    subTitle={subtitle}
+    subHeading={subHeading}
     description="I'm Ryan Allen, a passionate freelance web developer and consultant with over a decade of experience in crafting high-quality web solutions. My expertise spans a wide range of technologies, including JavaScript, Python, and modern frameworks like React and Astro."
   />
+  <div class="min-h-screen"></div>
 </Layout>
