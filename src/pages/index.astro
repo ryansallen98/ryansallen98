@@ -1,10 +1,14 @@
 ---
+import Hero from "@components/layout/Hero.astro";
 import Layout from "@layouts/BaseLayout.astro";
 
 const pageTitle = "Welcome to My Portfolio";
 ---
 
 <Layout>
-  <h1>{pageTitle}</h1>
-  <p>This is a placeholder for the homepage content.</p>
+  <Hero
+    title={pageTitle}
+    subHeading="Showcasing My Work and Skills"
+    description="Explore my portfolio to see a selection of my projects, skills, and experiences in web development and design."
+  />
 </Layout>
