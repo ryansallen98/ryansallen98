@@ -14,6 +14,9 @@ const fullTitle = noBrand
   : title
     ? `${title} | ${siteName} (${brand})`
     : `${siteName} (${brand}) | Freelance Web Developer & Consultant`;
+
+const defaultDescription =
+  "Ryan Allen's personal website showcasing his portfolio, blog, and services as a freelance web developer and consultant.";
 ---
 
 <!doctype html>
@@ -24,6 +27,10 @@ const fullTitle = noBrand
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{fullTitle}</title>
+    <meta
+      name="description"
+      content={description ? description : defaultDescription}
+    />
     {description && <meta name="description" content={description} />}
   </head>
   <body>
