@@ -1,10 +1,12 @@
 ---
+import Hero from "@components/layout/Hero.astro";
 import Layout from "@layouts/BaseLayout.astro";
-
-const pageTitle = "Welcome to My Portfolio";
 ---
 
-<Layout>
-  <h1>{pageTitle}</h1>
-  <p>This is a placeholder for the homepage content.</p>
+<Layout title="Blog">
+  <Hero
+    title="Blog"
+    subHeading="Latest Articles and Insights"
+    description="Explore my latest articles, tutorials, and insights on web development, design, and technology."
+  />
 </Layout>
