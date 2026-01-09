@@ -1,0 +1,35 @@
+---
+import SubHeading from "../typography/SubHeading.astro";
+
+const { title, subHeading, description } = Astro.props;
+---
+
+<section class="pb-30 pt-40 bg-background-dark text-foreground-dark">
+  <div class="container mx-auto max-w-7xl px-5">
+    <div class="flex flex-row gap-10 justify-between">
+      <!-- Content -->
+      <div>
+        <!-- Title -->
+        <div class="flex flex-col gap-8 mb-8">
+          <SubHeading text={subHeading} />
+          <h1 class="font-h1">{title}</h1>
+        </div>
+
+        <!-- Description -->
+        <div class="max-w-2xl">
+          <p class="text-xl">
+            {description}
+          </p>
+
+          <ul class="flex flex-row flex-wrap">
+            <li><span></span><span>UX/UI Designer</span></li>
+            <li><span></span><span>Product Designer</span></li>
+            <li><span></span><span>Web Developer</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Image -->
+    </div>
+  </div>
+</section>
