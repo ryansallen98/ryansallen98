@@ -12,14 +12,18 @@
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.9",
     "@astrojs/check": "^0.9.6",
+    "@iconify-json/lucide": "^1.2.83",
     "@tailwindcss/vite": "^4.1.18",
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.15.3",
     "astro": "^5.16.7",
+    "astro-icon": "^1.1.5",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "playwright": "^1.57.0"
+    "class-variance-authority": "^0.7.1",
+    "playwright": "^1.57.0",
+    "tailwind-merge": "^3.4.0"
   }
 }
