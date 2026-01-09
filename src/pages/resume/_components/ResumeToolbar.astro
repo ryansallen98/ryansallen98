@@ -3,7 +3,7 @@ import LogoLong from "@components/branding/LongLong.astro";
 import Button from "@components/ui/Button.astro";
 ---
 
-<div class="resume-toolbar w-full">
+<div class="resume-toolbar w-full animate-in slide-in-from-top duration-1000 motion-reduce:animate-none motion-reduce:filter-none">
   <div
     class="border-b border-divider-dark w-full flex flex-row items-center justify-between backdrop-blur-lg bg-background-dark/70"
   >
@@ -12,7 +12,7 @@ import Button from "@components/ui/Button.astro";
         class="p-4 px-6 border-r border-divider-dark fill-primary text-foreground-dark"
         href="/"
       >
-        <LogoLong class="h-8" />
+        <LogoLong class="h-8" aria-hidden="true" focusable="false" />
         <span class="sr-only">Ryan Allen - rallen.dev</span>
       </a>
 
