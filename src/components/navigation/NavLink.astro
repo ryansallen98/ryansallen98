@@ -1,0 +1,14 @@
+---
+const { href, text } = Astro.props;
+const isActive =
+  Astro.url.pathname === href || Astro.url.pathname.startsWith(href + "/");
+---
+
+<li>
+  <a
+    href={href}
+    data-active={isActive ? "true" : "false"}
+    class="px-4 py-2 font-medium text-muted hover:text-foreground-dark hover:bg-secondary-dark transition-all duration-300 uppercase data-[active=true]:bg-secondary-dark data-[active=true]:text-foreground-dark"
+    >{text}</a
+  >
+</li>
