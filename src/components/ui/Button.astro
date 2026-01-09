@@ -1,0 +1,115 @@
+---
+import { cva } from "class-variance-authority";
+import { cn } from "@scripts/utils";
+import { Icon } from "astro-icon/components";
+
+const {
+  variant = "light",
+  as = "button",
+  class: className,
+  text,
+  hoverText = null,
+  iconStart = null,
+  iconEnd = null,
+  disableIconAnimation = false,
+  ...rest
+} = Astro.props;
+
+const Tag = as;
+const isButton = Tag === "button";
+const isLink = Tag === "a";
+
+const buttonVariants = cva(
+  "py-5 px-8 font-base uppercase relative inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4.5 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] cursor-pointer",
+  {
+    variants: {
+      variant: {
+        primary: "bg-primary text-primary-foreground",
+        light: "bg-background-light text-foreground-light",
+        dark: "bg-background-dark text-foreground-dark",
+        outline: "border border-divider-dark text-foreground-dark",
+      },
+    },
+    defaultVariants: {
+      variant: "light",
+    },
+  }
+);
+
+const buttonClasses = cn(buttonVariants({ variant }), className);
+const animationWrapperClasses =
+  "relative inline-flex overflow-hidden justify-center items-center";
+const initialElementClasses =
+  "relative transition-all duration-400 ease-in-out inline-block";
+const hoverElementClasses =
+  "absolute inset-0 transition-all duration-500 ease-in-out inline-block";
+---
+
+<Tag
+  role={!isButton && !isLink ? "button" : undefined}
+  tabindex={!isButton && !isLink ? "0" : undefined}
+  aria-disabled={rest.disabled ? "true" : undefined}
+  class={buttonClasses}
+  data-variant={variant}
+  aria-label={text}
+  x-data="buttonHover()"
+  @mouseenter="onMouseEnter"
+  @mouseleave="onMouseLeave()"
+  @focus="onMouseEnter"
+  @blur="onMouseLeave"
+  @keydown.enter.prevent="$el.click()"
+  @keydown.space.prevent="$el.click()"
+  {...rest}
+>
+  {
+    iconStart && (
+      <span class={animationWrapperClasses}>
+        <Icon
+          name={iconStart}
+          x-ref="initialIconStart"
+          class={initialElementClasses}
+          aria-hidden="true"
+        />
+        {!disableIconAnimation && (
+          <Icon
+            name={iconStart}
+            x-ref="hoverIconStart"
+            class={hoverElementClasses}
+            style="transform: translateX(100%);"
+            aria-hidden="true"
+          />
+        )}
+      </span>
+    )
+  }
+  <span class={animationWrapperClasses}>
+    <span x-ref="initialText" class={initialElementClasses}>{text}</span>
+    <span
+      x-ref="hoverText"
+      class={hoverElementClasses}
+      style="transform: translateY(100%); opacity: 0; filter: blur(5px);"
+      aria-hidden="true">{hoverText ? hoverText :text}</span
+    >
+  </span>
+  {
+    iconEnd && (
+      <span class={animationWrapperClasses}>
+        <Icon
+          name={iconEnd}
+          x-ref="initialIconEnd"
+          class={initialElementClasses}
+          aria-hidden="true"
+        />
+        {!disableIconAnimation && (
+          <Icon
+            name={iconEnd}
+            x-ref="hoverIconEnd"
+            class={hoverElementClasses}
+            style="transform: translateX(-100%);"
+            aria-hidden="true"
+          />
+        )}
+      </span>
+    )
+  }
+</Tag>
