@@ -1,0 +1,68 @@
+.resume-background {
+  background-color: var(--color-background-dark);
+  padding-top: calc(35 * var(--spacing));
+  padding-bottom: calc(20 * var(--spacing));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resume-paper {
+  box-shadow: var(--shadow-2xl);
+  background-color: var(--color-background-light);
+  color: var(--color-foreground-light);
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 210mm;
+  height: 297mm;
+}
+
+.resume-toolbar {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+::selection {
+  background-color: var(--color-background-dark) !important;
+  color: var(--color-foreground-dark) !important;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: white !important;
+  }
+
+  .resume-background {
+    display: block;
+    background: transparent;
+    padding: 0;
+  }
+
+  .resume-paper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 210mm;
+    height: 297mm;
+    box-shadow: none;
+  }
+
+  .resume-toolbar {
+    display: none;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

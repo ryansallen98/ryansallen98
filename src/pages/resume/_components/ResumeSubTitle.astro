@@ -1,0 +1,18 @@
+---
+const { title, mode = "light" } = Astro.props;
+
+const foregroundClass =
+  mode === "dark"
+    ? "text-foreground-dark"
+    : "text-foreground-light";
+
+const borderClass =
+  mode === "dark"
+    ? "border-foreground-dark"
+    : "border-foreground-light";
+---
+
+<div class="flex flex-col gap-1">
+  <h2 class={`text-xl uppercase font-semibold tracking-widest ${foregroundClass}`}>{title}</h2>
+  <hr class={`max-w-10 border ${borderClass}`} />
+</div>
