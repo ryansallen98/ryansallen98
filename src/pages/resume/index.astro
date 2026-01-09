@@ -1,0 +1,26 @@
+---
+import "./resume.css";
+import Layout from "@layouts/BaseLayout.astro";
+import ResumeToolbar from "./_components/ResumeToolbar.astro";
+import ResumeHeader from "./_components/ResumeHeader.astro";
+import ResumeExperience from "./_components/ResumeExperience.astro";
+import ResumeAdditionalInfo from "./_components/ResumeAdditionalInfo.astro";
+
+const title = "Resume";
+---
+
+<Layout blank={true} title={title}>
+  <div class="resume-background">
+    <!-- Toolbar -->
+    <ResumeToolbar />
+
+    <!-- A4 Paper -->
+    <article class="resume-paper">
+      <ResumeHeader />
+      <div class="flex flex-row h-full">
+        <ResumeExperience />
+        <ResumeAdditionalInfo />
+      </div>
+    </article>
+  </div>
+</Layout>
