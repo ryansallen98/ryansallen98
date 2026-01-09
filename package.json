@@ -5,8 +5,6 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "postbuild": "node scripts/generate-resume-pdf.mjs",
-    "postinstall": "npx playwright install chromium",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check"
