@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "class-variance-authority": "^0.7.1",
-    "playwright": "^1.57.0",
     "tailwind-merge": "^3.4.0"
   }
 }
