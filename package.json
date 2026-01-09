@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "node scripts/generate-resume-pdf.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check"
@@ -18,5 +19,8 @@
     "astro": "^5.16.7",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.57.0"
   }
 }
