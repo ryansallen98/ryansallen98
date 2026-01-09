@@ -1,0 +1,65 @@
+@theme inline {
+  --font-heading: var(--font-heading-stack);
+  --font-base: var(--font-base-stack);
+  --color-background-light: var(--background-light);
+  --color-foreground-light: var(--foreground-light);
+  --color-background-dark: var(--background-dark);
+  --color-foreground-dark: var(--foreground-dark);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-light: var(--secondary-light);
+  --color-secondary-foreground-light: var(--secondary-foreground-light);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-secondary-foreground-dark: var(--secondary-foreground-dark);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-divider-light: var(--divider-light);
+  --color-divider-dark: var(--divider-dark);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --font-heading-stack:
+    "Anton", Impact, Haettenschweiler, "Arial Narrow", "Segoe UI", sans-serif;
+
+  --font-base-stack:
+    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+
+  --background-light: oklch(1 0 0);
+  --foreground-light: oklch(14.5% 0 0);
+
+  --background-dark: oklch(14.5% 0 0);
+  --foreground-dark: oklch(97% 0 0);
+
+  --primary: oklch(0.7359 0.1209 79.25);
+  --primary-foreground: oklch(14.5% 0 0);
+
+  --secondary-light: oklch(97% 0 0);
+  --secondary-foreground-light: oklch(43.9% 0 0);
+
+  --secondary-dark: oklch(26.9% 0 0);
+  --secondary-foreground-dark: oklch(97% 0 0);
+
+  --muted: oklch(70.8% 0 0);
+  --muted-foreground: oklch(14.5% 0 0);
+
+  --divider-light: oklch(92.2% 0 0);
+  --divider-dark: oklch(26.9% 0 0);
+
+  --ring: oklch(70.8% 0 0);
+}
+
+@layer base {
+  * {
+    @apply outline-ring/50 focus-visible:outline-3 font-base -tracking-[0.03em];
+  }
+  body {
+    @apply bg-background-light text-foreground-light;
+  }
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}

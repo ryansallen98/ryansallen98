@@ -1,0 +1,46 @@
+@layer components {
+  .font-h1 {
+    font-size: clamp(60px, 10vw, 200px);
+    line-height: 1em;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+  }
+
+  .font-h2 {
+    font-size: clamp(32px, 3vw, 48px);
+    line-height: 1.25em;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: -0.019em;
+  }
+
+  .font-h3 {
+    font-size: clamp(28px, 2vw, 36px);
+    line-height: 1.28em;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+  }
+
+  .font-h4 {
+    font-size: clamp(24px, 1.75vw, 32px);
+    line-height: 1.28em;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+  }
+
+  .font-h5 {
+    font-size: clamp(20px, 1.5vw, 28px);
+    line-height: 1.3em;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+  }
+
+  .font-h6 {
+    font-size: clamp(18px, 1.25vw, 24px);
+    line-height: 1.3em;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+  }
+}
