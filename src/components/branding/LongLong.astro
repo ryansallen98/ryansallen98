@@ -1,5 +1,5 @@
 ---
-const { class: className = "" } = Astro.props;
+const { class: className = "", ...rest } = Astro.props;
 ---
 
 <svg
@@ -12,6 +12,7 @@ const { class: className = "" } = Astro.props;
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xml:space="preserve"
   style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+  {...rest}
   ><path
     d="M1736.11,1220.53l-750.562,750.563l-985.545,-985.545l985.545,-985.545l234.982,234.983l-750.562,750.562l515.58,515.58l515.58,-515.58l234.982,234.982Zm0,-469.965l750.562,-750.562l985.545,985.545l-985.545,985.545l-234.982,-234.983l750.562,-750.562l-515.58,-515.58l-515.579,515.58l-234.983,-234.983Z"
     style="fill:inherit;"></path><g
