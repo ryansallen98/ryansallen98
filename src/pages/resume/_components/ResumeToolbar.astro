@@ -1,20 +1,40 @@
 ---
-import LogoIcon from "@components/branding/LogoIcon.astro";
+import LogoLong from "@components/branding/LongLong.astro";
+import Button from "@components/ui/Button.astro";
 ---
 
 <div class="resume-toolbar w-full">
   <div
     class="border-b border-divider-dark w-full flex flex-row items-center justify-between backdrop-blur-lg bg-background-dark/70"
   >
-    <a class="p-4 border-r border-divider-dark aspect-square text-primary group" href="/">
-      <LogoIcon class="size-10 group-hover:scale-125 transition-all duration-300" />
-      <span class="sr-only">Ryan Allen - rallen.dev</span>
-    </a>
+    <div class="flex flex-row gap-2">
+      <a
+        class="p-4 px-6 border-r border-divider-dark fill-primary text-foreground-dark"
+        href="/"
+      >
+        <LogoLong class="h-8" />
+        <span class="sr-only">Ryan Allen - rallen.dev</span>
+      </a>
+
+      <Button
+        class="bg-transparent"
+        variant="dark"
+        as="a"
+        href="/about"
+        text="Go back"
+        iconStart="lucide:arrow-left"
+      />
+    </div>
 
     <div>
-      <button class="text-white" onclick="window.print()">
-        Print
-      </button>
+      <Button
+        class="border-t-0 border-b-0"
+        variant="outline"
+        onclick="window.print()"
+        text="Print"
+        iconEnd="lucide:printer"
+        disableIconAnimation
+      />
     </div>
   </div>
 </div>
