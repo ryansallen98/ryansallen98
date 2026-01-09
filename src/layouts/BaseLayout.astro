@@ -1,0 +1,35 @@
+---
+import "@styles/global.css";
+import Header from "@components/layout/Header.astro";
+import Footer from "@components/layout/Footer.astro";
+
+const { title, description, noBrand = false, blank = false } = Astro.props;
+
+const siteName = "Ryan Allen";
+const brand = "rallen.dev";
+
+const fullTitle = noBrand
+  ? title
+  : title
+    ? `${title} | ${siteName} (${brand})`
+    : `${siteName} (${brand}) | Freelance Web Developer & Consultant`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body>
+    {!blank && <Header />}
+    <main>
+      <slot />
+    </main>
+    {!blank && <Footer />}
+  </body>
+</html>
