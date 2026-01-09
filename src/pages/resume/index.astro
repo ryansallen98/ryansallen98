@@ -1,5 +1,5 @@
 ---
-import "./resume.css";
+import "./_resume.css";
 import Layout from "@layouts/BaseLayout.astro";
 import ResumeToolbar from "./_components/ResumeToolbar.astro";
 import ResumeHeader from "./_components/ResumeHeader.astro";
@@ -15,7 +15,7 @@ const title = "Resume";
     <ResumeToolbar />
 
     <!-- A4 Paper -->
-    <article class="resume-paper">
+    <article class="resume-paper" transition:name="resume">
       <ResumeHeader />
       <div class="flex flex-row h-full">
         <ResumeExperience />
