@@ -3,6 +3,7 @@ import "@styles/global.css";
 
 import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
+import { ClientRouter } from "astro:transitions";
 
 const { title, description, noBrand = false, blank = false } = Astro.props;
 
@@ -32,6 +33,7 @@ const defaultDescription =
       content={description ? description : defaultDescription}
     />
     {description && <meta name="description" content={description} />}
+    <ClientRouter />
   </head>
   <body>
     {!blank && <Header />}
