@@ -16,6 +16,7 @@
   overflow: hidden;
   width: 210mm;
   height: 297mm;
+  animation: resume-fade-up 500ms ease-out;
 }
 
 .resume-toolbar {
@@ -23,11 +24,36 @@
   position: fixed;
   top: 0;
   left: 0;
+  animation: resume-toolbar-fade-down 800ms ease-out;
 }
 
 ::selection {
   background-color: var(--color-background-dark) !important;
   color: var(--color-foreground-dark) !important;
+}
+
+@keyframes resume-fade-up {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes resume-toolbar-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @page {
