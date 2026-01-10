@@ -5,6 +5,7 @@ import ResumeToolbar from "./_components/ResumeToolbar.astro";
 import ResumeHeader from "./_components/ResumeHeader.astro";
 import ResumeExperience from "./_components/ResumeExperience.astro";
 import ResumeAdditionalInfo from "./_components/ResumeAdditionalInfo.astro";
+import ResumeFooter from "./_components/ResumeFooter.astro";
 
 const title = "Resume";
 ---
@@ -15,14 +16,14 @@ const title = "Resume";
     <ResumeToolbar />
 
     <!-- A4 Paper -->
-    <article
-      class="resume-paper animate-in fade-in slide-in-from-bottom duration-500 blur-in motion-reduce:animate-none motion-reduce:filter-none"
-    >
+    <article class="resume-paper">
       <ResumeHeader />
       <div class="flex flex-row h-full">
         <ResumeExperience />
         <ResumeAdditionalInfo />
       </div>
     </article>
+
+    <ResumeFooter />
   </div>
 </Layout>

@@ -1,0 +1,56 @@
+---
+import ListItem from "@components/ui/ListItem.astro";
+import SubHeading from "../typography/SubHeading.astro";
+import Button from "../ui/Button.astro";
+
+const { title, subHeading, description, buttons } = Astro.props;
+---
+
+<section class="pb-30 pt-40 bg-background-dark text-foreground-dark">
+  <div class="container mx-auto max-w-7xl px-5">
+    <div class="flex flex-row gap-10 justify-between">
+      <!-- Content -->
+      <div>
+        <!-- Title -->
+        <div class="flex flex-col gap-8 mb-8">
+          <SubHeading text={subHeading} class="fade-in" />
+          <h1 class="font-h1 fade-in delay-200">{title}</h1>
+        </div>
+
+        <!-- Description -->
+        <div class="max-w-2xl fade-in delay-400 flex flex-col gap-8">
+          <p class="text-xl">
+            {description}
+          </p>
+
+          <ul class="flex flex-row flex-wrap fade-in delay-400 gap-8 mb-12">
+            <ListItem>UX/UI Designer</ListItem>
+            <ListItem>Product Designer</ListItem>
+            <ListItem>Web Developer</ListItem>
+          </ul>
+        </div>
+
+        <!-- Buttons -->
+        {
+          buttons && (
+            <div class="flex flex-row flex-wrap gap-2 fade-in delay-200">
+              {buttons.map(
+                (button: { text: string; href: string; variant: string }) => (
+                  <Button
+                    text={button.text}
+                    href={button.href}
+                    variant={button.variant}
+                    as="a"
+                    iconEnd="lucide:arrow-right"
+                  />
+                )
+              )}
+            </div>
+          )
+        }
+      </div>
+
+      <!-- Image -->
+    </div>
+  </div>
+</section>
