@@ -33,6 +33,14 @@ const defaultDescription =
       content={description ? description : defaultDescription}
     />
     {description && <meta name="description" content={description} />}
+
+    <link
+      rel="preload"
+      href="/fonts/Anton-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <ClientRouter />
   </head>
   <body>
@@ -43,7 +51,7 @@ const defaultDescription =
     {!blank && <Footer />}
     <script>
       import "@scripts/alpine";
-      import "@scripts/fade"
+      import "@scripts/fade";
       import "@scripts/menu";
     </script>
   </body>
