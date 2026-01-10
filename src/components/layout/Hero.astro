@@ -1,4 +1,5 @@
 ---
+import ListItem from "@components/ui/ListItem.astro";
 import SubHeading from "../typography/SubHeading.astro";
 import Button from "../ui/Button.astro";
 
@@ -12,30 +13,30 @@ const { title, subHeading, description, buttons } = Astro.props;
       <div>
         <!-- Title -->
         <div class="flex flex-col gap-8 mb-8">
-          <SubHeading text={subHeading} />
-          <h1 class="font-h1">{title}</h1>
+          <SubHeading text={subHeading} class="fade-in" />
+          <h1 class="font-h1 fade-in delay-200">{title}</h1>
         </div>
 
         <!-- Description -->
-        <div class="max-w-2xl">
+        <div class="max-w-2xl fade-in delay-400 flex flex-col gap-8">
           <p class="text-xl">
             {description}
           </p>
 
-          <ul class="flex flex-row flex-wrap">
-            <li><span></span><span>UX/UI Designer</span></li>
-            <li><span></span><span>Product Designer</span></li>
-            <li><span></span><span>Web Developer</span></li>
+          <ul class="flex flex-row flex-wrap fade-in delay-400 gap-8 mb-12">
+            <ListItem>UX/UI Designer</ListItem>
+            <ListItem>Product Designer</ListItem>
+            <ListItem>Web Developer</ListItem>
           </ul>
         </div>
 
         <!-- Buttons -->
         {
           buttons && (
-            <div class="flex flex-row flex-wrap gap-2 mt-8">
+            <div class="flex flex-row flex-wrap gap-2 fade-in delay-200">
               {buttons.map(
                 (button: { text: string; href: string; variant: string }) => (
-                  <Button 
+                  <Button
                     text={button.text}
                     href={button.href}
                     variant={button.variant}
