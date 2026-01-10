@@ -33,7 +33,7 @@ const defaultDescription =
       content={description ? description : defaultDescription}
     />
     {description && <meta name="description" content={description} />}
-    <ClientRouter />
+    <!-- <ClientRouter /> -->
   </head>
   <body>
     {!blank && <Header />}
@@ -43,6 +43,8 @@ const defaultDescription =
     {!blank && <Footer />}
     <script>
       import "@scripts/alpine";
+
+      import "@scripts/fade"
     </script>
   </body>
 </html>
