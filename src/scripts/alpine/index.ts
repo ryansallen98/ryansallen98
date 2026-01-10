@@ -1,5 +1,6 @@
+import type { Alpine } from "alpinejs";
 import { buttonHover } from "./button";
 
-document.addEventListener("alpine:init", () => {
-  window.Alpine.data("buttonHover", buttonHover);
-});
+export default (Alpine: Alpine) => {
+  Alpine.data("buttonHover", buttonHover);
+};
