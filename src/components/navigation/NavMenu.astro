@@ -2,8 +2,11 @@
 import NavLink from "./NavLink.astro";
 ---
 
-<nav class="flex flex-row items-start justify-center">
-  <ul class="flex flex-row items-center justify-center gap-2 pr-4">
+<nav
+  class="flex flex-row items-start justify-center"
+  aria-label="Main navigation"
+>
+  <ul class="flex flex-row items-center justify-center gap-2 pr-4" data-menu>
     <NavLink text="Home" href="/" />
     <NavLink text="Services" href="/services" />
     <NavLink text="About Me" href="/about" />
