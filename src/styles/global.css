@@ -1,7 +1,6 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @import "./fonts.css";
 @import "./theme.css";
 @import "./typography.css";
-/* @import "./transitions/index.css"; */
+@import "./animations/index.css";
