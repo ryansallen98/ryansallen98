@@ -1,8 +1,9 @@
 .resume-background {
   background-color: var(--color-background-dark);
   padding-top: calc(35 * var(--spacing));
-  padding-bottom: calc(20 * var(--spacing));
+  /* padding-bottom: calc(20 * var(--spacing)); */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -57,7 +58,8 @@
     box-shadow: none;
   }
 
-  .resume-toolbar {
+  .resume-toolbar,
+  .resume-footer {
     display: none;
   }
 
