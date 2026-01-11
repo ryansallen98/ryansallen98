@@ -41,6 +41,8 @@ const defaultDescription =
       type="font/woff2"
       crossorigin
     />
+
+    <style></style>
     <ClientRouter />
   </head>
   <body>
@@ -49,10 +51,6 @@ const defaultDescription =
       <slot />
     </main>
     {!blank && <Footer />}
-    <script>
-      import "@scripts/alpine";
-      import "@scripts/fade";
-      import "@scripts/menu";
-    </script>
+    <script src="@scripts/global"></script>
   </body>
 </html>
