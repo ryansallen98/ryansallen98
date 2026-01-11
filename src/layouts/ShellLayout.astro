@@ -50,7 +50,7 @@ const pageImage = image ? image : seo.image;
       name="robots"
       content={noIndex ? "noindex, nofollow" : "index, follow"}
     />
-
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <slot name="head" />
   </head>
   <body>

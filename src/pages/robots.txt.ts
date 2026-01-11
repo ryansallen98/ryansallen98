@@ -21,7 +21,7 @@ export const GET: APIRoute = () => {
 
     if (SITE_URL) {
       lines.push("");
-      lines.push(`Sitemap: ${SITE_URL}/sitemap.xml`);
+      lines.push(`Sitemap: ${SITE_URL}/sitemap-index.xml`);
     }
   }
 
