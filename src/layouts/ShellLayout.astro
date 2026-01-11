@@ -1,0 +1,34 @@
+---
+const { title, description, noBrand = false } = Astro.props;
+
+const siteName = "Ryan Allen";
+const brand = "rallen.dev";
+
+const fullTitle = noBrand
+  ? title
+  : title
+    ? `${title} | ${siteName} (${brand})`
+    : `${siteName} (${brand}) | Freelance Web Developer & Consultant`;
+
+const defaultDescription =
+  "Ryan Allen's personal website showcasing his portfolio, blog, and services as a freelance web developer and consultant.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta
+      name="description"
+      content={description ? description : defaultDescription}
+    />
+    <slot name="head" />
+  </head>
+  <body>
+      <slot />
+  </body>
+</html>

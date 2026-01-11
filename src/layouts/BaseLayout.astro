@@ -1,39 +1,16 @@
 ---
 import "@styles/global.css";
 
+import ShellLayout from "@layouts/ShellLayout.astro";
 import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
 import { ClientRouter } from "astro:transitions";
 
-const { title, description, noBrand = false, blank = false } = Astro.props;
-
-const siteName = "Ryan Allen";
-const brand = "rallen.dev";
-
-const fullTitle = noBrand
-  ? title
-  : title
-    ? `${title} | ${siteName} (${brand})`
-    : `${siteName} (${brand}) | Freelance Web Developer & Consultant`;
-
-const defaultDescription =
-  "Ryan Allen's personal website showcasing his portfolio, blog, and services as a freelance web developer and consultant.";
+const { chrome = true } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{fullTitle}</title>
-    <meta
-      name="description"
-      content={description ? description : defaultDescription}
-    />
-    {description && <meta name="description" content={description} />}
-
+<ShellLayout {...Astro.props}>
+  <Fragment slot="head">
     <link
       rel="preload"
       href="/fonts/Anton-Regular.woff2"
@@ -41,16 +18,13 @@ const defaultDescription =
       type="font/woff2"
       crossorigin
     />
-
-    <style></style>
     <ClientRouter />
-  </head>
-  <body>
-    {!blank && <Header />}
-    <main>
-      <slot />
-    </main>
-    {!blank && <Footer />}
-    <script src="@scripts/global"></script>
-  </body>
-</html>
+  </Fragment>
+
+  {chrome && <Header />}
+  <main>
+    <slot />
+  </main>
+  {chrome && <Footer />}
+  <script src="@scripts/global"></script>
+</ShellLayout>
