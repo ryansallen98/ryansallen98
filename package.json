@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.9",
     "@astrojs/check": "^0.9.6",
+    "@astrojs/sitemap": "^3.6.1",
     "@iconify-json/lucide": "^1.2.83",
     "@sveltia/cms": "^0.127.0",
     "@tailwindcss/vite": "^4.1.18",
