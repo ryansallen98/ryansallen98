@@ -17,12 +17,12 @@ Website: https://rallen.dev
 ## 🛠️ Tech Stack  
 **Preferred:** Next.js, TypeScript, TailwindCSS  
 
-**Frontend:** Next.js, React, JavaScript (ES6+), HTML, CSS, SCSS  
+**Frontend:** Next.js, React, Astro, JavaScript (ES6+), HTML, CSS, SCSS  
 **Styling:** TailwindCSS, Styled Components, SCSS, CSS  
 **UI Frameworks:** ShadCN, MUI  
-**Backend:** Node.js, Express.js, PHP, Laravel
-**Auth & ORM:** NextAuth, Prisma  
-**CMS:** WordPress (custom themes & plugins, preferring Sage with Blade templates & components)
+**Backend:** Node.js, PHP, Laravel
+**Auth & ORM:** Auth.js, Prisma  
+**CMS:** Decap CMS/Sveltia CMS, WordPress (custom themes & plugins, preferring Sage with Blade templates & components)
 **Cloud & Databases:** AWS, Firebase, Supabase, MySQL, MongoDB  
 **Deployment:** Vercel, Netlify  
 **Design:** Figma, Adobe Creative Suite  
