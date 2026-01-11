@@ -1,17 +1,19 @@
 ---
+import seo from "@content/general/seo.yml";
+
 const { title, description, noBrand = false } = Astro.props;
 
-const siteName = "Ryan Allen";
-const brand = "rallen.dev";
+const siteName = seo.siteName;
+const brand = seo.brand;
+const tagline = seo.tagline;
 
 const fullTitle = noBrand
   ? title
   : title
     ? `${title} | ${siteName} (${brand})`
-    : `${siteName} (${brand}) | Freelance Web Developer & Consultant`;
+    : `${siteName} (${brand}) | ${tagline}`;
 
-const defaultDescription =
-  "Ryan Allen's personal website showcasing his portfolio, blog, and services as a freelance web developer and consultant.";
+const siteDescription = description ? description : seo.defaultDescription;
 ---
 
 <!doctype html>
@@ -24,7 +26,7 @@ const defaultDescription =
     <title>{fullTitle}</title>
     <meta
       name="description"
-      content={description ? description : defaultDescription}
+      content={siteDescription}
     />
     <slot name="head" />
   </head>
