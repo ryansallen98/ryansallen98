@@ -1,36 +1,59 @@
 ---
 import seo from "@data/general/seo.yml";
 
-const { title, description, noBrand = false } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  noIndex = false,
+  noBrand = false,
+} = Astro.props;
+
+const locale = "en-GB";
+const ogLocale = locale.replace("-", "_");
 
 const siteName = seo.siteName;
 const brand = seo.brand;
 const tagline = seo.tagline;
 
-const fullTitle = noBrand
+const pageTitle = noBrand
   ? title
   : title
     ? `${title} | ${siteName} (${brand})`
     : `${siteName} (${brand}) | ${tagline}`;
-
-const siteDescription = description ? description : seo.description;
+const pageDescription = description ? description : seo.description;
+const pageImage = image ? image : seo.image;
 ---
 
 <!doctype html>
-<html lang="en-GB">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>{fullTitle}</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={Astro.url.href} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:locale" content={ogLocale} />
+    {pageImage && <meta property="og:image" content={pageImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    {pageImage && <meta name="twitter:image" content={pageImage} />}
     <meta
-      name="description"
-      content={siteDescription}
+      name="robots"
+      content={noIndex ? "noindex, nofollow" : "index, follow"}
     />
+
     <slot name="head" />
   </head>
   <body>
-      <slot />
+    <slot />
   </body>
 </html>
