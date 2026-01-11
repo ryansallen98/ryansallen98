@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Admin</title>
+  </head>
+  <body>
+    <script>
+      import CMS from "@sveltia/cms";
+      import config from "@cms/config";
+      CMS.init({
+        config,
+      });
+    </script>
+  </body>
+</html>
