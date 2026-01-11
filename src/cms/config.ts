@@ -2,7 +2,6 @@ import type { CmsConfig } from "@sveltia/cms";
 import general from "./collections/general";
 
 const config: CmsConfig = {
-  //   local_backend: true,
   load_config_file: false,
   publish_mode: "editorial_workflow",
 
