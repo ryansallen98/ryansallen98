@@ -1,7 +1,7 @@
 const seo: CmsFile = {
   name: "seo",
   label: "SEO",
-  file: "src/content/general/seo.yml",
+  file: "src/content/data/seo.yml",
   fields: [
     { name: "siteName", label: "Site Name" },
     { name: "brand", label: "Brand" },
