@@ -1,5 +1,6 @@
 ---
-import seo from "@data/general/seo.yml";
+import meta from "@data/general/meta.yml";
+import socials from "@data/general/socials.yml";
 
 const {
   title,
@@ -8,21 +9,113 @@ const {
   noIndex = false,
   noBrand = false,
   locale = "en-GB",
+
+  isArticle = false,
+  datePublished, // for articles
+  dateModified, // for articles
 } = Astro.props;
 
 const ogLocale = locale.replace("-", "_");
 
-const siteName = seo.siteName;
-const brand = seo.brand;
-const tagline = seo.tagline;
+const siteName = meta.siteName;
+const brand = meta.brand;
+const tagline = meta.tagline;
 
 const pageTitle = noBrand
   ? title
   : title
     ? `${title} | ${siteName} (${brand})`
     : `${siteName} (${brand}) | ${tagline}`;
-const pageDescription = description ? description : seo.description;
-const pageImage = image ? image : seo.image;
+const pageDescription = description ? description : meta.description;
+const pageImage = image ? image : meta.image;
+
+const sameAs =
+  socials?.profiles?.map((profile: { url: string }) => profile.url) ?? [];
+
+const entitySchema = {
+  "@context": "https://schema.org",
+  "@type": meta.entityType, // Organization, Person etc.
+  "@id": `${Astro.url.origin}#identity`,
+
+  name: siteName,
+  legalName: meta.legalName ?? siteName,
+  description: meta.description,
+  url: Astro.url.origin,
+  ...(meta.logo && {
+    logo: {
+      "@type": "ImageObject",
+      url: meta.logo,
+    },
+  }),
+  sameAs,
+  ...(meta.entityType === "Person" &&
+    meta.jobTitle && {
+      jobTitle: meta.jobTitle,
+    }),
+};
+
+const websiteSchema: WebsiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteName,
+  url: Astro.url.origin,
+  description: meta.description,
+  inLanguage: locale,
+  publisher: {
+    "@id": `${Astro.url.origin}#identity`,
+  },
+};
+
+if (meta.hasSearch) {
+  websiteSchema.potentialAction = {
+    "@type": "SearchAction",
+    target: `${Astro.url.origin}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  };
+}
+
+const schemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [entitySchema, websiteSchema],
+};
+
+const articleSchema = {
+  "@type": "BlogPosting",
+  "@id": `${Astro.url.href}#article`,
+  headline: pageTitle,
+  description: pageDescription,
+  url: Astro.url.href,
+  inLanguage: locale,
+
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": Astro.url.href,
+  },
+
+  author: {
+    "@id": `${Astro.url.origin}#identity`,
+  },
+
+  publisher: {
+    "@id": `${Astro.url.origin}#identity`,
+  },
+
+  ...(pageImage && {
+    image: [
+      {
+        "@type": "ImageObject",
+        url: pageImage,
+      },
+    ],
+  }),
+
+  ...(datePublished && { datePublished }),
+  ...(dateModified && { dateModified }),
+};
+
+if (isArticle) {
+  schemaGraph["@graph"].push(articleSchema);
+}
 ---
 
 <meta charset="UTF-8" />
@@ -32,7 +125,7 @@ const pageImage = image ? image : seo.image;
 <title>{pageTitle}</title>
 <meta name="description" content={pageDescription} />
 <link rel="canonical" href={Astro.url.href} />
-<meta property="og:type" content="website" />
+<meta property="og:type" content={isArticle ? "article" : "website"} />
 <meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={pageDescription} />
 <meta property="og:site_name" content={siteName} />
@@ -66,5 +159,5 @@ const pageImage = image ? image : seo.image;
     : "index, follow, max-image-preview:large"}
 />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
-{seo.themeColor && <meta name="theme-color" content={seo.themeColor} />}
-<meta name="author" content={seo.author} />
+{meta.themeColor && <meta name="theme-color" content={meta.themeColor} />}
+<script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />
