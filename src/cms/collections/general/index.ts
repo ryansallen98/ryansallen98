@@ -1,9 +1,10 @@
-import seo from "./seo";
+import meta from "./meta";
+import socials from "./socials";
 
 const general: CmsCollection = {
   name: "general",
   label: "General",
-  files: [seo],
+  files: [meta, socials],
 };
 
 export default general;
