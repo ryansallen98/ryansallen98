@@ -55,7 +55,7 @@
     @apply outline-ring/50 focus-visible:outline-3 font-base -tracking-[0.03em];
   }
   body {
-    @apply bg-background-light text-foreground-light;
+    @apply bg-background-dark text-foreground-dark;
   }
 }
 
