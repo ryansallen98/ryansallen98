@@ -7,8 +7,11 @@ const { href, text } = Astro.props;
     href={href}
     data-nav-link
     data-href={href}
-    class="px-4 py-2 font-medium text-muted hover:text-foreground-dark hover:bg-secondary-dark transition-all duration-300 uppercase data-[active=true]:bg-secondary-dark data-[active=true]:text-foreground-dark"
+    class="group flex flex-col px-4 py-2 font-medium text-muted hover:text-foreground-dark transition-all duration-300 uppercase"
   >
     {text}
+    <span
+      class="bg-primary w-0 h-0.5 inline-block group-hover:w-full transition-all duration-300 group-data-[active=true]:w-4 group-data-[active=true]:group-hover:w-full"
+    ></span>
   </a>
 </li>
