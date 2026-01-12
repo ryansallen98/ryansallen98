@@ -1,5 +1,20 @@
 ---
+const { as = "li", size = "2" } = Astro.props;
+const Tag = as;
 
+const sizeClasses = {
+  "1": "size-1",
+  "2": "size-2",
+  "3": "size-3",
+  "4": "size-4",
+};
+
+const sizeClass =
+  sizeClasses[size as keyof typeof sizeClasses] || sizeClasses["2"];
 ---
 
-<li class="flex flex-row gap-2 items-center"><span class="size-2 inline-block bg-primary"></span><span><slot /></span></li>
+<Tag class="flex flex-row gap-2 items-center">
+  <span class={`${sizeClass} inline-block bg-primary`}></span><span
+    ><slot /></span
+  >
+</Tag>
