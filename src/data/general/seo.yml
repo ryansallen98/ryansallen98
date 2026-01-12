@@ -1,5 +1,7 @@
 siteName: Ryan Allen
 brand: rallen.dev
-tagline: Freelance Web Developer & Consultant
+tagline: Web Developer & Designer
 description: UX/UI design, web development, and consultancy for fast, accessible, SEO-friendly websites. Helping businesses design, build, and scale digital products.
 image: /images/og-image.webp
+themeColor: '#0a0a0a'
+author: Ryan Allen

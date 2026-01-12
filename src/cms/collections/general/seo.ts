@@ -7,7 +7,9 @@ const seo: CmsFile = {
     { name: "brand", label: "Brand" },
     { name: "tagline", label: "Tagline" },
     { name: "description", label: "Description", widget: "text" },
-    { name: "image", label: "Image", widget: "image" },
+    { name: "image", label: "Image", widget: "image", required: false },
+    { name: "themeColor", label: "Theme Color", widget: "color", required: false },
+    { name: "author", label: "Author" },
   ],
 };
 
