@@ -17,7 +17,7 @@ const isButton = Tag === "button";
 const isLink = Tag === "a";
 
 const buttonVariants = cva(
-  "w-11 h-11 transition-all duration-300 font-base uppercase relative inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-6 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] cursor-pointer",
+  "w-11 h-11 duration-300 font-base uppercase relative inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-6 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] cursor-pointer",
   {
     variants: {
       variant: {
@@ -47,12 +47,9 @@ const hoverIconClasses =
 ---
 
 <Tag
-  role={!isButton && !isLink ? "button" : undefined}
-  tabindex={!isButton && !isLink ? "0" : undefined}
   aria-disabled={rest.disabled ? "true" : undefined}
   class={buttonClasses}
   data-variant={variant}
-  aria-label={label}
   x-data="buttonHover()"
   @mouseenter="onMouseEnter"
   @mouseleave="onMouseLeave()"
@@ -65,7 +62,7 @@ const hoverIconClasses =
   <span class={animationWrapperClasses}>
     <Icon
       name={icon}
-      aria-label={label}
+      aria-hidden="true"
       class={initialIconClasses}
       x-ref="initialIcon"
     />
