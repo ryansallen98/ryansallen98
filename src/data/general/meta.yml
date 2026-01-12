@@ -1,7 +1,11 @@
 siteName: Ryan Allen
+legalName: Ryan Allen
 brand: rallen.dev
 tagline: Web Developer & Designer
 description: UX/UI design, web development, and consultancy for fast, accessible, SEO-friendly websites. Helping businesses design, build, and scale digital products.
+logo: /images/logo-block-light.webp
 image: /images/og-image.webp
 themeColor: '#0a0a0a'
+entityType: Person
+jobTitle: Web Developer
 author: Ryan Allen
