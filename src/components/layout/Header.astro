@@ -1,9 +1,7 @@
 ---
 import LogoIcon from "@components/branding/LogoIcon.astro";
 import NavMenu from "@components/navigation/NavMenu.astro";
-import IconButton from "@components/ui/IconButton.astro";
-
-import socials from "@data/general/socials.yml";
+import Socials from "@components/content/Socials.astro";
 ---
 
 <header
@@ -30,22 +28,8 @@ import socials from "@data/general/socials.yml";
         <div class="flex flex-row items-center justify-start gap-15 pr-10">
           <NavMenu />
 
-          <div class="flex flex-row gap-2">
-            {
-              socials.profiles.map((profile: { name: string; url: string }) => {
-                return (
-                  <IconButton
-                    as="a"
-                    href={profile.url}
-                    target="_blank"
-                    icon={`mdi:${profile.name.toLowerCase()}`}
-                    label={profile.name}
-                    variant="ghostDarkPrimary"
-                  />
-                );
-              })
-            }
-          </div>
+          <!-- Socials -->
+         <Socials />
         </div>
       </div>
     </div>

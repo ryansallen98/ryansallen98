@@ -1,0 +1,21 @@
+---
+import IconButton from "../ui/IconButton.astro";
+import socials from "@data/general/socials.yml";
+---
+
+<div class="flex flex-row gap-2">
+  {
+    socials.profiles.map((profile: { name: string; url: string }) => {
+      return (
+        <IconButton
+          as="a"
+          href={profile.url}
+          target="_blank"
+          icon={`mdi:${profile.name.toLowerCase()}`}
+          label={profile.name}
+          variant="ghostDarkPrimary"
+        />
+      );
+    })
+  }
+</div>
