@@ -24,8 +24,8 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter_24pt-Bold.woff2") format("woff2");
-  font-weight: 700;
+  src: url("/fonts/Inter_24pt-SemiBold.woff2") format("woff2");
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
