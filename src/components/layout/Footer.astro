@@ -1,7 +1,35 @@
 ---
+import meta from "@data/general/meta.yml";
+
+const legalMatch = meta.legalName === meta.siteName;
+const copyrightCompany = legalMatch
+  ? meta.legalName
+  : `${meta.legalName} trading as ${meta.siteName}`;
 ---
 
-<footer class="bg-neutral-900 text-white" transition:persist>
-  <div class="container mx-auto px-4 py-6">
+<footer class="bg-background-dark text-foreground-dark" transition:persist>
+  <div class="container mx-auto max-w-7xl px-5 py-6">
+    <div class="flex flex-row justify-between items-stretch gap-8">
+      <!-- Footer Left -->
+      <div class="flex flex-col gap-15 justify-between items-stretch w-[55%]">
+        <!-- Footer Menu -->
+        <div class="grid grid-cols-3 gap-4">
+          <div></div>
+        </div>
+
+        <!-- Footer Copyright & Disclaimer -->
+        <div
+          class="py-6 border-t border-b border-divider-dark uppercase text-muted"
+        >
+          <p>
+            &copy; {new Date().getFullYear()}
+            {copyrightCompany}. All rights reserved.
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer Right -->
+      <div></div>
+    </div>
   </div>
 </footer>
