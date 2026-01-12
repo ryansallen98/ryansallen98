@@ -1,72 +1,13 @@
 ---
-import seo from "@data/general/seo.yml";
-
-const {
-  title,
-  description,
-  image,
-  noIndex = false,
-  noBrand = false,
-} = Astro.props;
+import Meta from "@components/layout/Meta.astro"
 
 const locale = "en-GB";
-const ogLocale = locale.replace("-", "_");
-
-const siteName = seo.siteName;
-const brand = seo.brand;
-const tagline = seo.tagline;
-
-const pageTitle = noBrand
-  ? title
-  : title
-    ? `${title} | ${siteName} (${brand})`
-    : `${siteName} (${brand}) | ${tagline}`;
-const pageDescription = description ? description : seo.description;
-const pageImage = image ? image : seo.image;
 ---
 
 <!doctype html>
 <html lang={locale}>
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <meta name="description" content={pageDescription} />
-    <link rel="canonical" href={Astro.url.href} />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={pageDescription} />
-    <meta property="og:site_name" content={siteName} />
-    <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:locale" content={ogLocale} />
-    {
-      pageImage && (
-        <>
-          <meta property="og:image" content={pageImage} />
-          <meta property="og:image:alt" content={pageTitle} />
-        </>
-      )
-    }
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={pageDescription} />
-    {
-      pageImage && (
-        <>
-          <meta name="twitter:image" content={pageImage} />
-          <meta name="twitter:image:alt" content={pageTitle} />
-        </>
-      )
-    }
-    <meta
-      name="robots"
-      content={noIndex
-        ? "noindex, nofollow"
-        : "index, follow, max-image-preview:large"}
-    />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <Meta locale={locale} {...Astro.props} />
     <slot name="head" />
   </head>
   <body>
