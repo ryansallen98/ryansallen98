@@ -9,7 +9,7 @@ const config: CmsConfig = {
     repo: "ryansallen98/ryansallen98",
   },
   media_folder: "/public/images",
-  public_folder: "/public",
+  public_folder: "/images",
   collections: [general],
 };
 
