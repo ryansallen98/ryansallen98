@@ -19,6 +19,11 @@ export default defineConfig({
   integrations: [
     alpinejs({ entrypoint: "/src/scripts/alpine/index.ts" }),
     icon(),
-    sitemap(),
+    sitemap({
+      filter: (page) => {
+        const pathname = new URL(page).pathname; // Exclude admin pages from sitemap
+        return !pathname.startsWith("/admin");
+      },
+    }),
   ],
 });
