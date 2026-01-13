@@ -11,6 +11,18 @@
   force = true
 
 [[redirects]]
+  from = "https://rallen.uk/*"
+  to = "https://rallendev.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.rallen.uk/*"
+  to = "https://rallendev.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://www.rallendev.com/*"
   to = "https://rallendev.com/:splat"
   status = 301
