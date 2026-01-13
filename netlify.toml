@@ -1,0 +1,23 @@
+[[redirects]]
+  from = "https://rallen.dev/*"
+  to = "https://rallendev.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.rallen.dev/*"
+  to = "https://rallendev.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.rallendev.com/*"
+  to = "https://rallendev.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://portfolio-ryansallen53.netlify.app/*"
+  to = "https://rallendev.com/:splat"
+  status = 301
+  force = true
