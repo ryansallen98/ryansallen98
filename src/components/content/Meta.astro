@@ -32,15 +32,17 @@ const pageImage = image ? image : meta.image;
 const sameAs =
   socials?.profiles?.map((profile: { url: string }) => profile.url) ?? [];
 
+const baseUrl = import.meta.env.SITE_URL ?? "http://localhost:3000";
+
 const entitySchema = {
   "@context": "https://schema.org",
   "@type": meta.entityType, // Organization, Person etc.
-  "@id": `${Astro.url.origin}#identity`,
+  "@id": `${baseUrl}#identity`,
 
   name: siteName,
   legalName: meta.legalName ?? siteName,
   description: meta.description,
-  url: Astro.url.origin,
+  url: baseUrl,
   ...(meta.logo && {
     logo: {
       "@type": "ImageObject",
@@ -58,18 +60,18 @@ const websiteSchema: WebsiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: siteName,
-  url: Astro.url.origin,
+  url: baseUrl,
   description: meta.description,
   inLanguage: locale,
   publisher: {
-    "@id": `${Astro.url.origin}#identity`,
+    "@id": `${baseUrl}#identity`,
   },
 };
 
 if (meta.hasSearch) {
   websiteSchema.potentialAction = {
     "@type": "SearchAction",
-    target: `${Astro.url.origin}/search?q={search_term_string}`,
+    target: `${baseUrl}/search?q={search_term_string}`,
     "query-input": "required name=search_term_string",
   };
 }
@@ -93,11 +95,11 @@ const articleSchema = {
   },
 
   author: {
-    "@id": `${Astro.url.origin}#identity`,
+    "@id": `${baseUrl}#identity`,
   },
 
   publisher: {
-    "@id": `${Astro.url.origin}#identity`,
+    "@id": `${baseUrl}#identity`,
   },
 
   ...(pageImage && {
