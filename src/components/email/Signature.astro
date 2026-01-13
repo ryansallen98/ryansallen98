@@ -1,162 +1,169 @@
 ---
 const name = "Ryan Allen";
 const jobTitle = "Software Developer";
+const image = "https://rallendev.com/images/emails/email-ryan.jpg";
 
-const email = "ryan@rallendev.com";
-const phone = "+15551234567";
-const website = "https://rallendev.com";
-const meetingLink = "https://calendly.com/rallendev/meeting";
-
-const avatar = "https://rallendev.com/images/emails/email-ryan.jpg";
 const logo = "https://rallendev.com/images/emails/email-logo.png";
+const websiteUrl = "https://rallendev.com";
 
-const icons = {
-  github: "https://rallendev.com/images/emails/github.png",
-  linkedin: "https://rallendev.com/images/emails/linkedin.png",
-  whatsapp: "https://rallendev.com/images/emails/whatsapp.png",
-  telegram: "https://rallendev.com/images/emails/telegram.png",
-  email: "https://rallendev.com/images/emails/mail.png",
-  phone: "https://rallendev.com/images/emails/phone.png",
-  globe: "https://rallendev.com/images/emails/web.png",
-};
+const contactDetails = [
+  {
+    type: "Email",
+    value: "mailto:ryan@rallendev.com",
+    text: "ryan@rallendev.com",
+    icon: "https://rallendev.com/images/emails/mail.png",
+  },
+  {
+    type: "Website",
+    value: websiteUrl,
+    text: "rallendev.com",
+    icon: "https://rallendev.com/images/emails/web.png",
+  },
+  {
+    type: "Phone",
+    value: "tel:+44746464178",
+    text: "+44 74 646 4178",
+    icon: "https://rallendev.com/images/emails/phone.png",
+  },
+];
 
-const black = "#0a0a0a";
-const muted = "#6b7280";
-const accent = "#2563eb";
+const socialLinks = [
+  {
+    platform: "GitHub",
+    url: "https://github.com/ryansallen98",
+    icon: "https://rallendev.com/images/emails/github.png",
+  },
+  {
+    platform: "LinkedIn",
+    url: "https://www.linkedin.com/in/ryanallen98/",
+    icon: "https://rallendev.com/images/emails/linkedin.png",
+  },
+  {
+    platform: "WhatsApp",
+    url: "https://wa.me/447464664178",
+    icon: "https://rallendev.com/images/emails/whatsapp.png",
+  },
+  {
+    platform: "Telegram",
+    url: "https://t.me/rallendev",
+    icon: "https://rallendev.com/images/emails/telegram.png",
+  },
+];
+
+const primaryColorText = "#664b19";
+const textColor = "#0a0a0a";
+const mutedTextColor = "#555555";
+
+const dividerColor = "#e0e0e0";
 ---
 
 <table
-  cellpadding="0"
   cellspacing="0"
-  style={`font-family: Arial, sans-serif; font-size: 14px; color: ${black}; max-width: 380px;`}
+  cellpadding="0"
+  border="0"
+  style=`font-family: Arial, sans-serif; color: ${textColor}; max-width:360px; background: transparent !important;`
 >
-  <!-- Top section -->
-  <tr>
-    <td style="padding-right: 16px; vertical-align: top;">
-      <img
-        src={avatar}
-        width="72"
-        height="72"
-        alt={name}
-        style="border-radius: 50%; display: block;"
-      />
-    </td>
-
-    <td style="vertical-align: top;">
-      <strong style="font-size: 18px; line-height: 1.2;">
-        {name}
-      </strong>
-
-      <div style={`color: ${muted}; margin-top: 2px;`}>
-        {jobTitle}
-      </div>
-
-      <div style="margin-top: 10px;">
-        <img
-          src={logo}
-          width="140"
-          height="32"
-          alt="RallenDev"
-          style="display: block;"
-        />
-      </div>
-    </td>
-  </tr>
-
-  <!-- Divider -->
-  <tr>
-    <td colspan="2" style="padding: 12px 0;">
-      <div style="height:1px; background:#e5e7eb;"></div>
-    </td>
-  </tr>
-
-  <!-- Contact info -->
-  <tr>
-    <td colspan="2">
-      <table cellpadding="0" cellspacing="0">
-        <tr>
-          <td style="padding-right: 8px;">
-            <img src={icons.email} width="16" height="16" alt="" />
-          </td>
-          <td>
-            <a href={`mailto:${email}`} style={`color:${black}; text-decoration:none;`}>
-              {email}
-            </a>
-          </td>
-        </tr>
-
-        <tr>
-          <td style="padding: 6px 8px 0 0;">
-            <img src={icons.phone} width="16" height="16" alt="" />
-          </td>
-          <td style="padding-top: 6px;">
-            <a href={`tel:${phone}`} style={`color:${black}; text-decoration:none;`}>
-              {phone}
-            </a>
-          </td>
-        </tr>
-
-        <tr>
-          <td style="padding: 6px 8px 0 0;">
-            <img src={icons.globe} width="16" height="16" alt="" />
-          </td>
-          <td style="padding-top: 6px;">
-            <a href={website} style={`color:${black}; text-decoration:none;`}>
-              rallendev.com
-            </a>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-
-  <!-- Social links -->
-  <tr>
-    <td colspan="2" style="padding-top: 12px;">
-      <table cellpadding="0" cellspacing="0">
-        <tr>
-          <td style="padding-right: 10px;">
-            <a href="https://github.com/rallendev">
-              <img src={icons.github} width="18" height="18" alt="GitHub" />
-            </a>
-          </td>
-          <td style="padding-right: 10px;">
-            <a href="https://linkedin.com/in/rallendev">
-              <img src={icons.linkedin} width="18" height="18" alt="LinkedIn" />
-            </a>
-          </td>
-          <td style="padding-right: 10px;">
-            <a href={`https://wa.me/${phone.replace("+","")}`}>
-              <img src={icons.whatsapp} width="18" height="18" alt="WhatsApp" />
-            </a>
-          </td>
-          <td>
-            <a href="https://t.me/rallendev">
-              <img src={icons.telegram} width="18" height="18" alt="Telegram" />
-            </a>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-
-  <!-- CTA -->
-  <tr>
-    <td colspan="2" style="padding-top: 14px;">
-      <a
-        href={meetingLink}
-        style={`
-          display:inline-block;
-          padding:10px 14px;
-          border:1px solid ${accent};
-          color:${accent};
-          font-weight:600;
-          text-decoration:none;
-          border-radius:6px;
-        `}
+  <tbody>
+    <tr>
+      <td
+        colspan="2"
+        style=`padding-bottom: 4px; padding-right: 16px; border-bottom: 1px solid ${dividerColor};`
       >
-        Book a meeting →
-      </a>
-    </td>
-  </tr>
+        <span
+          style=`font-size: 18px; line-height: 28px; color: ${primaryColorText};`
+          ><strong>{name}</strong><br /></span
+        >
+        <span style=`font-size: 14px; color: ${mutedTextColor};`>
+          {jobTitle} | <strong style={`color: ${primaryColorText};`}>R Allen Dev</strong>
+        </span>
+      </td>
+      <!-- <td
+        style=`padding-bottom: 4px; padding-top: 4px; border-bottom: 1px solid ${dividerColor};`
+        align="right"
+        valign="top"
+      >
+        <a href={websiteUrl} target="_blank" rel="noopener noreferrer">
+          <img
+            src={logo}
+            alt="R Allen Dev"
+            width="100"
+            height="23"
+            style="display: block; border: none;"
+          />
+        </a>
+      </td> -->
+    </tr>
+    <tr>
+      <td
+        style="padding-top: 16px; padding-right: 16px;"
+        valign="top"
+        align="left"
+      >
+        <img
+          src={image}
+          alt={name}
+          width="96"
+          height="96"
+          style="display: block; border: none; border-radius: 100%;"
+        />
+      </td>
+      <td style="padding-top: 25px; font-size: 14px; width: 100%;" align="left">
+        {
+          contactDetails.map((detail) => (
+            <a
+              href={detail.value}
+              style={`color: ${textColor}; text-decoration: none;`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span style="line-height: 20px;">
+                <img
+                  src={detail.icon}
+                  alt={detail.type}
+                  width="16"
+                  height="16"
+                  style="margin-right: 2px;"
+                />
+                <span>{detail.text}</span>
+                <br />
+              </span>
+            </a>
+          ))
+        }
+
+        <span>
+          {
+            socialLinks.map((social) => (
+              <a
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style="display: inline-block; margin-right: 6px; margin-top: 8px;"
+              >
+                <img
+                  src={social.icon}
+                  alt={social.platform}
+                  width="18"
+                  height="18"
+                  style="display: block; border: none;"
+                />
+              </a>
+            ))
+          }
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding-top: 16px; font-size: 10px; line-height: 14px;" align="left">
+        <span>
+          <em style=`color: ${mutedTextColor};`
+            >This email and any attachments are confidential. If you are not the
+            intended recipient, please notify the sender immediately and delete
+            this email from your system. Any unauthorized use, disclosure, or
+            distribution of this email is prohibited.</em
+          >
+        </span>
+      </td>
+    </tr>
+  </tbody>
 </table>
