@@ -1,4 +1,6 @@
 ---
+import SubHeading from "@components/ui/SubHeading.astro";
+import NavLink from "@components/navigation/NavLink.astro";
 import meta from "@data/general/meta.yml";
 
 const legalMatch = meta.legalName === meta.siteName;
@@ -14,7 +16,13 @@ const copyrightCompany = legalMatch
       <div class="flex flex-col gap-15 justify-between items-stretch w-[55%]">
         <!-- Footer Menu -->
         <div class="grid grid-cols-3 gap-4">
-          <div></div>
+          <div class="flex flex-col gap-8">
+            <SubHeading text="Company" />
+
+            <ul class="flex flex-col gap-2 w-fit">
+              <NavLink href="/about" text="About Us" />
+            </ul>
+          </div>
         </div>
 
         <!-- Footer Copyright & Disclaimer -->
