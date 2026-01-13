@@ -32,7 +32,7 @@ const pageImage = image ? image : meta.image;
 const sameAs =
   socials?.profiles?.map((profile: { url: string }) => profile.url) ?? [];
 
-const baseUrl = import.meta.env.SITE_URL ?? "http://localhost:3000";
+const baseUrl = Astro.site?.toString().replace(/\/$/, "")!;
 
 const entitySchema = {
   "@context": "https://schema.org",
