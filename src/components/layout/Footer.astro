@@ -2,6 +2,10 @@
 import SubHeading from "@components/ui/SubHeading.astro";
 import NavLink from "@components/navigation/NavLink.astro";
 import meta from "@data/general/meta.yml";
+import Socials from "@components/content/Socials.astro";
+import { Icon } from "astro-icon/components";
+import Button from "@components/ui/Button.astro";
+import Name from "@components/branding/Name.astro";
 
 const legalMatch = meta.legalName === meta.siteName;
 const copyrightCompany = legalMatch
@@ -12,22 +16,159 @@ const copyrightCompany = legalMatch
 <footer class="bg-background-dark text-foreground-dark" transition:persist>
   <div class="container mx-auto max-w-7xl px-5 py-6">
     <div class="flex flex-row justify-between items-stretch gap-8">
+      <!-- Footer Right -->
+      <div
+        class="w-[45%] flex-1 flex flex-col justify-between items-start gap-8 order-last"
+      >
+        <div class="flex flex-col gap-8">
+          <SubHeading text="What I Do" as="h3" />
+          <p class="text-xl text-muted">
+            Full-Stack Developer offering UX/UI design, web development, and
+            consultancy for fast, accessible, SEO-friendly websites.
+          </p>
+          <Button
+            href="/contact"
+            text="Let’s work together"
+            variant="primary"
+            iconEnd="lucide:arrow-right"
+          />
+        </div>
+        <Name class="w-full h-fit" />
+      </div>
+
       <!-- Footer Left -->
       <div class="flex flex-col gap-15 justify-between items-stretch w-[55%]">
         <!-- Footer Menu -->
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-3 gap-4 gap-y-16">
           <div class="flex flex-col gap-8">
-            <SubHeading text="Company" />
-
-            <ul class="flex flex-col gap-2 w-fit">
-              <NavLink href="/about" text="About Us" />
+            <SubHeading text="General" as="h3" />
+            <ul class="flex flex-col gap-2 w-fit items-start">
+              <NavLink href="/" text="Home" />
+              <NavLink href="/services" text="Services" />
+              <NavLink href="/projects" text="Projects" />
+              <NavLink href="/blog" text="Blog" />
+              <NavLink href="/contact" text="Contact" />
             </ul>
+          </div>
+
+          <div class="flex flex-col gap-8">
+            <SubHeading text="About" as="h3" />
+            <ul class="flex flex-col gap-2 w-fit items-start">
+              <NavLink href="/about" text="About Me" />
+              <NavLink href="/resume" text="Resume" />
+              <NavLink href="/availability" text="Availability" />
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-8">
+            <SubHeading text="Compliance" as="h3" />
+            <ul class="flex flex-col gap-2 w-fit items-start">
+              <NavLink href="/privacy-policy" text="Privacy Policy" />
+              <NavLink href="/cookie-policy" text="Cookie Policy" />
+              <NavLink href="/terms-and-conditions" text="Terms & Conditions" />
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-8">
+            <SubHeading text="Locations" as="h3" />
+            <ul class="flex flex-col gap-6">
+              <li class="flex flex-row gap-2">
+                <Icon
+                  name="mdi:map-marker"
+                  class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
+                  aria-hidden="true"
+                />
+                <div class="text-muted">
+                  <p>United Kingdom</p>
+                  <p>London, England</p>
+                </div>
+              </li>
+              <li class="flex flex-row gap-2">
+                <Icon
+                  name="mdi:map-marker"
+                  class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
+                  aria-hidden="true"
+                />
+                <div class="text-muted">
+                  <p>United States</p>
+                  <p>Saipan, Northern Mariana Islands</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-8">
+            <SubHeading text="Contact Me" as="h3" />
+            <ul class="flex flex-col gap-4">
+              <li>
+                <a
+                  href="mailto:hello@rallendev.com"
+                  class="flex flex-row gap-2 transition-all duration-300 text-muted hover:text-foreground-dark focus-visible:text-foreground-dark"
+                >
+                  <Icon
+                    name="mdi:email"
+                    class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
+                    aria-hidden="true"
+                  />
+                  <span class="inline-block">hello@rallendev.com</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://t.me/rallendev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex flex-row gap-2 transition-all duration-300 text-muted hover:text-foreground-dark focus-visible:text-foreground-dark"
+                >
+                  <Icon
+                    name="mdi:telegram"
+                    class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
+                    aria-hidden="true"
+                  />
+                  <span>@rallendev</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+447464664178"
+                  class="flex flex-row gap-2 transition-all duration-300 text-muted hover:text-foreground-dark focus-visible:text-foreground-dark"
+                >
+                  <Icon
+                    name="mdi:telephone"
+                    class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
+                    aria-hidden="true"
+                  />
+                  <span class="inline-block">+44 746 466 4178</span>
+                </a>
+              </li>
+              <li class="flex flex-row gap-2">
+                <a
+                  href="https://wa.me/447464664178"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex flex-row gap-2 transition-all duration-300 text-muted hover:text-foreground-dark focus-visible:text-foreground-dark"
+                >
+                  <Icon
+                    name="mdi:whatsapp"
+                    class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
+                    aria-hidden="true"
+                  />
+                  <div class="inline-block">+44 746 466 4178</div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-8">
+            <SubHeading text="Socials" as="h3" />
+
+            <Socials />
           </div>
         </div>
 
         <!-- Footer Copyright & Disclaimer -->
         <div
-          class="py-6 border-t border-b border-divider-dark uppercase text-muted"
+          class="py-6 border-t border-b border-divider-dark uppercase text-muted flex flex-row justify-between items-center"
         >
           <p>
             &copy; {new Date().getFullYear()}
@@ -35,9 +176,6 @@ const copyrightCompany = legalMatch
           </p>
         </div>
       </div>
-
-      <!-- Footer Right -->
-      <div></div>
     </div>
   </div>
 </footer>
