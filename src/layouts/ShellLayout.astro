@@ -1,4 +1,5 @@
 ---
+import Posthog from "@components/analytics/Posthog.astro";
 import Meta from "@components/content/Meta.astro"
 
 const locale = "en-GB";
@@ -8,6 +9,7 @@ const locale = "en-GB";
 <html lang={locale}>
   <head>
     <Meta locale={locale} {...Astro.props} />
+    <Posthog />
     <slot name="head" />
   </head>
   <body>
