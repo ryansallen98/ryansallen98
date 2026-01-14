@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 
-const SITE_URL = import.meta.env.SITE_URL;
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL;
 const NO_INDEX = !import.meta.env.PROD;
 
 const disallowedPaths = ["/admin/"]; // Exclude admin pages from indexing
