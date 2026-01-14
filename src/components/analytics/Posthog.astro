@@ -78,9 +78,9 @@ const POSTHOG = {
       ...(POSTHOG.personProfiles && {
         person_profiles: POSTHOG.personProfiles,
       }),
-      persistence: "localStorage",
-      disable_session_recording: true,
-      disable_surveys: true,
+      persistence: "localStorage", // solve cookie issues
+      disable_session_recording: true, // disable to improve google lighthouse scores
+      disable_surveys: true, // disable to improve google lighthouse scores
     });
   }
 </script>
