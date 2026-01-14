@@ -1,3 +1,20 @@
+# POSTHOG - HIDE AS API ENDPOINTS
+[[redirects]]
+  from = "/api/static/*"
+  to = "https://us-assets.i.posthog.com/static/:splat"
+  host = "us-assets.i.posthog.com"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://us.i.posthog.com/:splat"
+  host = "us.i.posthog.com"
+  status = 200
+  force = true
+
+
+# DOMAIN REDIRECTS
 [[redirects]]
   from = "https://rallen.dev/*"
   to = "https://rallendev.com/:splat"
