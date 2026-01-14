@@ -1,9 +1,11 @@
 ---
 import { cn } from "@scripts/utils";
 
-const { class: className = "", text } = Astro.props;
+const { class: className = "", text, as = "span" } = Astro.props;
 
 const classes = cn("flex flex-row gap-2 items-center text-inherit", className);
+
+const Tag = as;
 ---
 
 <div class={classes}>
@@ -11,5 +13,5 @@ const classes = cn("flex flex-row gap-2 items-center text-inherit", className);
     <span class="aspect-square w-2 bg-primary border border-primary"></span>
     <span class="aspect-square w-2 border border-foreground-dark"></span>
   </div>
-  <span class="uppercase font-medium">{text}</span>
+  <Tag class="uppercase font-medium">{text}</Tag>
 </div>
