@@ -2,6 +2,7 @@
 const POSTHOG = {
   key: import.meta.env.PUBLIC_POSTHOG_API_KEY,
   host: import.meta.env.PUBLIC_POSTHOG_API_HOST,
+  uiHost: import.meta.env.PUBLIC_POSTHOG_API_UI_HOST,
   defaults: import.meta.env.PUBLIC_POSTHOG_DEFAULTS,
   capturePageview: import.meta.env.PUBLIC_POSTHOG_CAPTURE_PAGEVIEW,
   personProfiles: import.meta.env.PUBLIC_POSTHOG_PERSON_PROFILES,
@@ -64,6 +65,9 @@ const POSTHOG = {
 
     posthog.init(POSTHOG.key, {
       api_host: POSTHOG.host,
+      ...(POSTHOG.uiHost && {
+        ui_host: POSTHOG.uiHost,
+      }),
       defaults: POSTHOG.defaults,
       ...(POSTHOG.capturePageview && {
         capture_pageview: POSTHOG.capturePageview,
