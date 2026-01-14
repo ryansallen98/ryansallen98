@@ -1,20 +1,58 @@
-# POSTHOG - HIDE AS API ENDPOINTS
-[[redirects]]
-  from = "/api/static/*"
-  to = "https://us-assets.i.posthog.com/static/:splat"
-  host = "us-assets.i.posthog.com"
-  status = 200
-  force = true
+# -----------------------
+# POSTHOG PROXY
+# -----------------------
 
 [[redirects]]
-  from = "/api/*"
-  to = "https://us.i.posthog.com/:splat"
-  host = "us.i.posthog.com"
-  status = 200
-  force = true
+from = "/api/static/*"
+to = "https://us-assets.i.posthog.com/static/:splat"
+host = "us-assets.i.posthog.com"
+status = 200
+force = true
+
+[[redirects]]
+from = "/api/*"
+to = "https://us.i.posthog.com/:splat"
+host = "us.i.posthog.com"
+status = 200
+force = true
 
 
+# -----------------------
+# POSTHOG CACHE HEADERS
+# -----------------------
+
+# Cache ALL static PostHog assets for 1 year
+[[headers]]
+for = "/api/static/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+# NEVER cache runtime endpoints
+[[headers]]
+for = "/api/config"
+[headers.values]
+Cache-Control = "no-store"
+
+[[headers]]
+for = "/api/decide"
+[headers.values]
+Cache-Control = "no-store"
+
+[[headers]]
+for = "/api/e"
+[headers.values]
+Cache-Control = "no-store"
+
+[[headers]]
+for = "/api/capture"
+[headers.values]
+Cache-Control = "no-store"
+
+
+# -----------------------
 # DOMAIN REDIRECTS
+# -----------------------
+
 [[redirects]]
   from = "https://rallen.dev/*"
   to = "https://rallendev.com/:splat"
