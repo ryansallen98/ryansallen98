@@ -1,7 +1,7 @@
 ---
-const name = "Hannah Capone";
-const jobTitle = "Operations Manager";
-const image = "https://rallendev.com/images/emails/email-hannah.jpg";
+const name = "Ryan Allen";
+const jobTitle = "Software Developer";
+const image = "https://rallendev.com/images/emails/email-ryan.jpg";
 
 const logo = "https://rallendev.com/images/emails/email-logo.png";
 
@@ -24,11 +24,14 @@ const ctaUrl =
   `&utm_campaign=${campaignSlug}` +
   "&utm_content=cta";
 
+const email = "ryan@rallendev.com";
+const phone = "+44 746 466 4178";
+
 const contactDetails = [
   {
     type: "Email",
-    value: "mailto:hannah@rallendev.com",
-    text: "hannah@rallendev.com",
+    value: `mailto:${email}`,
+    text: email,
     icon: "https://rallendev.com/images/emails/mail.png",
   },
   {
@@ -39,26 +42,31 @@ const contactDetails = [
   },
   {
     type: "Phone",
-    value: "tel:+447468910110",
-    text: "+44 746 891 0110",
+    value: `tel:${phone.replace(/\s+/g, "")}`,
+    text: phone,
     icon: "https://rallendev.com/images/emails/phone.png",
   },
 ];
 
 const socialLinks = [
   {
+    platform: "GitHub",
+    url: "https://github.com/ryansallen98",
+    icon: "https://rallendev.com/images/emails/github.png",
+  },
+  {
     platform: "LinkedIn",
-    url: "https://www.linkedin.com/in/hannah-capone-1b8aba300/",
+    url: "https://www.linkedin.com/in/ryanallen98/",
     icon: "https://rallendev.com/images/emails/linkedin.png",
   },
   {
     platform: "WhatsApp",
-    url: "https://wa.me/447468910110",
+    url: `https://wa.me/${phone.replace(/\s+/g, "")}`,
     icon: "https://rallendev.com/images/emails/whatsapp.png",
   },
   {
     platform: "Telegram",
-    url: "https://t.me/hannahcapone",
+    url: "https://t.me/rallendev",
     icon: "https://rallendev.com/images/emails/telegram.png",
   },
 ];
