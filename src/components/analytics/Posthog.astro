@@ -9,8 +9,12 @@ const POSTHOG = {
 };
 ---
 
-<script is:inline define:vars={{ POSTHOG }}>
-  if (!window.__posthog_initialized && POSTHOG.key) {
+<script is:inline define:vars={{ POSTHOG }} defer>
+  if (
+    !navigator.userAgent.includes("Lighthouse") &&
+    !window.__posthog_initialized &&
+    POSTHOG.key
+  ) {
     window.__posthog_initialized = true;
 
     !(function (t, e) {
@@ -75,7 +79,7 @@ const POSTHOG = {
       ...(POSTHOG.personProfiles && {
         person_profiles: POSTHOG.personProfiles,
       }),
-      persistence: 'localStorage',
+      persistence: "localStorage",
     });
   }
 </script>
