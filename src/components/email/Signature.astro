@@ -4,7 +4,25 @@ const jobTitle = "Operations Manager";
 const image = "https://rallendev.com/images/emails/email-hannah.jpg";
 
 const logo = "https://rallendev.com/images/emails/email-logo.png";
-const websiteUrl = "https://rallendev.com";
+
+const campaignSlug = name
+  .toLowerCase()
+  .replace(/\s+/g, "_")
+  .replace(/[^a-z0-9_]/g, "");
+
+const websiteUrl =
+  "https://rallendev.com" +
+  "?utm_source=email" +
+  "&utm_medium=signature" +
+  `&utm_campaign=${campaignSlug}` +
+  "&utm_content=website";
+
+const ctaUrl =
+  "https://rallendev.com/contact" +
+  "?utm_source=email" +
+  "&utm_medium=signature" +
+  `&utm_campaign=${campaignSlug}` +
+  "&utm_content=cta";
 
 const contactDetails = [
   {
@@ -45,8 +63,7 @@ const socialLinks = [
   },
 ];
 
-const ctaImage =
-  "https://rallendev.com/images/emails/email-cta.png";
+const ctaImage = "https://rallendev.com/images/emails/email-cta.png";
 
 const primaryColorText = "#664b19";
 const textColor = "#0a0a0a";
@@ -68,8 +85,7 @@ const dividerColor = "#e0e0e0";
         colspan="2"
         style=`padding-bottom: 4px; padding-right: 16px; border-bottom: 1px solid ${dividerColor};`
       >
-        <span
-          style=`font-size: 18px; line-height: 28px; color: ${textColor};`
+        <span style=`font-size: 18px; line-height: 28px; color: ${textColor};`
           ><strong>{name}</strong><br /></span
         >
         <span style=`font-size: 14px; color: ${mutedTextColor};`>
@@ -157,7 +173,7 @@ const dividerColor = "#e0e0e0";
     <tr>
       <td colspan="2">
         <a
-          href={websiteUrl + "/contact"}
+          href={ctaUrl}
           target="_blank"
           rel="noopener noreferrer"
           style="display: inline-block; margin-right: 6px; margin-top: 8px;"
