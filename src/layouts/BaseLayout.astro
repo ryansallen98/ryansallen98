@@ -38,9 +38,7 @@ const { chrome = true } = Astro.props;
     <ClientRouter />
   </Fragment>
   {isComingSoon ? 
-    <>
     <ComingSoon />
-    </>
     :
     <>
       {chrome && <Header />}
