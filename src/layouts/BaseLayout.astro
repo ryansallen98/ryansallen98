@@ -7,7 +7,7 @@ import Footer from "@components/layout/Footer.astro";
 import ComingSoon from "@components/content/ComingSoon.astro";
 import { ClientRouter } from "astro:transitions";
 
-const isComingSoon = import.meta.env.COMING_SOON === "true";
+const isComingSoon = import.meta.env.COMING_SOON!;
 
 const { chrome = true } = Astro.props;
 ---
