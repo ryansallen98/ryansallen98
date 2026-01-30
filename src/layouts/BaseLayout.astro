@@ -4,7 +4,10 @@ import "@styles/global.css";
 import ShellLayout from "@layouts/ShellLayout.astro";
 import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
+import ComingSoon from "@components/content/ComingSoon.astro";
 import { ClientRouter } from "astro:transitions";
+
+const isComingSoon = import.meta.env.COMING_SOON === "true";
 
 const { chrome = true } = Astro.props;
 ---
@@ -34,11 +37,18 @@ const { chrome = true } = Astro.props;
     />
     <ClientRouter />
   </Fragment>
-
-  {chrome && <Header />}
-  <main>
-    <slot />
-  </main>
-  {chrome && <Footer />}
-  <script src="@scripts/global"></script>
+  {isComingSoon ? 
+    <>
+    <ComingSoon />
+    </>
+    :
+    <>
+      {chrome && <Header />}
+      <main>
+        <slot />
+      </main>
+      {chrome && <Footer />}
+      <script src="@scripts/global"></script>
+    </>
+  }
 </ShellLayout>
