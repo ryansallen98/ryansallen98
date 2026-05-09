@@ -1,0 +1,30 @@
+---
+import PolicyDocument from "@components/content/PolicyDocument.astro";
+import Layout from "@layouts/BaseLayout.astro";
+import policies from "@data/general/policies.yml";
+
+type PolicyPage = {
+  key: string;
+  eyebrow: string;
+  title: string;
+  slug: string;
+  summary: string;
+  updated: string;
+  sections: {
+    title: string;
+    body: string;
+  }[];
+};
+
+const pages = policies.pages as PolicyPage[];
+const policy = pages.find((page: PolicyPage) => page.key === "privacy");
+const related = pages.filter((page: PolicyPage) => page.key !== "privacy");
+
+if (!policy) {
+  throw new Error("Missing privacy policy data");
+}
+---
+
+<Layout title={policy.title}>
+  <PolicyDocument policy={policy} related={related} labels={policies.labels} cta={policies.cta} />
+</Layout>

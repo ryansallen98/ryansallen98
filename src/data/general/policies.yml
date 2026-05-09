@@ -1,0 +1,75 @@
+labels:
+  updated: Last updated
+  related: Related policies
+pages:
+  - key: privacy
+    eyebrow: Privacy
+    title: Privacy Policy
+    slug: /privacy-policy
+    summary: How this portfolio and freelance site handles contact details, quote requests, analytics, and project enquiries.
+    updated: May 9, 2026
+    sections:
+      - title: Who runs this site
+        body: R Allen Dev is Ryan Allen's portfolio and freelance development site. For privacy questions, email hello@rallendev.com.
+      - title: What information is collected
+        body: The site may collect details you choose to send through forms or direct contact routes, including your name, email, phone or Telegram handle, project type, message, budget context, timeline, and links you provide.
+      - title: How information is used
+        body: Information is used to reply to enquiries, prepare project estimates, understand project fit, deliver agreed work, keep business records, improve the site, and protect the site from spam or misuse.
+      - title: Lawful basis
+        body: Enquiry and project data is generally handled to take steps before a contract, perform a contract, or support legitimate business interests such as responding to leads and managing client work. Consent will be requested before optional marketing is added.
+      - title: Sharing information
+        body: Information may be handled through practical service providers such as email, hosting, analytics, form handling, project management, payment, accounting, and communication tools. It is not sold.
+      - title: Retention
+        body: Enquiry data is kept only as long as useful for the enquiry, project delivery, record keeping, legal, tax, or dispute reasons. Old leads that do not become active work may be deleted sooner.
+      - title: Cookies and analytics
+        body: The public site is designed to stay lightweight. Analytics or similar storage may be enabled through environment configuration. See the Cookie Policy for the current storage position.
+      - title: Your rights
+        body: Depending on where you live, you may have rights to access, correct, delete, restrict, object to, or request a copy of personal data. Email hello@rallendev.com to make a privacy request.
+  - key: cookies
+    eyebrow: Cookies
+    title: Cookie Policy
+    slug: /cookie-policy
+    summary: How cookies, local storage, analytics, embeds, and similar browser technologies should be handled on this site.
+    updated: May 9, 2026
+    sections:
+      - title: Current cookie position
+        body: The public pages are intended to work without advertising cookies, retargeting cookies, or unnecessary tracking cookies. Essential browser storage may be used where needed to run the site or admin experience.
+      - title: Analytics and similar technologies
+        body: If analytics is enabled, it may use local storage or similar browser technology to understand page views and site usage. Non-essential analytics should be disclosed and controlled before it is enabled in production.
+      - title: Third-party services
+        body: Links to external services such as GitHub, LinkedIn, Telegram, WhatsApp, email, or payment tools may set their own cookies once you leave this site. Their own policies apply.
+      - title: Managing cookies
+        body: You can usually block or delete cookies and site storage through your browser settings. Blocking essential storage may affect parts of a site that rely on forms, admin tools, or security controls.
+      - title: Changes to this policy
+        body: This policy should be reviewed whenever analytics, embeds, advertising, payment tools, consent controls, or new third-party scripts are added.
+  - key: terms
+    eyebrow: Terms
+    title: Terms & Conditions
+    slug: /terms-and-conditions
+    summary: Basic website terms for using this portfolio, reading service information, and starting project discussions.
+    updated: May 9, 2026
+    sections:
+      - title: Using this site
+        body: This site is provided for portfolio, service, pricing, contact, and project enquiry purposes. Do not misuse the forms, attempt to disrupt the site, or submit unlawful material.
+      - title: Service information
+        body: Services, pricing ranges, availability, and timelines are general planning information. They are not a fixed offer, guarantee, or final quote.
+      - title: Quotes and project work
+        body: A final project scope, price, timeline, payment schedule, deliverables, responsibilities, and ownership terms should be confirmed in writing before work starts.
+      - title: Intellectual property
+        body: Site content, design, code, and brand assets belong to Ryan Allen or their respective owners unless stated otherwise. Project ownership terms should be agreed separately for client work.
+      - title: External links
+        body: This site may link to third-party websites and tools. Those services are outside Ryan Allen's control and have their own terms, privacy policies, and security practices.
+      - title: Liability
+        body: The site is provided as-is. To the extent allowed by law, Ryan Allen is not responsible for losses caused by relying on general website information instead of an agreed written scope.
+      - title: Contact
+        body: For questions about these terms, email hello@rallendev.com.
+cta:
+  eyebrow: Project scope
+  title: Need a project estimate instead?
+  text: Use the quote flow for a practical starting estimate and clearer next steps.
+  primaryCta:
+    text: Get a quote
+    href: /get-a-quote
+  secondaryCta:
+    text: Contact Ryan
+    href: /contact

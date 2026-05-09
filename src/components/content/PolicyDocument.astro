@@ -1,0 +1,117 @@
+---
+import Button from "@components/ui/Button.astro";
+import SubHeading from "@components/ui/SubHeading.astro";
+import { Icon } from "astro-icon/components";
+
+type Cta = {
+  text: string;
+  href: string;
+};
+
+type PolicySection = {
+  title: string;
+  body: string;
+};
+
+type PolicyPage = {
+  key: string;
+  eyebrow: string;
+  title: string;
+  slug: string;
+  summary: string;
+  updated: string;
+  sections: PolicySection[];
+};
+
+const {
+  policy,
+  related,
+  labels,
+  cta,
+} = Astro.props as {
+  policy: PolicyPage;
+  related: PolicyPage[];
+  labels: {
+    updated: string;
+    related: string;
+  };
+  cta: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    primaryCta: Cta;
+    secondaryCta: Cta;
+  };
+};
+---
+
+<section class="bg-background-dark pt-28 pb-16 text-foreground-dark sm:pt-32 lg:pt-36 lg:pb-24">
+  <div class="container mx-auto max-w-7xl px-5">
+    <div class="grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-end">
+      <div class="flex flex-col gap-7">
+        <SubHeading text={policy.eyebrow} />
+        <h1 class="reveal-title font-hero max-w-5xl">{policy.title}</h1>
+      </div>
+      <div class="flex flex-col gap-6">
+        <p class="max-w-xl text-lg leading-relaxed text-muted">{policy.summary}</p>
+        <p class="text-sm uppercase text-muted">{labels.updated}: {policy.updated}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-background-light py-18 text-foreground-light lg:py-28">
+  <div class="container mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+    <aside class="lg:sticky lg:top-28">
+      <SubHeading text={labels.related} class="text-foreground-light" />
+      <div class="mt-6 grid gap-3">
+        {
+          related.map((item: PolicyPage) => (
+            <a
+              href={item.slug}
+              class="group flex items-center justify-between border border-divider-light bg-secondary-light p-4 text-sm uppercase transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              <span>{item.title}</span>
+              <Icon name="lucide:arrow-up-right" class="size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
+            </a>
+          ))
+        }
+      </div>
+    </aside>
+
+    <div class="grid gap-4">
+      {
+        policy.sections.map((section: PolicySection, index: number) => (
+          <article
+            class="reveal-card grid gap-5 border border-divider-light bg-secondary-light p-6 sm:grid-cols-[4rem_1fr] lg:p-8"
+            style={`transition-delay: ${index * 70}ms`}
+          >
+            <span class="font-h5 text-primary">{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <h2 class="font-h4">{section.title}</h2>
+              <p class="mt-4 leading-relaxed text-secondary-foreground-light">{section.body}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<section class="bg-primary py-18 text-primary-foreground lg:py-24">
+  <div class="container mx-auto max-w-7xl px-5">
+    <div class="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+      <div class="flex flex-col gap-5">
+        <SubHeading text={cta.eyebrow} class="[&_span:last-child]:border-primary-foreground" />
+        <h2 class="font-h2 max-w-3xl">{cta.title}</h2>
+      </div>
+      <div class="flex flex-col gap-7">
+        <p class="max-w-xl text-lg leading-relaxed">{cta.text}</p>
+        <div class="flex flex-wrap gap-2">
+          <Button as="a" href={cta.primaryCta.href} text={cta.primaryCta.text} variant="dark" iconEnd="lucide:arrow-right" />
+          <Button as="a" href={cta.secondaryCta.href} text={cta.secondaryCta.text} variant="outline" class="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" iconEnd="lucide:arrow-right" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
