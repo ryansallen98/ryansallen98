@@ -1,5 +1,6 @@
 import about from "./about";
 import availability from "./availability";
+import contact from "./contact";
 import faqs from "./faqs";
 import home from "./home";
 import layout from "./layout";
@@ -13,7 +14,7 @@ import socials from "./socials";
 const general: CmsCollection = {
   name: "general",
   label: "General",
-  files: [meta, layout, home, about, availability, services, pricing, quote, faqs, socials, resume],
+  files: [meta, layout, home, about, availability, services, pricing, contact, quote, faqs, socials, resume],
 };
 
 export default general;

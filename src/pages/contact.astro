@@ -1,12 +1,221 @@
 ---
-import Hero from "@components/sections/Hero.astro";
+import Button from "@components/ui/Button.astro";
+import SubHeading from "@components/ui/SubHeading.astro";
 import Layout from "@layouts/BaseLayout.astro";
+import contact from "@data/general/contact.yml";
+import { Icon } from "astro-icon/components";
+
+type Cta = {
+  text: string;
+  href: string;
+};
+
+type ContactMethod = {
+  title: string;
+  text: string;
+  label: string;
+  href: string;
+  icon: string;
+};
+
+type Field = {
+  label: string;
+  placeholder: string;
+};
+
+type ProjectTypeField = Field & {
+  options: string[];
+};
+
+const hero = contact.hero as {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  primaryCta: Cta;
+  secondaryCta: Cta;
+};
+const methods = contact.methods as {
+  eyebrow: string;
+  title: string;
+  items: ContactMethod[];
+};
+const brief = contact.brief as {
+  eyebrow: string;
+  title: string;
+  text: string;
+  formName: string;
+  fields: {
+    name: Field;
+    email: Field;
+    phone: Field;
+    projectType: ProjectTypeField;
+    message: Field;
+  };
+  submitText: string;
+};
+const cta = contact.cta as {
+  eyebrow: string;
+  title: string;
+  text: string;
+  primaryCta: Cta;
+  secondaryCta: Cta;
+};
 ---
 
-<Layout title="Contact Me">
-  <Hero
-    title="Contact Me"
-    subHeading="Get in Touch"
-    description="Feel free to reach out for collaborations, inquiries, or just to say hello!"
-  />
+<Layout title={hero.title}>
+  <section class="bg-background-dark pt-28 pb-16 text-foreground-dark sm:pt-32 lg:pt-36 lg:pb-24">
+    <div class="container mx-auto max-w-7xl px-5">
+      <div class="grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-end">
+        <div class="flex flex-col gap-7">
+          <SubHeading text={hero.eyebrow} />
+          <h1 class="reveal-title font-hero max-w-5xl">{hero.title}</h1>
+        </div>
+        <div class="flex flex-col gap-7">
+          <p class="max-w-xl text-lg leading-relaxed text-muted">{hero.intro}</p>
+          <div class="flex flex-wrap gap-2">
+            <Button as="a" href={hero.primaryCta.href} text={hero.primaryCta.text} variant="primary" iconEnd="lucide:arrow-right" />
+            <Button as="a" href={hero.secondaryCta.href} text={hero.secondaryCta.text} variant="outline" iconEnd="lucide:arrow-right" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-background-light py-18 text-foreground-light lg:py-28">
+    <div class="container mx-auto max-w-7xl px-5">
+      <div class="mb-12 flex max-w-3xl flex-col gap-6">
+        <SubHeading text={methods.eyebrow} class="text-foreground-light" />
+        <h2 class="reveal-title font-h2">{methods.title}</h2>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        {
+          methods.items.map((method: ContactMethod, index: number) => (
+            <a
+              href={method.href}
+              class="reveal-card group flex min-h-[300px] flex-col justify-between border border-divider-light bg-secondary-light p-6 transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+              style={`transition-delay: ${index * 80}ms`}
+            >
+              <div class="flex flex-col gap-6">
+                <span class="flex size-12 items-center justify-center bg-background-dark text-foreground-dark transition-colors group-hover:bg-primary-foreground group-hover:text-primary">
+                  <Icon name={method.icon} class="size-5" aria-hidden="true" />
+                </span>
+                <div>
+                  <h3 class="font-h4">{method.title}</h3>
+                  <p class="mt-4 leading-relaxed text-secondary-foreground-light transition-colors group-hover:text-primary-foreground/80">{method.text}</p>
+                </div>
+              </div>
+              <span class="mt-8 inline-flex items-center gap-2 text-sm font-medium uppercase">
+                {method.label}
+                <Icon name="lucide:arrow-up-right" class="size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-background-dark py-18 text-foreground-dark lg:py-28">
+    <div class="container mx-auto max-w-7xl px-5">
+      <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <div class="flex flex-col gap-6">
+          <SubHeading text={brief.eyebrow} />
+          <h2 class="reveal-title font-h2 max-w-xl">{brief.title}</h2>
+          <p class="max-w-xl text-lg leading-relaxed text-muted">{brief.text}</p>
+        </div>
+
+        <form
+          name={brief.formName}
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="reveal-card grid gap-5 border border-divider-dark bg-secondary-dark p-5 sm:p-8"
+        >
+          <input type="hidden" name="form-name" value={brief.formName} />
+          <p class="hidden">
+            <label>
+              Do not fill this out
+              <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <label class="grid gap-2">
+              <span class="text-sm uppercase text-muted">{brief.fields.name.label}</span>
+              <input
+                class="min-h-14 border border-divider-dark bg-background-dark px-4 text-foreground-dark outline-none transition-colors placeholder:text-muted focus:border-primary"
+                type="text"
+                name="name"
+                placeholder={brief.fields.name.placeholder}
+                required
+              />
+            </label>
+            <label class="grid gap-2">
+              <span class="text-sm uppercase text-muted">{brief.fields.email.label}</span>
+              <input
+                class="min-h-14 border border-divider-dark bg-background-dark px-4 text-foreground-dark outline-none transition-colors placeholder:text-muted focus:border-primary"
+                type="email"
+                name="email"
+                placeholder={brief.fields.email.placeholder}
+                required
+              />
+            </label>
+          </div>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <label class="grid gap-2">
+              <span class="text-sm uppercase text-muted">{brief.fields.phone.label}</span>
+              <input
+                class="min-h-14 border border-divider-dark bg-background-dark px-4 text-foreground-dark outline-none transition-colors placeholder:text-muted focus:border-primary"
+                type="text"
+                name="phone"
+                placeholder={brief.fields.phone.placeholder}
+              />
+            </label>
+            <label class="grid gap-2">
+              <span class="text-sm uppercase text-muted">{brief.fields.projectType.label}</span>
+              <select
+                class="min-h-14 border border-divider-dark bg-background-dark px-4 text-foreground-dark outline-none transition-colors focus:border-primary"
+                name="project-type"
+                required
+              >
+                <option value="">{brief.fields.projectType.placeholder}</option>
+                {brief.fields.projectType.options.map((option: string) => <option value={option}>{option}</option>)}
+              </select>
+            </label>
+          </div>
+
+          <label class="grid gap-2">
+            <span class="text-sm uppercase text-muted">{brief.fields.message.label}</span>
+            <textarea
+              class="min-h-40 border border-divider-dark bg-background-dark px-4 py-4 text-foreground-dark outline-none transition-colors placeholder:text-muted focus:border-primary"
+              name="message"
+              placeholder={brief.fields.message.placeholder}
+              required
+            ></textarea>
+          </label>
+
+          <Button type="submit" text={brief.submitText} variant="primary" iconEnd="lucide:send" class="w-fit" />
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-primary py-18 text-primary-foreground lg:py-24">
+    <div class="container mx-auto max-w-7xl px-5">
+      <div class="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+        <div class="flex flex-col gap-5">
+          <SubHeading text={cta.eyebrow} class="[&_span:last-child]:border-primary-foreground" />
+          <h2 class="font-h2 max-w-3xl">{cta.title}</h2>
+        </div>
+        <div class="flex flex-col gap-7">
+          <p class="max-w-xl text-lg leading-relaxed">{cta.text}</p>
+          <div class="flex flex-wrap gap-2">
+            <Button as="a" href={cta.primaryCta.href} text={cta.primaryCta.text} variant="dark" iconEnd="lucide:arrow-right" />
+            <Button as="a" href={cta.secondaryCta.href} text={cta.secondaryCta.text} variant="outline" class="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" iconEnd="lucide:arrow-right" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

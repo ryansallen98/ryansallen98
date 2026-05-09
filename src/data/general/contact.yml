@@ -1,0 +1,73 @@
+hero:
+  eyebrow: Contact
+  title: Tell me what needs building.
+  intro: Use the quote flow for scoped work, or send a shorter message if you need a direct conversation first.
+  primaryCta:
+    text: Get a quote
+    href: /get-a-quote
+  secondaryCta:
+    text: Check availability
+    href: /availability
+methods:
+  eyebrow: Contact options
+  title: Choose the route that fits.
+  items:
+    - title: Quote flow
+      text: Best for new builds, dashboards, websites, payment/reporting systems, and scoped support.
+      label: Start quote
+      href: /get-a-quote
+      icon: lucide:clipboard-list
+    - title: Email
+      text: Use this for written context, docs, existing URLs, and project notes.
+      label: hello@rallendev.com
+      href: mailto:hello@rallendev.com
+      icon: mdi:email
+    - title: Telegram
+      text: Useful for faster back-and-forth once the project shape is clear.
+      label: "@rallendev"
+      href: https://t.me/rallendev
+      icon: mdi:telegram
+    - title: WhatsApp
+      text: Good for quick scheduling, simple updates, and active client work.
+      label: +44 746 466 4178
+      href: https://wa.me/447464664178
+      icon: mdi:whatsapp
+brief:
+  eyebrow: Project brief
+  title: Send the useful details.
+  text: Include the project type, current stack, deadline, budget range, existing URL or repo, and the main blocker or outcome.
+  formName: contact
+  fields:
+    name:
+      label: Name
+      placeholder: Your name
+    email:
+      label: Email
+      placeholder: you@example.com
+    phone:
+      label: Phone or Telegram
+      placeholder: Optional
+    projectType:
+      label: Project type
+      placeholder: Choose one
+      options:
+        - Dashboard, app, or internal tool
+        - Payment or reporting workflow
+        - Website, CMS, or landing page
+        - WordPress or WooCommerce
+        - Support, fixes, or maintenance
+        - Not sure yet
+    message:
+      label: Message
+      placeholder: Tell me what you are trying to build or fix.
+  submitText: Send message
+cta:
+  eyebrow: Better estimate
+  title: Need a clearer starting point?
+  text: The quote flow asks the right questions and points the project toward a useful starting estimate.
+  primaryCta:
+    text: Get a quote
+    href: /get-a-quote
+  secondaryCta:
+    text: View pricing
+    href: /pricing
