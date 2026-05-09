@@ -14,15 +14,15 @@ const copyrightCompany = legalMatch
 ---
 
 <footer class="bg-background-dark text-foreground-dark" transition:persist>
-  <div class="container mx-auto max-w-7xl px-5 py-6">
-    <div class="flex flex-row justify-between items-stretch gap-8">
+  <div class="container mx-auto max-w-7xl px-5 py-10 lg:py-6">
+    <div class="flex flex-col justify-between items-stretch gap-12 lg:flex-row lg:gap-8">
       <!-- Footer Right -->
       <div
-        class="w-[45%] flex-1 flex flex-col justify-between items-start gap-8 order-last"
+        class="order-first flex w-full flex-col justify-between gap-8 lg:order-last lg:w-[45%] lg:flex-1"
       >
-        <div class="flex flex-col gap-8">
+        <div class="flex max-w-2xl flex-col gap-6 lg:gap-8">
           <SubHeading text="What I Do" as="h3" />
-          <p class="text-xl text-muted">
+          <p class="text-lg leading-relaxed text-muted sm:text-xl">
             Full-Stack Developer offering UX/UI design, web development, and
             consultancy for fast, accessible, SEO-friendly websites.
           </p>
@@ -33,14 +33,14 @@ const copyrightCompany = legalMatch
             iconEnd="lucide:arrow-right"
           />
         </div>
-        <Name class="w-full h-fit" />
+        <Name class="h-fit w-full max-w-2xl lg:max-w-none" />
       </div>
 
       <!-- Footer Left -->
-      <div class="flex flex-col gap-15 justify-between items-stretch w-[55%]">
+      <div class="flex w-full flex-col justify-between gap-10 lg:w-[55%] lg:gap-15">
         <!-- Footer Menu -->
-        <div class="grid grid-cols-3 gap-4 gap-y-16">
-          <div class="flex flex-col gap-8">
+        <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 lg:gap-y-16">
+          <div class="flex flex-col gap-5 lg:gap-8">
             <SubHeading text="General" as="h3" />
             <ul class="flex flex-col gap-2 w-fit items-start">
               <NavLink href="/" text="Home" />
@@ -51,7 +51,7 @@ const copyrightCompany = legalMatch
             </ul>
           </div>
 
-          <div class="flex flex-col gap-8">
+          <div class="flex flex-col gap-5 lg:gap-8">
             <SubHeading text="About" as="h3" />
             <ul class="flex flex-col gap-2 w-fit items-start">
               <NavLink href="/about" text="About Me" />
@@ -60,7 +60,7 @@ const copyrightCompany = legalMatch
             </ul>
           </div>
 
-          <div class="flex flex-col gap-8">
+          <div class="flex flex-col gap-5 lg:gap-8">
             <SubHeading text="Compliance" as="h3" />
             <ul class="flex flex-col gap-2 w-fit items-start">
               <NavLink href="/privacy-policy" text="Privacy Policy" />
@@ -69,9 +69,9 @@ const copyrightCompany = legalMatch
             </ul>
           </div>
 
-          <div class="flex flex-col gap-8">
+          <div class="flex flex-col gap-5 lg:gap-8">
             <SubHeading text="Locations" as="h3" />
-            <ul class="flex flex-col gap-6">
+            <ul class="flex flex-col gap-4 lg:gap-6">
               <li class="flex flex-row gap-2">
                 <Icon
                   name="mdi:map-marker"
@@ -97,9 +97,9 @@ const copyrightCompany = legalMatch
             </ul>
           </div>
 
-          <div class="flex flex-col gap-8">
+          <div class="flex flex-col gap-5 lg:gap-8">
             <SubHeading text="Contact Me" as="h3" />
-            <ul class="flex flex-col gap-4">
+            <ul class="flex flex-col gap-3 lg:gap-4">
               <li>
                 <a
                   href="mailto:hello@rallendev.com"
@@ -159,7 +159,7 @@ const copyrightCompany = legalMatch
             </ul>
           </div>
 
-          <div class="flex flex-col gap-8">
+          <div class="flex flex-col gap-5 lg:gap-8">
             <SubHeading text="Socials" as="h3" />
 
             <Socials />
@@ -168,7 +168,7 @@ const copyrightCompany = legalMatch
 
         <!-- Footer Copyright & Disclaimer -->
         <div
-          class="py-6 border-t border-b border-divider-dark uppercase text-muted flex flex-row justify-between items-center"
+          class="flex flex-col gap-2 border-t border-b border-divider-dark py-5 text-xs uppercase leading-relaxed text-muted sm:flex-row sm:items-center sm:justify-between lg:py-6"
         >
           <p>
             &copy; {new Date().getFullYear()}
