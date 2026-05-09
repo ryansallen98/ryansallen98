@@ -52,7 +52,7 @@
 
 @layer base {
   * {
-    @apply outline-ring/50 focus-visible:outline-3 font-base -tracking-[0.03em];
+    @apply outline-ring/50 focus-visible:outline-3 font-base tracking-normal;
   }
   body {
     @apply bg-background-dark text-foreground-dark;

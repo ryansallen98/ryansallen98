@@ -1,0 +1,151 @@
+hero:
+  eyebrow: Ryan Allen / R Allen Dev
+  title: Startup dashboards. Payment systems.
+  intro: London-based software developer building practical React/Next.js tools for startups that need clearer workflows, reporting, and product momentum.
+  metadata:
+    - React / Next.js
+    - TypeScript
+    - Payment reporting
+    - AI-assisted delivery
+  primaryCta:
+    text: Start a project
+    href: /contact
+  secondaryCta:
+    text: See services
+    href: /services
+  availability: Available for freelance builds, product support, and selected full-time roles.
+  image:
+    src: /images/resume-photo.jpg
+    alt: Headshot of Ryan Allen.
+    note: Existing resume portrait. Replace in the CMS when a stronger portfolio portrait is available.
+  highlights:
+    - label: Best fit
+      text: Dashboards, reporting, payment ops, and internal tools.
+    - label: Secondary lane
+      text: Fast websites, CMS builds, WordPress, WooCommerce, and support.
+stats:
+  - value: "2019"
+    label: Client work since
+  - value: "2022"
+    label: Software dev since
+  - value: "MM+"
+    label: AUD reporting supported
+  - value: "$50/hr"
+    label: Support baseline
+services:
+  eyebrow: What I build
+  title: Product systems first. Websites when they fit.
+  intro: Custom tools lead the offer. Website and CMS work stays available for simpler scopes.
+  cards:
+    - title: Dashboards and internal tools
+      description: Operational interfaces for clearer data, actions, and handover.
+      items:
+        - Next.js
+        - TypeScript
+        - Workflow UX
+      href: /services
+    - title: Payment and reporting systems
+      description: Payout, PSP, analytics, and reconciliation views teams can trust.
+      items:
+        - Payment UX
+        - API checks
+        - P&L visibility
+      href: /services
+    - title: Startup product support
+      description: Feature builds, bug fixes, and stabilisation for fast-moving teams.
+      items:
+        - SaaS features
+        - Production fixes
+        - Handover
+      href: /services
+    - title: Websites, CMS, and WooCommerce
+      description: Fast editable sites when the project does not need a custom app.
+      items:
+        - Astro
+        - WordPress
+        - WooCommerce
+      href: /services
+proof:
+  eyebrow: Experience signals
+  title: Startup context, product judgment, hands-on code.
+  intro: I work close to the user journey, the numbers, and the people relying on the system.
+  items:
+    - company: Thrice Agency
+      role: Developer
+      timeframe: 2026 - Present
+      summary: AI, RevOps, and SaaS product maintenance inside a fast-moving agency.
+      tags:
+        - AI workflows
+        - SaaS
+        - Stabilisation
+    - company: GatewayPay
+      role: Lead Developer
+      timeframe: 2024 - 2025
+      summary: Next.js dashboards for payment reporting, payouts, operations, and integrations.
+      tags:
+        - Next.js
+        - Reporting
+        - Payments
+    - company: iCore
+      role: Lead Developer
+      timeframe: 2023 - 2024
+      summary: Crypto payment dashboards and clearer payment flows for less technical users.
+      tags:
+        - Payment UX
+        - Dashboards
+        - Support
+engagements:
+  eyebrow: Ways to start
+  title: Pick the right starting shape.
+  intro: Fixed website, focused sprint, or hourly support.
+  cards:
+    - title: Dashboard or product sprint
+      price: From $2,500-$5,000+
+      description: For tools, dashboards, payment workflows, or AI-assisted product features.
+      items:
+        - Scope workflow
+        - Ship first version
+        - Iterate with feedback
+      cta:
+        text: Scope a sprint
+        href: /contact
+    - title: Website or CMS build
+      price: From $1,000-$4,500+
+      description: For landing pages, CMS builds, ecommerce, WooCommerce, and hosting.
+      items:
+        - Match the stack
+        - Keep content editable
+        - Build for handover
+      cta:
+        text: Plan a website
+        href: /contact
+    - title: Support and iteration
+      price: $50/hour baseline
+      description: For debugging, production fixes, reporting improvements, and handover.
+      items:
+        - Fix the issue
+        - Document the cause
+        - Improve while shipping
+      cta:
+        text: Ask for support
+        href: /contact
+process:
+  eyebrow: How I work
+  title: Scope it. Ship it. Stabilise it.
+  steps:
+    - title: Map the real workflow
+      text: User journey, business goal, data sources, constraints, and friction.
+    - title: Build the smallest useful version
+      text: A focused first version beats a long invisible build.
+    - title: Stabilise and hand over
+      text: Debugging, documentation, CMS ownership, and support.
+cta:
+  eyebrow: Let's build
+  title: Turn the messy workflow into something usable.
+  text: Dashboard, payment flow, reporting view, website, or product system. Start with the risk, then choose the scope.
+  primaryCta:
+    text: Get in touch
+    href: /contact
+  secondaryCta:
+    text: About Ryan
+    href: /about

@@ -1,0 +1,29 @@
+groups:
+  - key: homepage
+    label: Homepage FAQs
+    eyebrow: Questions
+    title: Before we start.
+    items:
+      - question: What kind of work is the best fit?
+        answer: Dashboards, internal tools, payment/reporting workflows, startup product support, and practical systems that need clear UX plus hands-on implementation.
+      - question: Are websites still part of the offer?
+        answer: Yes. Websites, CMS builds, WordPress, WooCommerce, hosting, and maintenance are a secondary lane when the client needs a reliable web presence rather than a custom app.
+      - question: Can you improve an existing product?
+        answer: Yes. I can step into messy products, understand the workflow, fix production issues, improve UX, and document what changed.
+      - question: How do dashboard or app projects start?
+        answer: We start with the workflow, users, data sources, risk, and the first useful version. Then I price around the actual scope instead of guessing from a template.
+      - question: Do you work with AI-assisted development?
+        answer: Yes. I use tools like Cursor, Claude, and Codex to move faster, but the work still needs engineering judgment, testing, and clear handover.
+      - question: What is the usual support rate?
+        answer: The baseline support and change rate is $50/hour. Larger custom builds or urgent strategic work may be scoped separately.
+  - key: services
+    label: Services FAQs
+    eyebrow: Questions
+    title: Service questions.
+    items:
+      - question: Do I need a custom app or a website?
+        answer: If the job is mostly publishing content, selling products, or generating leads, a website/CMS is usually right. If people need to log in, manage data, run workflows, or view reports, it is closer to a custom app.
+      - question: Can you help choose the stack?
+        answer: Yes. I match the stack to editing needs, budget, performance, risk, and long-term maintenance instead of forcing one tool onto every project.
+      - question: Do you provide ongoing support?
+        answer: Yes. Support can cover bug fixes, small feature changes, CMS help, reporting improvements, documentation, and handover.

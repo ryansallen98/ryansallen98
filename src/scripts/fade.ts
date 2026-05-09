@@ -1,5 +1,9 @@
 function initFadeIns() {
-  const fadeInElements = document.querySelectorAll<HTMLElement>(".fade-in");
+  document.documentElement.classList.add("js-reveals");
+
+  const fadeInElements = document.querySelectorAll<HTMLElement>(
+    ".fade-in, .reveal-title, .reveal-card, .reveal-image, .reveal-line"
+  );
 
   const observer = new IntersectionObserver(
     (entries, obs) => {
