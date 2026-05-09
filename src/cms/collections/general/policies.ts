@@ -1,3 +1,5 @@
+import seoFields from "./seoFields";
+
 const linkFields = [
   { name: "text", label: "Text" },
   { name: "href", label: "Link" },
@@ -31,6 +33,7 @@ const policies: CmsFile = {
         { name: "eyebrow", label: "Eyebrow" },
         { name: "title", label: "Title", widget: "text" },
         { name: "slug", label: "Slug" },
+        seoFields,
         { name: "summary", label: "Summary", widget: "text" },
         { name: "updated", label: "Updated Date" },
         {

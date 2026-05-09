@@ -1,24 +1,41 @@
+seo:
+  title: Get A Quote | Scope A Website, Dashboard Or App
+  description: Use the R Allen Dev quote wizard to scope a website, CMS build, WooCommerce store, React/Next.js dashboard, internal tool, reporting workflow, or startup product project.
+  canonicalPath: /get-a-quote
+  image:
+    src: /images/og-image.webp
+    alt: R Allen Dev quote wizard for websites, dashboards, and apps.
+  keywords:
+    - get a web development quote
+    - website quote
+    - dashboard quote
+    - app development quote
+    - Next.js project quote
+    - R Allen Dev quote
+  noIndex: false
+  noFollow: false
+  schemaType: WebPage
 hero:
-  eyebrow: Get a quote
-  title: Scope your project without the awkward back-and-forth.
+  eyebrow: Get A Quote
+  title: Scope Your Project Without The Awkward Back-And-Forth.
   intro: Answer a few quick questions and I’ll give you a starting estimate or tell you when the project needs a proper discovery call.
   note: Estimates are starting ranges, not fixed quotes. Final pricing is confirmed after discovery.
 wizard:
   eyebrow: Project estimator
-  title: What are we building?
+  title: What Are We Building?
   progressLabel: Step
   backLabel: Back
   nextLabel: Continue
   estimateLabel: Starting estimate
   discoveryLabel: Discovery recommended
   hourlyNote: Support, changes, and smaller tasks are usually billed at $50/hour.
-  summaryLabel: Your quote summary
-  submitLabel: Send my quote request
+  summaryLabel: Your Quote Summary
+  submitLabel: Send My Quote Request
   submittingText: Sending...
   successText: Thanks. I’ll review this and reply with next steps.
   steps:
     projectType:
-      title: What do you need help with?
+      title: What Do You Need Help With?
       help: Pick the closest fit. If you are unsure, choose “Not sure” and I’ll help shape the scope.
       options:
         - label: Dashboard / web app / internal tool
@@ -34,7 +51,7 @@ wizard:
           value: unsure
           description: You have a rough idea and want help turning it into a practical scope.
     stack:
-      title: Do you have a preferred stack?
+      title: Do You Have A Preferred Stack?
       help: Choose what you already know, or let me recommend the best fit.
       options:
         app:
@@ -66,7 +83,7 @@ wizard:
           - label: I already have a platform
             value: existing
     scope:
-      title: How big is the scope?
+      title: How Big Is The Scope?
       help: This helps estimate complexity before we talk details.
       options:
         - label: Small and focused
@@ -79,7 +96,7 @@ wizard:
           value: large
           description: Complex app, advanced reporting, many integrations, bespoke ecommerce, or ongoing product work.
     extras:
-      title: What else is involved?
+      title: What Else Is Involved?
       help: Select anything that applies.
       options:
         - label: UX/UI design needed
@@ -95,7 +112,7 @@ wizard:
         - label: Hosting, deployment, or maintenance
           value: support
     timeline:
-      title: What timeline are you aiming for?
+      title: What Timeline Are You Aiming For?
       help: Rush work may need a tighter discovery call before pricing is confirmed.
       options:
         - label: Flexible
@@ -105,14 +122,14 @@ wizard:
         - label: As soon as possible
           value: rush
     contact:
-      title: Where should I send the follow-up?
+      title: Where Should I Send The Follow-Up?
       help: Add enough context for me to understand what you are trying to build.
       fields:
         name: Name
         email: Email
         phone: Phone / WhatsApp
-        contactMethod: Preferred contact method
-        message: Project summary
+        contactMethod: Preferred Contact Method
+        message: Project Summary
       contactMethods:
         - Email
         - WhatsApp

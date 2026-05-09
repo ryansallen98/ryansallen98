@@ -1,7 +1,23 @@
+seo:
+  title: About Ryan Allen | Product-Minded Software Developer
+  description: Learn about Ryan Allen, a London-based software developer focused on React/Next.js dashboards, reporting systems, payment workflows, startup tools, and AI-assisted delivery.
+  canonicalPath: /about
+  image:
+    src: /images/resume-photo.jpg
+    alt: Ryan Allen, product-minded software developer.
+  keywords:
+    - Ryan Allen developer
+    - R Allen Dev
+    - product-minded developer
+    - React developer London
+    - Next.js developer
+  noIndex: false
+  noFollow: false
+  schemaType: AboutPage
 hero:
   eyebrow: About Ryan
-  title: Startup-minded developer with product instincts.
-  intro: I build practical React/Next.js dashboards, payment/reporting workflows, and reliable web systems for teams that need useful software, not decorative complexity.
+  title: Startup-Minded Developer With Product Instincts.
+  intro: I build practical React/Next.js dashboards, reporting tools, startup workflows, and reliable web systems for teams that need useful software, not decorative complexity.
   image:
     src: /images/resume-photo.jpg
     alt: Headshot of Ryan Allen.
@@ -13,7 +29,7 @@ hero:
     href: /get-a-quote
 summary:
   eyebrow: Profile
-  title: I work where product, UX, operations, and code meet.
+  title: I Work Where Product, UX, Operations, And Code Meet.
   text: My background is startup-heavy. I have worked across dashboards, payment UX, reporting, support, account needs, websites, infrastructure, and AI-assisted development. That mix helps me understand the business problem before choosing the implementation.
   highlights:
     - React/Next.js dashboards and internal tools
@@ -22,7 +38,7 @@ summary:
     - AI-assisted workflows with practical engineering judgment
 timeline:
   eyebrow: Experience
-  title: Built around startup pressure.
+  title: Built Around Startup Pressure.
   items:
     - timeframe: 2026 - Present
       role: Developer
@@ -42,19 +58,19 @@ timeline:
       summary: Delivered websites, ecommerce work, crypto UI, AI tools, infrastructure support, and practical business systems.
 strengths:
   eyebrow: Working style
-  title: The useful middle between design, product, and implementation.
+  title: The Useful Middle Between Design, Product, And Implementation.
   items:
-    - title: Product-minded
+    - title: Product-Minded
       text: I care about the workflow, the user, and the business reason behind the build.
     - title: Operational
       text: I am comfortable with messy data, reporting needs, client support, and practical constraints.
-    - title: Implementation-led
+    - title: Implementation-Led
       text: I prefer shipping a focused useful version, then iterating with feedback.
-    - title: Clear handover
+    - title: Clear Handover
       text: I document decisions, support the launch, and keep editable content in the CMS layer.
 cta:
   eyebrow: Next step
-  title: Need the full background?
+  title: Need The Full Background?
   text: The resume has the detailed role history. For project work, start with the quote flow and I will help shape the scope.
   primaryCta:
     text: View resume

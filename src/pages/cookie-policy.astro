@@ -8,6 +8,7 @@ type PolicyPage = {
   eyebrow: string;
   title: string;
   slug: string;
+  seo?: Record<string, unknown>;
   summary: string;
   updated: string;
   sections: {
@@ -25,6 +26,6 @@ if (!policy) {
 }
 ---
 
-<Layout title={policy.title}>
+<Layout title={policy.title} seo={policy.seo}>
   <PolicyDocument policy={policy} related={related} labels={policies.labels} cta={policies.cta} />
 </Layout>

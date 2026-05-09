@@ -6,7 +6,14 @@ const {
   title,
   description,
   image,
+  imageAlt,
+  canonicalPath,
+  keywords,
+  schemaType,
+  jsonLd,
+  seo = {},
   noIndex = false,
+  noFollow = false,
   noBrand = false,
   locale = "en-GB",
 
@@ -20,19 +27,40 @@ const ogLocale = locale.replace("-", "_");
 const siteName = meta.siteName;
 const brand = meta.brand;
 const tagline = meta.tagline;
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") ?? Astro.url.origin;
+const toAbsoluteUrl = (value?: string) => {
+  if (!value) return undefined;
+  if (value.startsWith("http://") || value.startsWith("https://")) return value;
+  return `${baseUrl}${value.startsWith("/") ? value : `/${value}`}`;
+};
 
-const pageTitle = noBrand
-  ? title
-  : title
-    ? `${title} | ${siteName} (${brand})`
+const resolvedTitle = seo.title ?? title;
+const resolvedDescription = seo.description ?? description;
+const resolvedImage =
+  seo.image?.src ?? (typeof seo.image === "string" ? seo.image : undefined) ?? image;
+const resolvedImageAlt = seo.image?.alt ?? imageAlt ?? resolvedTitle;
+const resolvedCanonicalPath = seo.canonicalPath ?? canonicalPath;
+const resolvedNoIndex = seo.noIndex ?? noIndex;
+const resolvedNoFollow = seo.noFollow ?? noFollow;
+const resolvedKeywords = seo.keywords ?? keywords;
+const resolvedSchemaType = seo.schemaType ?? schemaType ?? "WebPage";
+const resolvedJsonLd = seo.jsonLd ?? jsonLd;
+const resolvedNoBrand = seo.title ? true : noBrand;
+const canonicalUrl = resolvedCanonicalPath
+  ? toAbsoluteUrl(resolvedCanonicalPath)
+  : Astro.url.href;
+
+const pageTitle = resolvedNoBrand
+  ? resolvedTitle
+  : resolvedTitle
+    ? `${resolvedTitle} | ${siteName} (${brand})`
     : `${siteName} (${brand}) | ${tagline}`;
-const pageDescription = description ? description : meta.description;
-const pageImage = image ? image : meta.image;
+const pageDescription = resolvedDescription ? resolvedDescription : meta.description;
+const pageImage = toAbsoluteUrl(resolvedImage ? resolvedImage : meta.image);
+const logoUrl = toAbsoluteUrl(meta.logo);
 
 const sameAs =
   socials?.profiles?.map((profile: { url: string }) => profile.url) ?? [];
-
-const baseUrl = Astro.site?.toString().replace(/\/$/, "")!;
 
 const entitySchema = {
   "@context": "https://schema.org",
@@ -43,10 +71,10 @@ const entitySchema = {
   legalName: meta.legalName ?? siteName,
   description: meta.description,
   url: baseUrl,
-  ...(meta.logo && {
+  ...(logoUrl && {
     logo: {
       "@type": "ImageObject",
-      url: meta.logo,
+      url: logoUrl,
     },
   }),
   sameAs,
@@ -59,6 +87,7 @@ const entitySchema = {
 const websiteSchema: WebsiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${baseUrl}#website`,
   name: siteName,
   url: baseUrl,
   description: meta.description,
@@ -76,22 +105,44 @@ if (meta.hasSearch) {
   };
 }
 
+const webPageSchema = {
+  "@type": resolvedSchemaType,
+  "@id": `${canonicalUrl}#webpage`,
+  url: canonicalUrl,
+  name: pageTitle,
+  description: pageDescription,
+  inLanguage: locale,
+  isPartOf: {
+    "@id": `${baseUrl}#website`,
+  },
+  about: {
+    "@id": `${baseUrl}#identity`,
+  },
+  ...(pageImage && {
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: pageImage,
+      ...(resolvedImageAlt && { caption: resolvedImageAlt }),
+    },
+  }),
+};
+
 const schemaGraph = {
   "@context": "https://schema.org",
-  "@graph": [entitySchema, websiteSchema],
+  "@graph": [entitySchema, websiteSchema, webPageSchema],
 };
 
 const articleSchema = {
   "@type": "BlogPosting",
-  "@id": `${Astro.url.href}#article`,
+  "@id": `${canonicalUrl}#article`,
   headline: pageTitle,
   description: pageDescription,
-  url: Astro.url.href,
+  url: canonicalUrl,
   inLanguage: locale,
 
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": Astro.url.href,
+    "@id": `${canonicalUrl}#webpage`,
   },
 
   author: {
@@ -118,6 +169,27 @@ const articleSchema = {
 if (isArticle) {
   schemaGraph["@graph"].push(articleSchema);
 }
+
+if (resolvedJsonLd) {
+  try {
+    const customSchema = JSON.parse(resolvedJsonLd);
+    if (Array.isArray(customSchema)) {
+      schemaGraph["@graph"].push(...customSchema);
+    } else {
+      schemaGraph["@graph"].push(customSchema);
+    }
+  } catch (error) {
+    console.warn("Invalid SEO JSON-LD was ignored.", error);
+  }
+}
+
+const robotsContent = [
+  resolvedNoIndex ? "noindex" : "index",
+  resolvedNoFollow ? "nofollow" : "follow",
+  "max-image-preview:large",
+  "max-snippet:-1",
+  "max-video-preview:-1",
+].join(", ");
 ---
 
 <meta charset="UTF-8" />
@@ -127,18 +199,19 @@ if (isArticle) {
 <meta name="generator" content={Astro.generator} />
 <title>{pageTitle}</title>
 <meta name="description" content={pageDescription} />
-<link rel="canonical" href={Astro.url.href} />
+{resolvedKeywords?.length > 0 && <meta name="keywords" content={resolvedKeywords.join(", ")} />}
+<link rel="canonical" href={canonicalUrl} />
 <meta property="og:type" content={isArticle ? "article" : "website"} />
 <meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={pageDescription} />
 <meta property="og:site_name" content={siteName} />
-<meta property="og:url" content={Astro.url.href} />
+<meta property="og:url" content={canonicalUrl} />
 <meta property="og:locale" content={ogLocale} />
 {
   pageImage && (
     <>
       <meta property="og:image" content={pageImage} />
-      <meta property="og:image:alt" content={pageTitle} />
+      <meta property="og:image:alt" content={resolvedImageAlt} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
     </>
@@ -151,16 +224,11 @@ if (isArticle) {
   pageImage && (
     <>
       <meta name="twitter:image" content={pageImage} />
-      <meta name="twitter:image:alt" content={pageTitle} />
+      <meta name="twitter:image:alt" content={resolvedImageAlt} />
     </>
   )
 }
-<meta
-  name="robots"
-  content={noIndex
-    ? "noindex, nofollow"
-    : "index, follow, max-image-preview:large"}
-/>
+<meta name="robots" content={robotsContent} />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 {meta.themeColor && <meta name="theme-color" content={meta.themeColor} />}
 <script

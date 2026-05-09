@@ -1,12 +1,29 @@
+seo:
+  title: Ryan Allen | React & Next.js Developer In London
+  description: Ryan Allen is a London-based software developer building React/Next.js dashboards, reporting tools, payment workflows, AI-assisted product systems, and fast CMS websites.
+  canonicalPath: /
+  image:
+    src: /images/og-image.webp
+    alt: Ryan Allen, React and Next.js software developer in London.
+  keywords:
+    - React developer London
+    - Next.js developer London
+    - dashboard developer
+    - payment workflow developer
+    - startup software developer
+    - R Allen Dev
+  noIndex: false
+  noFollow: false
+  schemaType: ProfilePage
 hero:
   eyebrow: Ryan Allen / R Allen Dev
-  title: Startup dashboards.
-  titleAccent: Payment systems.
+  title: Startup Dashboards.
+  titleAccent: Practical Product Tools.
   intro: London-based software developer building practical React/Next.js tools for startups that need clearer workflows, reporting, and product momentum.
   metadata:
     - React / Next.js
     - TypeScript
-    - Payment reporting
+    - Reporting tools
     - AI-assisted delivery
   primaryCta:
     text: Start a project
@@ -19,17 +36,17 @@ hero:
     label: Available now
     location: London / UK
   image:
-    src: /images/resume-photo.jpg
+    src: /images/hero-photo.jpeg
     alt: Headshot of Ryan Allen.
-    note: Existing resume portrait. Replace in the CMS when a stronger portfolio portrait is available.
+    note: Hero portrait for the homepage.
   highlights:
     - label: Best fit
-      text: Dashboards, reporting, payment ops, and internal tools.
+      text: Dashboards, reporting tools, workflow UX, and internal systems.
     - label: Secondary lane
-      text: Fast websites, CMS builds, WordPress, WooCommerce, and support.
+      text: Fast websites, editable CMS builds, ecommerce, WooCommerce, and support.
 marquee:
   - React / Next.js dashboards
-  - Payment reporting systems
+  - Reporting and workflow tools
   - TypeScript product work
   - AI-assisted delivery
   - Startup product support
@@ -47,14 +64,14 @@ stats:
     label: Support baseline
 work:
   eyebrow: Selected works
-  title: Recent product builds.
-  intro: A snapshot of dashboards, payment systems, and product work shipped over the past two years.
+  title: Recent Product Builds.
+  intro: A snapshot of dashboards, reporting tools, AI-assisted product work, and practical systems shipped over the past two years.
   meta: Full case studies coming soon. Available under NDA on request.
   items:
     - number: "01"
       project: GatewayPay / Fintech
-      title: Payment reporting dashboard for a 5-person fintech.
-      summary: Next.js dashboards for payouts, PSPs, P&L visibility, and account reconciliation. Owned reporting accuracy on a multi-million AUD client account.
+      title: Operational Reporting Dashboard For A 5-Person Fintech.
+      summary: Next.js dashboards for reporting, operations, P&L visibility, and account reconciliation. Owned reporting accuracy on a multi-million AUD client account.
       tags:
         - Next.js
         - Reporting
@@ -68,10 +85,10 @@ work:
         href: /contact
     - number: "02"
       project: iCore / Crypto
-      title: Crypto payment UI for less technical depositors.
-      summary: Reframed crypto deposit flows for non-technical users and shipped clearer payment dashboards inside a CPA-driven product.
+      title: Crypto Product UI For Less Technical Users.
+      summary: Reframed crypto deposit flows for non-technical users and shipped clearer product dashboards inside a CPA-driven startup environment.
       tags:
-        - Payment UX
+        - Product UX
         - Dashboards
         - Crypto
       image:
@@ -83,7 +100,7 @@ work:
         href: /contact
     - number: "03"
       project: Independent / AI
-      title: AI football tips delivery platform.
+      title: AI Football Tips Delivery Platform.
       summary: A publishing system around an AI-assisted football tips engine. Astro/Next-based, built for fast iteration and editorial control.
       tags:
         - Astro
@@ -98,40 +115,40 @@ work:
         href: /contact
 services:
   eyebrow: What I build
-  title: Product systems first. Websites when they fit.
+  title: Product Systems First. Websites When They Fit.
   intro: Custom tools lead the offer. Website and CMS work stays available for simpler scopes.
   cards:
-    - title: Dashboards and internal tools
+    - title: Dashboards And Internal Tools
       description: Operational interfaces for clearer data, actions, and handover.
       items:
         - Next.js
         - TypeScript
         - Workflow UX
       href: /services
-    - title: Payment and reporting systems
-      description: Payout, PSP, analytics, and reconciliation views teams can trust.
-      items:
-        - Payment UX
-        - API checks
-        - P&L visibility
-      href: /services
-    - title: Startup product support
+    - title: Startup Product Support
       description: Feature builds, bug fixes, and stabilisation for fast-moving teams.
       items:
         - SaaS features
         - Production fixes
         - Handover
       href: /services
-    - title: Websites, CMS, and WooCommerce
-      description: Fast editable sites when the project does not need a custom app.
+    - title: Websites And CMS Builds
+      description: Fast editable sites, landing pages, brochure sites, and CMS-backed content when the project does not need a custom app.
       items:
         - Astro
         - WordPress
+        - CMS
+      href: /services
+    - title: Ecommerce And WooCommerce
+      description: Online stores, checkout UX, product structures, and WooCommerce support for practical selling workflows.
+      items:
         - WooCommerce
+        - Ecommerce
+        - Checkout UX
       href: /services
 proof:
   eyebrow: Experience signals
-  title: Startup context, product judgment, hands-on code.
+  title: Startup Context, Product Judgment, Hands-On Code.
   intro: I work close to the user journey, the numbers, and the people relying on the system.
   items:
     - company: Thrice Agency
@@ -145,27 +162,27 @@ proof:
     - company: GatewayPay
       role: Lead Developer
       timeframe: 2024 - 2025
-      summary: Next.js dashboards for payment reporting, payouts, operations, and integrations.
+      summary: Next.js dashboards for reporting, operations, client workflows, and integrations.
       tags:
         - Next.js
         - Reporting
-        - Payments
+        - Operations
     - company: iCore
       role: Lead Developer
       timeframe: 2023 - 2024
-      summary: Crypto payment dashboards and clearer payment flows for less technical users.
+      summary: Crypto product dashboards and clearer user flows for less technical users.
       tags:
-        - Payment UX
+        - Product UX
         - Dashboards
         - Support
 engagements:
   eyebrow: Ways to start
-  title: Pick the right starting shape.
+  title: Pick The Right Starting Shape.
   intro: Fixed website, focused sprint, or hourly support.
   cards:
-    - title: Dashboard or product sprint
+    - title: Dashboard Or Product Sprint
       price: From $2,500-$5,000+
-      description: For tools, dashboards, payment workflows, or AI-assisted product features.
+      description: For tools, dashboards, reporting workflows, or AI-assisted product features.
       items:
         - Scope workflow
         - Ship first version
@@ -174,7 +191,7 @@ engagements:
       cta:
         text: Scope a sprint
         href: /contact
-    - title: Website or CMS build
+    - title: Website Or CMS Build
       price: From $1,000-$4,500+
       description: For landing pages, CMS builds, ecommerce, WooCommerce, and hosting.
       items:
@@ -184,7 +201,7 @@ engagements:
       cta:
         text: Plan a website
         href: /contact
-    - title: Support and iteration
+    - title: Support And Iteration
       price: $50/hour baseline
       description: For debugging, production fixes, reporting improvements, and handover.
       items:
@@ -196,18 +213,18 @@ engagements:
         href: /contact
 process:
   eyebrow: How I work
-  title: Scope it. Ship it. Stabilise it.
+  title: Scope It. Ship It. Stabilise It.
   steps:
-    - title: Map the real workflow
+    - title: Map The Real Workflow
       text: User journey, business goal, data sources, constraints, and friction.
-    - title: Build the smallest useful version
+    - title: Build The Smallest Useful Version
       text: A focused first version beats a long invisible build.
-    - title: Stabilise and hand over
+    - title: Stabilise And Hand Over
       text: Debugging, documentation, CMS ownership, and support.
 cta:
   eyebrow: Let's build
-  title: Turn the messy workflow into something usable.
-  text: Dashboard, payment flow, reporting view, website, or product system. Start with the risk, then choose the scope.
+  title: Turn The Messy Workflow Into Something Usable.
+  text: Dashboard, reporting view, website, workflow, or product system. Start with the risk, then choose the scope.
   primaryCta:
     text: Get in touch
     href: /contact

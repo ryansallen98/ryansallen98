@@ -27,7 +27,15 @@ const meta: CmsFile = {
       label: "Job Title (for Person entity type)",
       widget: "string",
       required: false,
-    }
+    },
+    { name: "author", label: "Default Author", required: false },
+    {
+      name: "hasSearch",
+      label: "Site Has Search",
+      widget: "boolean",
+      default: false,
+      required: false,
+    },
   ],
 };
 

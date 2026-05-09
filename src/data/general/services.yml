@@ -1,6 +1,23 @@
+seo:
+  title: Services | Dashboards, Websites, Ecommerce & Support
+  description: Software development services from R Allen Dev, including React/Next.js dashboards, internal tools, reporting systems, startup product support, CMS websites, and WooCommerce builds.
+  canonicalPath: /services
+  image:
+    src: /images/og-image.webp
+    alt: R Allen Dev software development services.
+  keywords:
+    - software development services
+    - dashboard development
+    - internal tools developer
+    - Next.js dashboards
+    - WooCommerce developer
+    - CMS website developer
+  noIndex: false
+  noFollow: false
+  schemaType: CollectionPage
 hero:
   eyebrow: Services
-  title: Product systems, dashboards, and reliable websites.
+  title: Product Systems, Dashboards, And Reliable Websites.
   intro: "Choose the service lane that matches the work: custom product systems first, websites and CMS builds when the scope is simpler."
   primaryCta:
     text: Get a quote
@@ -10,9 +27,9 @@ hero:
     href: /pricing
 services:
   eyebrow: Core services
-  title: The main ways I can help.
+  title: The Main Ways I Can Help.
   items:
-    - title: Dashboards and internal tools
+    - title: Dashboards And Internal Tools
       description: Admin panels, reporting views, client portals, operations tools, and workflow interfaces built around how the team actually works.
       tags:
         - Next.js
@@ -21,16 +38,7 @@ services:
       cta:
         text: Scope this
         href: /get-a-quote
-    - title: Payment and reporting workflows
-      description: Payment-flow UX, payout visibility, PSP/integration support, reporting checks, and dashboards that make numbers easier to trust.
-      tags:
-        - Payment UX
-        - API checks
-        - Payout views
-      cta:
-        text: Plan a workflow
-        href: /get-a-quote
-    - title: Startup product support
+    - title: Startup Product Support
       description: Feature delivery, debugging, stabilisation, handover, and AI-assisted iteration for small teams that need someone adaptable.
       tags:
         - SaaS features
@@ -39,28 +47,37 @@ services:
       cta:
         text: Ask for support
         href: /get-a-quote
-    - title: Websites, CMS, and WooCommerce
-      description: Fast brochure sites, CMS-driven pages, WordPress/WooCommerce builds, hosting, maintenance, and practical client support.
+    - title: Websites And CMS Builds
+      description: Fast brochure sites, landing pages, Astro builds, WordPress sites, editable CMS content, hosting, maintenance, and practical client support.
       tags:
         - Astro
         - WordPress
-        - WooCommerce
+        - CMS
       cta:
         text: Start a website
         href: /get-a-quote
+    - title: Ecommerce And WooCommerce
+      description: Online stores, WooCommerce setup, checkout improvements, product structures, order flows, and store support for smaller business needs.
+      tags:
+        - WooCommerce
+        - Ecommerce
+        - Checkout UX
+      cta:
+        text: Plan a store
+        href: /get-a-quote
 process:
   eyebrow: Delivery shape
-  title: A simple path from messy need to usable system.
+  title: A Simple Path From Messy Need To Usable System.
   steps:
-    - title: Scope the real job
+    - title: Scope The Real Job
       text: Clarify the user, workflow, data, constraints, budget, and risk before choosing the build shape.
-    - title: Build the focused version
+    - title: Build The Focused Version
       text: Ship the smallest useful release with the right stack and a clean enough foundation to iterate.
-    - title: Stabilise and hand over
+    - title: Stabilise And Hand Over
       text: Test, document, CMS-proof editable content, and make support or next steps clear.
 cta:
   eyebrow: Start here
-  title: Not sure which service fits?
+  title: Not Sure Which Service Fits?
   text: Use the quote flow. It branches by project type and gives a better starting point than a generic contact form.
   primaryCta:
     text: Get a quote

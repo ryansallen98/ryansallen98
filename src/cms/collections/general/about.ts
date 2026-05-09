@@ -1,3 +1,5 @@
+import seoFields from "./seoFields";
+
 const linkFields = [
   { name: "text", label: "Text" },
   { name: "href", label: "Link" },
@@ -8,6 +10,7 @@ const about: CmsFile = {
   label: "About Page",
   file: "src/data/general/about.yml",
   fields: [
+    seoFields,
     {
       name: "hero",
       label: "Hero",

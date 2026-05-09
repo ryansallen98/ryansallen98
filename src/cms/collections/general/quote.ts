@@ -1,3 +1,5 @@
+import seoFields from "./seoFields";
+
 const optionFields = [
   { name: "label", label: "Label" },
   { name: "value", label: "Value" },
@@ -9,6 +11,7 @@ const quote: CmsFile = {
   label: "Get A Quote",
   file: "src/data/general/quote.yml",
   fields: [
+    seoFields,
     {
       name: "hero",
       label: "Hero",

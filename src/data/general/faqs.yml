@@ -2,10 +2,10 @@ groups:
   - key: homepage
     label: Homepage FAQs
     eyebrow: Questions
-    title: Before we start.
+    title: Before We Start.
     items:
-      - question: What kind of work is the best fit?
-        answer: Dashboards, internal tools, payment/reporting workflows, startup product support, and practical systems that need clear UX plus hands-on implementation.
+      - question: What work do you lead with?
+        answer: React and Next.js dashboards and customer apps, payment and subscription flows, reporting and data views, internal tools, and startup product support—projects where workflows, integrations, and reliability matter as much as the interface.
       - question: Are websites still part of the offer?
         answer: Yes. Websites, CMS builds, WordPress, WooCommerce, hosting, and maintenance are a secondary lane when the client needs a reliable web presence rather than a custom app.
       - question: Can you improve an existing product?
@@ -19,7 +19,7 @@ groups:
   - key: services
     label: Services FAQs
     eyebrow: Questions
-    title: Service questions.
+    title: Service Questions.
     items:
       - question: Do I need a custom app or a website?
         answer: If the job is mostly publishing content, selling products, or generating leads, a website/CMS is usually right. If people need to log in, manage data, run workflows, or view reports, it is closer to a custom app.

@@ -64,6 +64,7 @@ const hero = home.hero as {
   image: HeroImage;
   highlights: HeroHighlight[];
 };
+const seo = home.seo;
 
 const marquee = (home.marquee as string[]) ?? [];
 const stats = home.stats as Stat[];
@@ -109,7 +110,7 @@ const cta = home.cta as {
 };
 ---
 
-<Layout title={hero.title}>
+<Layout title={hero.title} seo={seo}>
   <!-- HERO -->
   <section
     class="relative overflow-hidden bg-background-dark pt-28 pb-16 text-foreground-dark sm:pt-32 lg:pt-36 lg:pb-24"

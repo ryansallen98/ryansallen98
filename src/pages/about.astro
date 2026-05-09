@@ -31,6 +31,7 @@ const hero = about.hero as {
   primaryCta: Cta;
   secondaryCta: Cta;
 };
+const seo = about.seo;
 const summary = about.summary as {
   eyebrow: string;
   title: string;
@@ -56,7 +57,7 @@ const cta = about.cta as {
 };
 ---
 
-<Layout title={hero.title}>
+<Layout title={hero.title} seo={seo}>
   <section class="bg-background-dark pt-28 pb-16 text-foreground-dark sm:pt-32 lg:pt-36 lg:pb-24">
     <div class="container mx-auto max-w-7xl px-5">
       <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end">

@@ -1,19 +1,35 @@
+seo:
+  title: Contact Ryan Allen | R Allen Dev
+  description: Contact Ryan Allen for React/Next.js dashboards, reporting tools, startup product support, CMS websites, WooCommerce builds, and scoped software development work.
+  canonicalPath: /contact
+  image:
+    src: /images/og-image.webp
+    alt: Contact Ryan Allen at R Allen Dev.
+  keywords:
+    - contact Ryan Allen
+    - R Allen Dev contact
+    - hire React developer
+    - hire Next.js developer
+    - freelance software developer London
+  noIndex: false
+  noFollow: false
+  schemaType: ContactPage
 hero:
   eyebrow: Contact
-  title: Tell me what needs building.
+  title: Tell Me What Needs Building.
   intro: Use the quote flow for scoped work, or send a shorter message if you need a direct conversation first.
   primaryCta:
     text: Get a quote
     href: /get-a-quote
   secondaryCta:
-    text: Check availability
-    href: /availability
+    text: View pricing
+    href: /pricing
 methods:
   eyebrow: Contact options
-  title: Choose the route that fits.
+  title: Choose The Route That Fits.
   items:
-    - title: Quote flow
-      text: Best for new builds, dashboards, websites, payment/reporting systems, and scoped support.
+    - title: Quote Flow
+      text: Best for new builds, dashboards, websites, ecommerce, reporting tools, and scoped support.
       label: Start quote
       href: /get-a-quote
       icon: lucide:clipboard-list
@@ -34,7 +50,7 @@ methods:
       icon: mdi:whatsapp
 brief:
   eyebrow: Project brief
-  title: Send the useful details.
+  title: Send The Useful Details.
   text: Include the project type, current stack, deadline, budget range, existing URL or repo, and the main blocker or outcome.
   formName: contact
   fields:
@@ -52,7 +68,7 @@ brief:
       placeholder: Choose one
       options:
         - Dashboard, app, or internal tool
-        - Payment or reporting workflow
+        - Dashboard, reporting, or workflow tool
         - Website, CMS, or landing page
         - WordPress or WooCommerce
         - Support, fixes, or maintenance
@@ -63,7 +79,7 @@ brief:
   submitText: Send message
 cta:
   eyebrow: Better estimate
-  title: Need a clearer starting point?
+  title: Need A Clearer Starting Point?
   text: The quote flow asks the right questions and points the project toward a useful starting estimate.
   primaryCta:
     text: Get a quote

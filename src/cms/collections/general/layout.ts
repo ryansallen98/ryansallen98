@@ -1,6 +1,14 @@
 const linkFields = [
   { name: "text", label: "Text" },
   { name: "href", label: "Link" },
+  {
+    name: "variant",
+    label: "Variant",
+    widget: "select",
+    options: ["default", "primary"],
+    default: "default",
+    required: false,
+  },
 ];
 
 const layout: CmsFile = {

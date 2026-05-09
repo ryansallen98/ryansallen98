@@ -1,6 +1,7 @@
 interface WebsiteSchema {
   "@context": string;
   "@type": "WebSite";
+  "@id"?: string;
   name: string;
   url: string;
   description?: string;

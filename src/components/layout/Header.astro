@@ -2,11 +2,13 @@
 import LogoIcon from "@components/branding/LogoIcon.astro";
 import NavMenu from "@components/navigation/NavMenu.astro";
 import Socials from "@components/content/Socials.astro";
+import Button from "@components/ui/Button.astro";
 import layout from "@data/general/layout.yml";
 
 type NavItem = {
   text: string;
   href: string;
+  variant?: "default" | "primary";
 };
 
 const header = layout.header as {
@@ -107,22 +109,39 @@ const header = layout.header as {
           {
             header.links.map((link: NavItem, index: number) => (
               <li
-                class="border-b border-divider-dark/80 transition-all duration-600 ease-out motion-reduce:translate-x-0 motion-reduce:opacity-100 motion-reduce:blur-0 motion-reduce:transition-none"
+                class={`${link.variant === "primary" ? "mt-5 border-b-0" : "border-b border-divider-dark/80"} transition-all duration-600 ease-out motion-reduce:translate-x-0 motion-reduce:opacity-100 motion-reduce:blur-0 motion-reduce:transition-none`}
                 :class="isOpen ? 'translate-x-0 opacity-100 blur-0' : 'translate-x-8 opacity-0 blur-sm'"
                 x-bind:style={`isOpen ? 'transition-delay: ${160 + index * 80}ms' : 'transition-delay: 0ms'`}
               >
-                <a
-                  href={link.href}
-                  data-nav-link
-                  data-href={link.href}
-                  class="group flex items-center justify-between py-3.5 font-heading text-5xl uppercase leading-none text-foreground-dark transition-colors duration-300 hover:text-primary focus-visible:text-primary sm:py-4 sm:text-7xl"
-                  @click="close()"
-                >
-                  <span>{link.text}</span>
-                  <span class="ml-4 text-sm font-base text-muted transition-transform duration-300 group-hover:translate-x-2 group-hover:text-primary sm:text-base">
-                    0{index + 1}
-                  </span>
-                </a>
+                {
+                  link.variant === "primary" ? (
+                    <div @click="close()">
+                      <Button
+                        as="a"
+                        href={link.href}
+                        text={link.text}
+                        variant="primary"
+                        iconEnd="lucide:arrow-right"
+                        data-nav-link
+                        data-href={link.href}
+                        class="w-full justify-between px-5 py-5 font-heading text-4xl leading-none sm:px-6 sm:py-6 sm:text-6xl"
+                      />
+                    </div>
+                  ) : (
+                    <a
+                      href={link.href}
+                      data-nav-link
+                      data-href={link.href}
+                      class="group flex items-center justify-between py-3.5 font-heading text-5xl uppercase leading-none text-foreground-dark transition-colors duration-300 hover:text-primary focus-visible:text-primary sm:py-4 sm:text-7xl"
+                      @click="close()"
+                    >
+                      <span>{link.text}</span>
+                      <span class="ml-4 text-sm font-base text-muted transition-transform duration-300 group-hover:translate-x-2 group-hover:text-primary sm:text-base">
+                        0{index + 1}
+                      </span>
+                    </a>
+                  )
+                }
               </li>
             ))
           }

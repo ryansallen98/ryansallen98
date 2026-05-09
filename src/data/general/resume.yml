@@ -1,3 +1,18 @@
+seo:
+  title: Ryan Allen Resume | React & Next.js Developer
+  description: View Ryan Allen's resume covering React/Next.js dashboards, payment workflows, reporting systems, startup product support, AI-assisted delivery, and CMS website work.
+  canonicalPath: /resume
+  image:
+    src: /images/resume-photo.jpg
+    alt: Ryan Allen resume headshot.
+  keywords:
+    - Ryan Allen resume
+    - React developer resume
+    - Next.js developer resume
+    - software developer London resume
+  noIndex: false
+  noFollow: false
+  schemaType: ProfilePage
 name: Ryan Allen
 headline: React / Next.js Developer
 location: London, United Kingdom

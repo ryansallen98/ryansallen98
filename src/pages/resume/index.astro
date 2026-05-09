@@ -10,9 +10,10 @@ import Button from "@components/ui/Button.astro";
 import resume from "@data/general/resume.yml";
 
 const title = `${resume.name} Resume`;
+const seo = resume.seo;
 ---
 
-<Layout title={title} chrome={false}>
+<Layout title={title} seo={seo} chrome={false}>
   <div class="resume-background">
     <div class="resume-pdf-fallback" data-resume-pdf-fallback aria-hidden="true">
       <div class="resume-pdf-fallback-card">

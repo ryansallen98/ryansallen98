@@ -1,8 +1,11 @@
+import seoFields from "./seoFields";
+
 const resume: CmsFile = {
   name: "resume",
   label: "Resume",
   file: "src/data/general/resume.yml",
   fields: [
+    seoFields,
     { name: "name", label: "Name" },
     { name: "headline", label: "Headline" },
     { name: "location", label: "Location" },

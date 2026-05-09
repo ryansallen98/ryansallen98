@@ -1,17 +1,35 @@
 ---
-const { href, text } = Astro.props;
+import Button from "@components/ui/Button.astro";
+
+const { href, text, variant = "default" } = Astro.props;
+const isPrimary = variant === "primary";
 ---
 
 <li>
-  <a
-    href={href}
-    data-nav-link
-    data-href={href}
-    class="group flex flex-col font-medium text-muted hover:text-foreground-dark transition-all duration-300 uppercase"
-  >
-    {text}
-    <span
-      class="bg-primary w-0 h-0.5 inline-block group-hover:w-full transition-all duration-300 group-data-[active=true]:w-4 group-data-[active=true]:group-hover:w-full group-focus-visible:w-full  group-data-[active=true]:group-focus-visible:w-full"
-    ></span>
-  </a>
+  {
+    isPrimary ? (
+      <Button
+        as="a"
+        href={href}
+        text={text}
+        variant="primary"
+        iconEnd="lucide:arrow-right"
+        data-nav-link
+        data-href={href}
+        class="px-5 py-3 text-sm data-[active=true]:ring-1 data-[active=true]:ring-primary/60"
+      />
+    ) : (
+      <a
+        href={href}
+        data-nav-link
+        data-href={href}
+        class="group flex flex-col font-medium text-muted hover:text-foreground-dark transition-all duration-300 uppercase"
+      >
+        {text}
+        <span
+          class="bg-primary w-0 h-0.5 inline-block group-hover:w-full transition-all duration-300 group-data-[active=true]:w-4 group-data-[active=true]:group-hover:w-full group-focus-visible:w-full group-data-[active=true]:group-focus-visible:w-full"
+        />
+      </a>
+    )
+  }
 </li>

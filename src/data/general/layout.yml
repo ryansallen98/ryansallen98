@@ -9,21 +9,20 @@ header:
       href: /services
     - text: Pricing
       href: /pricing
-    - text: Availability
-      href: /availability
-    - text: Get a Quote
-      href: /get-a-quote
     - text: About Me
       href: /about
     - text: Contact
       href: /contact
+    - text: Get A Quote
+      href: /get-a-quote
+      variant: primary
 footer:
   cta:
     eyebrow: What I Do
-    text: Software developer building dashboards, payment/reporting workflows, startup tools, and reliable websites when a simpler lane fits.
+    text: Software developer building dashboards, startup tools, reporting views, and reliable websites when a simpler lane fits.
     button:
-      text: Let's work together
-      href: /contact
+      text: Get A Quote
+      href: /get-a-quote
   menus:
     - heading: General
       links:
@@ -33,12 +32,10 @@ footer:
           href: /services
         - text: Pricing
           href: /pricing
-        - text: Availability
-          href: /availability
-        - text: Get a Quote
-          href: /get-a-quote
         - text: Contact
           href: /contact
+        - text: Get A Quote
+          href: /get-a-quote
     - heading: About
       links:
         - text: About Me
@@ -51,6 +48,8 @@ footer:
           href: /privacy-policy
         - text: Cookie Policy
           href: /cookie-policy
+        - text: Cookie Settings
+          href: "#cookie-preferences"
         - text: Terms & Conditions
           href: /terms-and-conditions
   locations:
@@ -58,8 +57,8 @@ footer:
     items:
       - country: United Kingdom
         locality: London, England
-      - country: United States
-        locality: Saipan, Northern Mariana Islands
+      - country: Philippines
+        locality: Makati City, Metro Manila
   contact:
     heading: Contact Me
     items:

@@ -1,0 +1,29 @@
+storageKey: rallen_cookie_consent_v1
+revision: 1
+banner:
+  eyebrow: Privacy choices
+  title: Cookies Without Creep.
+  text: This portfolio uses necessary storage to remember your choice. PostHog analytics stays off unless you allow it, then it helps Ryan understand page views and improve the site without ads or retargeting.
+controls:
+  acceptLabel: Allow analytics
+  rejectLabel: Reject analytics
+  customizeLabel: Manage choices
+  saveLabel: Save choices
+  closeLabel: Close cookie preferences
+  reopenLabel: Privacy choices
+  onLabel: Analytics on
+  offLabel: Analytics off
+  gpcLabel: Your browser is sending Global Privacy Control, so analytics will stay off.
+categories:
+  necessary:
+    title: Necessary Storage
+    description: Required to remember your cookie choice and keep the site usable. This cannot be switched off from the banner.
+    statusLabel: Always on
+  analytics:
+    title: PostHog Analytics
+    description: Optional local and session storage for page-view analytics tied to a random device and session identifier.
+links:
+  - text: Cookie Policy
+    href: /cookie-policy
+  - text: Privacy Policy
+    href: /privacy-policy
