@@ -1,3 +1,5 @@
+import seoFields from "./seoFields";
+
 const linkFields = [
   { name: "text", label: "Text" },
   { name: "href", label: "Link" },
@@ -8,6 +10,7 @@ const pricing: CmsFile = {
   label: "Pricing Page",
   file: "src/data/general/pricing.yml",
   fields: [
+    seoFields,
     {
       name: "hero",
       label: "Hero",
@@ -40,6 +43,19 @@ const pricing: CmsFile = {
               label: "Features",
               widget: "list",
               field: { name: "feature", label: "Feature" },
+            },
+            {
+              name: "recommended",
+              label: "Recommended",
+              widget: "boolean",
+              required: false,
+              default: false,
+            },
+            {
+              name: "badge",
+              label: "Badge text",
+              required: false,
+              hint: "Optional pill text shown on recommended cards (e.g. Most requested).",
             },
             { name: "cta", label: "CTA", widget: "object", fields: linkFields },
           ],

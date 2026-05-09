@@ -1,6 +1,22 @@
+seo:
+  title: Pricing | Website, Dashboard & Support Starting Ranges
+  description: View starting pricing ranges for websites, CMS builds, WooCommerce projects, React/Next.js dashboards, internal tools, reporting workflows, and ongoing support from R Allen Dev.
+  canonicalPath: /pricing
+  image:
+    src: /images/og-image.webp
+    alt: R Allen Dev pricing for websites, dashboards, and support.
+  keywords:
+    - web developer pricing
+    - dashboard development pricing
+    - website build pricing
+    - WooCommerce pricing
+    - freelance developer rates
+  noIndex: false
+  noFollow: false
+  schemaType: CollectionPage
 hero:
   eyebrow: Pricing
-  title: Starting ranges, not fixed promises.
+  title: Starting Ranges, Not Fixed Promises.
   intro: Pricing depends on workflow complexity, integrations, content, timeline, and risk. These ranges are starting points for planning.
   primaryCta:
     text: Get a quote
@@ -10,9 +26,9 @@ hero:
     href: /services
 plans:
   eyebrow: Starting points
-  title: Pick the closest shape, then use the quote flow.
+  title: Pick The Closest Shape, Then Use The Quote Flow.
   items:
-    - title: Starter website
+    - title: Starter Website
       price: From $1,000
       description: A focused, high-performance web presence for a small brand, founder, or simple service.
       features:
@@ -22,7 +38,7 @@ plans:
       cta:
         text: Start quote
         href: /get-a-quote
-    - title: Business website
+    - title: Business Website
       price: From $2,500
       description: A stronger CMS-backed site with clearer content structure, conversion paths, and launch support.
       features:
@@ -32,7 +48,7 @@ plans:
       cta:
         text: Start quote
         href: /get-a-quote
-    - title: WooCommerce build
+    - title: WooCommerce Build
       price: From $3,000-$4,500+
       description: Ecommerce, checkout, product, shipping, local pickup, or WooCommerce workflow support.
       features:
@@ -42,27 +58,29 @@ plans:
       cta:
         text: Start quote
         href: /get-a-quote
-    - title: Dashboard or app
+    - title: Dashboard Or App
       price: From $2,500-$5,000+
-      description: Internal tools, client portals, reporting dashboards, payment workflows, or AI-assisted product features.
+      description: Internal tools, client portals, reporting dashboards, workflow systems, or AI-assisted product features.
       features:
         - Discovery-led scope
         - Data and workflow review
         - Focused first release
+      recommended: true
+      badge: Most requested
       cta:
         text: Scope project
         href: /get-a-quote
 support:
   eyebrow: Support
-  title: Ongoing changes start from $50/hour.
+  title: Ongoing Changes Start From $50/Hour.
   text: Support is best for bug fixes, production issues, small feature changes, CMS help, handover, reporting improvements, and iteration after launch.
 cta:
   eyebrow: Get a real estimate
-  title: The quote flow is the next step.
+  title: The Quote Flow Is The Next Step.
   text: It branches by project type, gathers the useful details, and gives a better starting point than guessing from a pricing table.
   primaryCta:
     text: Get a quote
     href: /get-a-quote
   secondaryCta:
-    text: Check availability
-    href: /availability
+    text: Contact me
+    href: /contact

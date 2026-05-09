@@ -16,6 +16,8 @@ type Plan = {
   description: string;
   features: string[];
   cta: Cta;
+  recommended?: boolean;
+  badge?: string;
 };
 
 const hero = pricing.hero as {
@@ -25,6 +27,7 @@ const hero = pricing.hero as {
   primaryCta: Cta;
   secondaryCta: Cta;
 };
+const seo = pricing.seo;
 const plans = pricing.plans as {
   eyebrow: string;
   title: string;
@@ -42,84 +45,315 @@ const cta = pricing.cta as {
   primaryCta: Cta;
   secondaryCta: Cta;
 };
+
+const splitPrice = (raw: string) => {
+  const match = raw.match(/^(From\s+)?(.+)$/i);
+  return {
+    prefix: match?.[1]?.trim() ?? "",
+    amount: (match?.[2] ?? raw).trim(),
+  };
+};
 ---
 
-<Layout title={hero.title}>
-  <section class="bg-background-dark pt-28 pb-16 text-foreground-dark sm:pt-32 lg:pt-36 lg:pb-24">
-    <div class="container mx-auto max-w-7xl px-5">
-      <div class="grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-end">
+<Layout title={hero.title} seo={seo}>
+  <!-- HERO -->
+  <section
+    class="relative overflow-hidden bg-background-dark pt-28 pb-20 text-foreground-dark sm:pt-32 lg:pt-40 lg:pb-28"
+  >
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 grid grid-cols-6 opacity-[0.06] sm:grid-cols-12"
+    >
+      {Array.from({ length: 12 }).map(() => (
+        <span class="border-r border-foreground-dark last:border-r-0"></span>
+      ))}
+    </div>
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute -right-32 top-10 hidden size-[520px] rounded-full bg-primary/15 blur-3xl lg:block"
+    ></div>
+
+    <div class="container relative mx-auto max-w-7xl px-5">
+      <div
+        class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-16"
+      >
         <div class="flex flex-col gap-7">
           <SubHeading text={hero.eyebrow} />
-          <h1 class="reveal-title font-hero max-w-5xl">{hero.title}</h1>
+          <h1
+            class="reveal-title font-heading uppercase tracking-normal leading-[0.95] text-[clamp(2.5rem,6.4vw,5.5rem)] max-w-4xl"
+          >
+            <span class="block font-heading">{hero.title}</span>
+          </h1>
         </div>
-        <div class="flex flex-col gap-7">
-          <p class="max-w-xl text-lg leading-relaxed text-muted">{hero.intro}</p>
-          <div class="flex flex-wrap gap-2">
-            <Button as="a" href={hero.primaryCta.href} text={hero.primaryCta.text} variant="primary" iconEnd="lucide:arrow-right" />
-            <Button as="a" href={hero.secondaryCta.href} text={hero.secondaryCta.text} variant="outline" iconEnd="lucide:arrow-right" />
+        <div class="flex flex-col gap-7 fade-in delay-200">
+          <p class="max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+            {hero.intro}
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <Button
+              as="a"
+              href={hero.primaryCta.href}
+              text={hero.primaryCta.text}
+              variant="primary"
+              iconEnd="lucide:arrow-right"
+            />
+            <Button
+              as="a"
+              href={hero.secondaryCta.href}
+              text={hero.secondaryCta.text}
+              variant="outline"
+              iconEnd="lucide:arrow-right"
+            />
+          </div>
+          <div
+            class="mt-2 grid gap-x-8 gap-y-4 border-l-2 border-primary pl-5 sm:grid-cols-3"
+          >
+            <div>
+              <p class="font-heading text-2xl leading-none">
+                {plans.items.length}
+              </p>
+              <p
+                class="mt-1 text-[11px] uppercase tracking-[0.18em] text-muted"
+              >
+                Starting shapes
+              </p>
+            </div>
+            <div>
+              <p class="font-heading text-2xl leading-none whitespace-nowrap">
+                $50<span class="text-base text-muted">/hr</span>
+              </p>
+              <p
+                class="mt-1 text-[11px] uppercase tracking-[0.18em] text-muted"
+              >
+                Support baseline
+              </p>
+            </div>
+            <div>
+              <p class="font-heading text-2xl leading-none">UK / AU</p>
+              <p
+                class="mt-1 text-[11px] uppercase tracking-[0.18em] text-muted"
+              >
+                Hours covered
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- PLANS -->
   <section class="bg-background-light py-18 text-foreground-light lg:py-28">
     <div class="container mx-auto max-w-7xl px-5">
-      <div class="mb-12 flex max-w-3xl flex-col gap-6">
-        <SubHeading text={plans.eyebrow} class="text-foreground-light" />
-        <h2 class="reveal-title font-h2">{plans.title}</h2>
+      <div
+        class="mb-14 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-16"
+      >
+        <div class="flex flex-col gap-6">
+          <SubHeading text={plans.eyebrow} class="text-foreground-light" />
+          <h2 class="reveal-title font-h2 max-w-2xl">{plans.title}</h2>
+        </div>
+        <p
+          class="max-w-2xl text-base leading-relaxed text-secondary-foreground-light fade-in delay-200 sm:text-lg"
+        >
+          Each card is a starting point. Final scope, timeline, and price are
+          confirmed after the quote flow and a short discovery call.
+        </p>
       </div>
-      <div class="grid gap-4 md:grid-cols-2">
+
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-4">
         {
-          plans.items.map((plan: Plan, index: number) => (
-            <article class="reveal-card flex min-h-[430px] flex-col justify-between border border-divider-light bg-secondary-light p-6 lg:p-8" style={`transition-delay: ${index * 80}ms`}>
-              <div class="flex flex-col gap-5">
-                <p class="font-h4 text-primary">{plan.price}</p>
-                <div>
-                  <h3 class="font-h3">{plan.title}</h3>
-                  <p class="mt-4 max-w-2xl leading-relaxed text-secondary-foreground-light">{plan.description}</p>
+          plans.items.map((plan: Plan, index: number) => {
+            const isRecommended = !!plan.recommended;
+            const { prefix, amount } = splitPrice(plan.price);
+            const indexLabel = `0${index + 1}`;
+            const cardClass = isRecommended
+              ? "border-primary bg-foreground-light text-foreground-dark shadow-[0_40px_80px_-30px_rgba(0,0,0,0.45)] lg:-translate-y-3"
+              : "border-divider-light bg-secondary-light text-foreground-light";
+            const indexClass = isRecommended
+              ? "text-primary"
+              : "text-secondary-foreground-light";
+            const descClass = isRecommended
+              ? "text-muted"
+              : "text-secondary-foreground-light";
+            const dividerClass = isRecommended
+              ? "border-divider-dark"
+              : "border-divider-light";
+            const featureClass = isRecommended
+              ? "text-foreground-dark"
+              : "text-foreground-light";
+            return (
+              <article
+                class={`reveal-card relative flex min-h-[520px] flex-col justify-between gap-7 border ${cardClass} p-7 transition duration-300 lg:p-8`}
+                style={`transition-delay: ${index * 80}ms`}
+              >
+                <div class="flex flex-col gap-6">
+                  <div class="flex items-center justify-between gap-3">
+                    <span
+                      class={`font-heading text-xl leading-none ${indexClass}`}
+                    >
+                      {indexLabel}
+                    </span>
+                    {isRecommended && (
+                      <span class="inline-flex items-center gap-2 bg-primary px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-primary-foreground">
+                        <span class="size-1.5 rounded-full bg-primary-foreground" />
+                        {plan.badge ?? "Recommended"}
+                      </span>
+                    )}
+                  </div>
+
+                  <div class="flex flex-col gap-3">
+                    <h3 class="font-h3">{plan.title}</h3>
+                    <p class={`leading-relaxed ${descClass}`}>
+                      {plan.description}
+                    </p>
+                  </div>
+
+                  <div
+                    class={`flex items-baseline gap-2 border-t pt-5 ${dividerClass}`}
+                  >
+                    {prefix && (
+                      <span
+                        class={`text-[11px] uppercase tracking-[0.22em] ${descClass}`}
+                      >
+                        {prefix}
+                      </span>
+                    )}
+                    <span
+                      class={`font-heading whitespace-nowrap text-3xl leading-none sm:text-4xl ${
+                        isRecommended ? "text-primary" : "text-foreground-light"
+                      }`}
+                    >
+                      {amount}
+                    </span>
+                  </div>
+
+                  <ul class="grid gap-3 text-sm">
+                    {plan.features.map((feature: string) => (
+                      <li class="flex items-start gap-3">
+                        <Icon
+                          name="lucide:check"
+                          class="mt-0.5 size-4 shrink-0 text-primary"
+                          aria-hidden="true"
+                        />
+                        <span class={featureClass}>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul class="grid gap-3 text-sm uppercase">
-                  {plan.features.map((feature: string) => (
-                    <li class="flex items-start gap-3">
-                      <Icon name="lucide:check" class="mt-0.5 size-4 text-primary" aria-hidden="true" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Button as="a" href={plan.cta.href} text={plan.cta.text} variant="dark" iconEnd="lucide:arrow-right" class="mt-8 w-fit" />
-            </article>
-          ))
+
+                <Button
+                  as="a"
+                  href={plan.cta.href}
+                  text={plan.cta.text}
+                  variant={isRecommended ? "primary" : "dark"}
+                  iconEnd="lucide:arrow-right"
+                  class="w-full"
+                />
+              </article>
+            );
+          })
         }
       </div>
     </div>
   </section>
 
-  <section class="bg-background-dark py-18 text-foreground-dark lg:py-24">
-    <div class="container mx-auto max-w-7xl px-5">
-      <div class="grid gap-8 border-y border-divider-dark py-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
-        <div class="flex flex-col gap-5">
+  <!-- SUPPORT -->
+  <section
+    class="relative overflow-hidden bg-background-dark py-18 text-foreground-dark lg:py-24"
+  >
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 grid grid-cols-6 opacity-[0.05] sm:grid-cols-12"
+    >
+      {Array.from({ length: 12 }).map(() => (
+        <span class="border-r border-foreground-dark last:border-r-0"></span>
+      ))}
+    </div>
+    <div class="container relative mx-auto max-w-7xl px-5">
+      <div
+        class="grid gap-10 border border-divider-dark bg-secondary-dark/40 p-8 backdrop-blur lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:gap-16 lg:p-12"
+      >
+        <div class="flex flex-col gap-6">
           <SubHeading text={support.eyebrow} />
-          <h2 class="font-h2 max-w-xl">{support.title}</h2>
+          <p
+            class="font-heading text-5xl uppercase leading-none text-primary whitespace-nowrap sm:text-6xl"
+          >
+            $50<span class="text-2xl text-muted sm:text-3xl">/hr</span>
+          </p>
+          <h2 class="font-h3 max-w-md">{support.title}</h2>
         </div>
-        <p class="max-w-3xl text-lg leading-relaxed text-muted">{support.text}</p>
+        <div
+          class="flex flex-col gap-6 lg:border-l lg:border-divider-dark lg:pl-12"
+        >
+          <p class="max-w-2xl text-lg leading-relaxed text-muted">
+            {support.text}
+          </p>
+          <ul
+            class="grid gap-x-8 gap-y-3 text-sm uppercase tracking-[0.14em] text-foreground-dark sm:grid-cols-2"
+          >
+            <li class="flex items-center gap-3">
+              <span class="size-1.5 rounded-full bg-primary" />
+              Bug fixes
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="size-1.5 rounded-full bg-primary" />
+              Production issues
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="size-1.5 rounded-full bg-primary" />
+              Reporting tweaks
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="size-1.5 rounded-full bg-primary" />
+              CMS handover
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-primary py-18 text-primary-foreground lg:py-24">
-    <div class="container mx-auto max-w-7xl px-5">
-      <div class="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
-        <div class="flex flex-col gap-5">
-          <SubHeading text={cta.eyebrow} class="[&_span:last-child]:border-primary-foreground" />
-          <h2 class="font-h2 max-w-3xl">{cta.title}</h2>
+  <!-- CTA -->
+  <section
+    class="relative overflow-hidden bg-primary py-20 text-primary-foreground lg:py-28"
+  >
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 grid grid-cols-6 opacity-[0.08] sm:grid-cols-12"
+    >
+      {Array.from({ length: 12 }).map(() => (
+        <span class="border-r border-primary-foreground last:border-r-0"></span>
+      ))}
+    </div>
+    <div class="container relative mx-auto max-w-7xl px-5">
+      <div
+        class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16"
+      >
+        <div class="flex flex-col gap-6">
+          <SubHeading
+            text={cta.eyebrow}
+            class="[&_span:last-child]:border-primary-foreground"
+          />
+          <h2 class="reveal-title font-h2 max-w-3xl">{cta.title}</h2>
         </div>
         <div class="flex flex-col gap-7">
           <p class="max-w-xl text-lg leading-relaxed">{cta.text}</p>
-          <div class="flex flex-wrap gap-2">
-            <Button as="a" href={cta.primaryCta.href} text={cta.primaryCta.text} variant="dark" iconEnd="lucide:arrow-right" />
-            <Button as="a" href={cta.secondaryCta.href} text={cta.secondaryCta.text} variant="outline" class="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" iconEnd="lucide:arrow-right" />
+          <div class="flex flex-wrap gap-3">
+            <Button
+              as="a"
+              href={cta.primaryCta.href}
+              text={cta.primaryCta.text}
+              variant="dark"
+              iconEnd="lucide:arrow-right"
+            />
+            <Button
+              as="a"
+              href={cta.secondaryCta.href}
+              text={cta.secondaryCta.text}
+              variant="outline"
+              class="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              iconEnd="lucide:arrow-right"
+            />
           </div>
         </div>
       </div>
