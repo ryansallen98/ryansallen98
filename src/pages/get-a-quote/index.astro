@@ -2,6 +2,7 @@
 import Layout from "@layouts/BaseLayout.astro";
 import quote from "@data/general/quote.yml";
 import QuoteWizard from "./_components/QuoteWizard";
+import NetlifyQuoteForm from "./_components/NetlifyQuoteForm.astro";
 
 const quoteConfig = {
   hero: quote.hero,
@@ -12,5 +13,6 @@ const quoteConfig = {
 ---
 
 <Layout title={quote.hero.title} seo={quote.seo} chrome={false}>
+  <NetlifyQuoteForm />
   <QuoteWizard config={quoteConfig} client:load />
 </Layout>
