@@ -7,6 +7,8 @@ header:
       href: /
     - text: Services
       href: /services
+    - text: Pricing
+      href: /pricing
     - text: Get a Quote
       href: /get-a-quote
     - text: About Me
@@ -27,6 +29,8 @@ footer:
           href: /
         - text: Services
           href: /services
+        - text: Pricing
+          href: /pricing
         - text: Get a Quote
           href: /get-a-quote
         - text: Contact

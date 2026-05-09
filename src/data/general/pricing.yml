@@ -1,0 +1,68 @@
+hero:
+  eyebrow: Pricing
+  title: Starting ranges, not fixed promises.
+  intro: Pricing depends on workflow complexity, integrations, content, timeline, and risk. These ranges are starting points for planning.
+  primaryCta:
+    text: Get a quote
+    href: /get-a-quote
+  secondaryCta:
+    text: View services
+    href: /services
+plans:
+  eyebrow: Starting points
+  title: Pick the closest shape, then use the quote flow.
+  items:
+    - title: Starter website
+      price: From $1,000
+      description: A focused, high-performance web presence for a small brand, founder, or simple service.
+      features:
+        - Core pages
+        - Responsive build
+        - Basic CMS/data setup
+      cta:
+        text: Start quote
+        href: /get-a-quote
+    - title: Business website
+      price: From $2,500
+      description: A stronger CMS-backed site with clearer content structure, conversion paths, and launch support.
+      features:
+        - Multi-section page system
+        - CMS-editable copy/media
+        - SEO and performance basics
+      cta:
+        text: Start quote
+        href: /get-a-quote
+    - title: WooCommerce build
+      price: From $3,000-$4,500+
+      description: Ecommerce, checkout, product, shipping, local pickup, or WooCommerce workflow support.
+      features:
+        - Store setup or improvements
+        - Checkout/workflow UX
+        - Support and handover
+      cta:
+        text: Start quote
+        href: /get-a-quote
+    - title: Dashboard or app
+      price: From $2,500-$5,000+
+      description: Internal tools, client portals, reporting dashboards, payment workflows, or AI-assisted product features.
+      features:
+        - Discovery-led scope
+        - Data and workflow review
+        - Focused first release
+      cta:
+        text: Scope project
+        href: /get-a-quote
+support:
+  eyebrow: Support
+  title: Ongoing changes start from $50/hour.
+  text: Support is best for bug fixes, production issues, small feature changes, CMS help, handover, reporting improvements, and iteration after launch.
+cta:
+  eyebrow: Get a real estimate
+  title: The quote flow is the next step.
+  text: It branches by project type, gathers the useful details, and gives a better starting point than guessing from a pricing table.
+  primaryCta:
+    text: Get a quote
+    href: /get-a-quote
+  secondaryCta:
+    text: Check availability
+    href: /availability
