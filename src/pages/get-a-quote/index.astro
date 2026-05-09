@@ -1,0 +1,16 @@
+---
+import Layout from "@layouts/BaseLayout.astro";
+import quote from "@data/general/quote.yml";
+import QuoteWizard from "./_components/QuoteWizard";
+
+const quoteConfig = {
+  hero: quote.hero,
+  wizard: quote.wizard,
+  estimates: quote.estimates,
+  result: quote.result,
+};
+---
+
+<Layout title={quote.hero.title} chrome={false}>
+  <QuoteWizard config={quoteConfig} client:load />
+</Layout>
