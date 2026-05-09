@@ -1,6 +1,7 @@
 hero:
   eyebrow: Ryan Allen / R Allen Dev
-  title: Startup dashboards. Payment systems.
+  title: Startup dashboards.
+  titleAccent: Payment systems.
   intro: London-based software developer building practical React/Next.js tools for startups that need clearer workflows, reporting, and product momentum.
   metadata:
     - React / Next.js
@@ -14,6 +15,9 @@ hero:
     text: See services
     href: /services
   availability: Available for freelance builds, product support, and selected full-time roles.
+  status:
+    label: Available now
+    location: London / UK
   image:
     src: /images/resume-photo.jpg
     alt: Headshot of Ryan Allen.
@@ -23,6 +27,15 @@ hero:
       text: Dashboards, reporting, payment ops, and internal tools.
     - label: Secondary lane
       text: Fast websites, CMS builds, WordPress, WooCommerce, and support.
+marquee:
+  - React / Next.js dashboards
+  - Payment reporting systems
+  - TypeScript product work
+  - AI-assisted delivery
+  - Startup product support
+  - Conversion-focused funnels
+  - Astro / Tailwind sites
+  - WordPress / WooCommerce
 stats:
   - value: "2019"
     label: Client work since
@@ -32,6 +45,57 @@ stats:
     label: AUD reporting supported
   - value: "$50/hr"
     label: Support baseline
+work:
+  eyebrow: Selected works
+  title: Recent product builds.
+  intro: A snapshot of dashboards, payment systems, and product work shipped over the past two years.
+  meta: Full case studies coming soon. Available under NDA on request.
+  items:
+    - number: "01"
+      project: GatewayPay / Fintech
+      title: Payment reporting dashboard for a 5-person fintech.
+      summary: Next.js dashboards for payouts, PSPs, P&L visibility, and account reconciliation. Owned reporting accuracy on a multi-million AUD client account.
+      tags:
+        - Next.js
+        - Reporting
+        - Fintech
+      image:
+        src: https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80
+        alt: Placeholder dashboard analytics screenshot.
+        note: Replace with a real GatewayPay dashboard screenshot once approved for public sharing.
+      cta:
+        text: Read case
+        href: /contact
+    - number: "02"
+      project: iCore / Crypto
+      title: Crypto payment UI for less technical depositors.
+      summary: Reframed crypto deposit flows for non-technical users and shipped clearer payment dashboards inside a CPA-driven product.
+      tags:
+        - Payment UX
+        - Dashboards
+        - Crypto
+      image:
+        src: https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1600&q=80
+        alt: Placeholder crypto wallet UI.
+        note: Replace with iCore dashboard or crypto wallet screenshot once approved for public sharing.
+      cta:
+        text: Read case
+        href: /contact
+    - number: "03"
+      project: Independent / AI
+      title: AI football tips delivery platform.
+      summary: A publishing system around an AI-assisted football tips engine. Astro/Next-based, built for fast iteration and editorial control.
+      tags:
+        - Astro
+        - AI
+        - Product
+      image:
+        src: https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1600&q=80
+        alt: Placeholder football pitch image.
+        note: Replace with platform screenshot once it is public.
+      cta:
+        text: Read case
+        href: /contact
 services:
   eyebrow: What I build
   title: Product systems first. Websites when they fit.
@@ -106,6 +170,7 @@ engagements:
         - Scope workflow
         - Ship first version
         - Iterate with feedback
+      recommended: true
       cta:
         text: Scope a sprint
         href: /contact

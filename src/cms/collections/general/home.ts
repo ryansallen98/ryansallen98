@@ -28,6 +28,7 @@ const home: CmsFile = {
       fields: [
         { name: "eyebrow", label: "Eyebrow" },
         { name: "title", label: "Title", widget: "text" },
+        { name: "titleAccent", label: "Title Accent (second line, primary colour)", widget: "text", required: false },
         { name: "intro", label: "Intro", widget: "text" },
         {
           ...textListField("metadata", "Metadata"),
@@ -46,6 +47,15 @@ const home: CmsFile = {
         },
         { name: "availability", label: "Availability", widget: "text" },
         {
+          name: "status",
+          label: "Status pill",
+          widget: "object",
+          fields: [
+            { name: "label", label: "Status label" },
+            { name: "location", label: "Location label", required: false },
+          ],
+        },
+        {
           name: "image",
           label: "Image",
           widget: "object",
@@ -62,6 +72,46 @@ const home: CmsFile = {
           fields: [
             { name: "label", label: "Label" },
             { name: "text", label: "Text", widget: "text" },
+          ],
+        },
+      ],
+    },
+    {
+      ...textListField("marquee", "Marquee tape items"),
+    },
+    {
+      name: "work",
+      label: "Selected works",
+      widget: "object",
+      fields: [
+        ...sectionIntroFields,
+        { name: "meta", label: "Meta line", widget: "text", required: false },
+        {
+          name: "items",
+          label: "Items",
+          widget: "list",
+          fields: [
+            { name: "number", label: "Number" },
+            { name: "project", label: "Project / context" },
+            { name: "title", label: "Title", widget: "text" },
+            { name: "summary", label: "Summary", widget: "text" },
+            { ...textListField("tags", "Tags", "Tag") },
+            {
+              name: "image",
+              label: "Image",
+              widget: "object",
+              fields: [
+                { name: "src", label: "Image", widget: "image" },
+                { name: "alt", label: "Alt text" },
+                { name: "note", label: "Replacement note", widget: "text", required: false },
+              ],
+            },
+            {
+              name: "cta",
+              label: "CTA",
+              widget: "object",
+              fields: ctaFields,
+            },
           ],
         },
       ],
@@ -135,6 +185,7 @@ const home: CmsFile = {
             {
               ...textListField("items", "Items"),
             },
+            { name: "recommended", label: "Mark as recommended", widget: "boolean", required: false, default: false },
             {
               name: "cta",
               label: "CTA",
