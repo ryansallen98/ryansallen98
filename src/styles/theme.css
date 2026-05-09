@@ -64,6 +64,10 @@
   color: var(--primary-foreground);
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 /* Firefox */
 * {
   scrollbar-width: auto;

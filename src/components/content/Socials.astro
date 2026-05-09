@@ -1,13 +1,17 @@
 ---
 import IconButton from "../ui/IconButton.astro";
 import socials from "@data/general/socials.yml";
+import { cn } from "@scripts/utils";
+
+const { class: className, iconClass } = Astro.props;
 ---
 
-<div class="flex flex-row gap-2">
+<div class={cn("flex flex-row gap-2", className)}>
   {
     socials.profiles.map((profile: { name: string; url: string }) => {
       return (
         <IconButton
+          class={iconClass}
           as="a"
           href={profile.url}
           target="_blank"

@@ -2,35 +2,135 @@
 import LogoIcon from "@components/branding/LogoIcon.astro";
 import NavMenu from "@components/navigation/NavMenu.astro";
 import Socials from "@components/content/Socials.astro";
+
+const mobileLinks = [
+  { text: "Home", href: "/" },
+  { text: "Services", href: "/services" },
+  { text: "About Me", href: "/about" },
+  { text: "Blog", href: "/blog" },
+  { text: "Contact", href: "/contact" },
+];
 ---
 
 <header
   class="pt-5 absolute left-0 top-0 right-0 w-full z-9999 text-foreground-dark"
   transition:persist
+  x-data="mobileNav()"
+  @keydown.escape.window="close()"
 >
   <div class="container mx-auto max-w-7xl px-5">
     <div class="w-full border border-divider-dark">
       <div
-        class="flex flex-row gap-10 justify-between items-center bg-background-dark"
+        class="flex flex-row gap-4 lg:gap-10 justify-between items-center bg-background-dark"
       >
         <!-- Logo -->
         <a
-          class="p-5 border-r border-divider-dark aspect-square fill-primary group"
+          class="p-3 sm:p-4 lg:p-5 border-r border-divider-dark aspect-square fill-primary group relative z-50"
           href="/"
+          @click="close()"
         >
           <LogoIcon
-            class="size-15 group-hover:scale-115 transition-transform duration-300"
+            class="size-10 sm:size-12 lg:size-15 group-hover:scale-115 transition-transform duration-300"
           />
           <span class="sr-only">Ryan Allen - rallen.dev</span>
         </a>
 
         <!-- Navigation -->
-        <div class="flex flex-row items-center justify-start gap-15 pr-10">
+        <div class="hidden lg:flex flex-row items-center justify-start gap-15 pr-10">
           <NavMenu />
 
           <!-- Socials -->
-         <Socials />
+          <Socials />
         </div>
+
+        <div class="relative z-50 ml-auto mr-2 sm:mr-4 flex items-center gap-1 lg:hidden">
+          <Socials class="gap-1" iconClass="h-9 w-9 sm:h-10 sm:w-10 [&_svg:not([class*='size-'])]:size-5 sm:[&_svg:not([class*='size-'])]:size-6" />
+
+          <button
+            type="button"
+            class="group flex h-9 w-9 items-center justify-center bg-transparent text-foreground-dark transition-colors duration-300 hover:bg-primary hover:text-primary-foreground focus-visible:bg-primary focus-visible:text-primary-foreground sm:h-10 sm:w-10"
+            aria-label="Toggle navigation menu"
+            :aria-expanded="String(isOpen)"
+            aria-controls="mobile-navigation"
+            @click="toggle()"
+          >
+            <span class="sr-only">Toggle navigation menu</span>
+            <span class="relative flex h-3 w-4.5 flex-col justify-between sm:h-3.5 sm:w-5">
+              <span
+                class="h-0.5 w-full bg-current transition-transform duration-300"
+                :class="isOpen ? 'translate-y-[5px] rotate-45 sm:translate-y-[6px]' : ''"
+              ></span>
+              <span
+                class="h-0.5 w-full bg-current transition-all duration-300"
+                :class="isOpen ? 'opacity-0 blur-sm' : 'opacity-100'"
+              ></span>
+              <span
+                class="h-0.5 w-full bg-current transition-transform duration-300"
+                :class="isOpen ? '-translate-y-[5px] -rotate-45 sm:-translate-y-[6px]' : ''"
+              ></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="mobile-navigation"
+    class="fixed inset-0 z-40 overflow-hidden bg-background-dark text-foreground-dark transition-all duration-500 ease-out lg:hidden motion-reduce:transition-none"
+    x-cloak
+    x-show="isOpen"
+    x-transition:enter="transition ease-out duration-500 motion-reduce:transition-none"
+    x-transition:enter-start="translate-x-full opacity-0"
+    x-transition:enter-end="translate-x-0 opacity-100"
+    x-transition:leave="transition ease-in duration-350 motion-reduce:transition-none"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-full opacity-0"
+    aria-modal="true"
+    role="dialog"
+  >
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,color-mix(in_oklab,var(--primary)_22%,transparent),transparent_28%),radial-gradient(circle_at_85%_10%,color-mix(in_oklab,var(--secondary-dark)_80%,transparent),transparent_30%)]">
+    </div>
+    <div class="absolute -right-20 top-28 h-72 w-72 rounded-full border border-primary/30">
+    </div>
+    <div class="absolute -left-24 bottom-12 h-56 w-56 rounded-full border border-divider-dark">
+    </div>
+
+    <div class="relative flex min-h-dvh flex-col px-5 pb-7 pt-24 sm:pt-28">
+      <nav class="flex flex-1 items-center" aria-label="Mobile navigation">
+        <ul class="w-full" data-menu>
+          {
+            mobileLinks.map((link, index) => (
+              <li
+                class="border-b border-divider-dark/80 transition-all duration-600 ease-out motion-reduce:translate-x-0 motion-reduce:opacity-100 motion-reduce:blur-0 motion-reduce:transition-none"
+                :class="isOpen ? 'translate-x-0 opacity-100 blur-0' : 'translate-x-8 opacity-0 blur-sm'"
+                x-bind:style={`isOpen ? 'transition-delay: ${160 + index * 80}ms' : 'transition-delay: 0ms'`}
+              >
+                <a
+                  href={link.href}
+                  data-nav-link
+                  data-href={link.href}
+                  class="group flex items-center justify-between py-3.5 font-heading text-[clamp(2.6rem,13vw,5.75rem)] uppercase leading-none text-foreground-dark transition-colors duration-300 hover:text-primary focus-visible:text-primary sm:py-4"
+                  @click="close()"
+                >
+                  <span>{link.text}</span>
+                  <span class="ml-4 text-sm font-base text-muted transition-transform duration-300 group-hover:translate-x-2 group-hover:text-primary sm:text-base">
+                    0{index + 1}
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div
+        class="flex items-end justify-between gap-6 border-t border-divider-dark pt-4 transition-all delay-500 duration-500 sm:pt-5"
+        :class="isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'"
+      >
+        <p class="max-w-56 text-[0.65rem] uppercase leading-relaxed tracking-wide text-muted sm:text-xs">
+          React, Next.js dashboards and practical product builds.
+        </p>
       </div>
     </div>
   </div>

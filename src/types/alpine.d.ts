@@ -8,5 +8,6 @@ declare global {
   interface AlpineComponent {
     $refs: Record<string, HTMLElement>;
     $el: HTMLElement;
+    isOpen?: boolean;
   }
 }
