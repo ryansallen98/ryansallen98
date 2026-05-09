@@ -12,20 +12,28 @@ type QuoteOption = {
 
 const hero = quote.hero;
 const wizard = quote.wizard;
-const quoteConfig = JSON.stringify({
+const quoteConfig = {
   wizard,
   estimates: quote.estimates,
   result: quote.result,
-});
+};
 const totalSteps = 6;
 const optionButtonClasses =
-  "group relative overflow-hidden border border-divider-dark/80 bg-background-dark/70 p-5 text-left text-foreground-dark transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-secondary-dark/90 focus-visible:border-primary sm:p-6";
+  "group relative overflow-hidden border border-divider-dark/80 bg-background-dark/70 p-4 text-left text-foreground-dark transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-secondary-dark/90 focus-visible:border-primary sm:p-5 xl:p-6";
+const questionHeadingClasses =
+  "font-heading text-[clamp(2.25rem,10vw,3.15rem)] uppercase leading-[0.96] tracking-tight sm:text-[clamp(3.25rem,6.3vw,6rem)]";
+const optionTitleClasses =
+  "block font-heading text-[clamp(1.45rem,6.2vw,2.75rem)] uppercase leading-[0.98]";
 ---
 
 <Layout title={hero.title} chrome={false}>
+  <script is:inline define:vars={{ quoteConfig }}>
+    window.quoteWizardConfig = quoteConfig;
+  </script>
+
   <main
     class="min-h-dvh overflow-hidden bg-background-dark text-foreground-dark"
-    x-data={`quoteWizard(${quoteConfig})`}
+    x-data="quoteWizard(window.quoteWizardConfig)"
   >
     <div class="fixed inset-0 pointer-events-none">
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,color-mix(in_oklab,var(--primary)_20%,transparent),transparent_24%),radial-gradient(circle_at_85%_20%,color-mix(in_oklab,var(--secondary-dark)_95%,transparent),transparent_30%),linear-gradient(135deg,color-mix(in_oklab,var(--background-dark)_92%,transparent),var(--background-dark))]"></div>
@@ -61,27 +69,27 @@ const optionButtonClasses =
     </header>
 
     <section class="relative z-10 min-h-[calc(100dvh-73px)]">
-      <div class="mx-auto grid min-h-[calc(100dvh-73px)] max-w-7xl gap-6 px-5 py-6 lg:grid-cols-[minmax(0,0.7fr)_minmax(340px,0.3fr)] lg:py-8">
-        <div class="flex min-h-[calc(100dvh-121px)] flex-col justify-between border border-divider-dark bg-background-dark/65 p-5 shadow-2xl backdrop-blur sm:p-8 lg:p-10">
-          <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+      <div class="mx-auto grid min-h-[calc(100dvh-73px)] max-w-7xl gap-5 px-5 py-5 lg:grid-cols-[minmax(0,0.72fr)_minmax(320px,0.28fr)] lg:py-6 xl:gap-6 xl:py-8">
+        <div class="flex min-h-[calc(100dvh-113px)] flex-col justify-between border border-divider-dark bg-background-dark/65 p-5 shadow-2xl backdrop-blur sm:p-7 lg:p-8 xl:p-10">
+          <div class="mb-5 flex flex-wrap items-center justify-between gap-4">
             <p class="inline-flex items-center gap-2 text-xs uppercase tracking-wide text-muted">
               <span class="size-2 bg-primary"></span>
               {wizard.eyebrow}
             </p>
-            <p class="max-w-md text-right text-xs uppercase leading-relaxed tracking-wide text-muted">
+            <p class="hidden max-w-md text-right text-xs uppercase leading-relaxed tracking-wide text-muted sm:block">
               {hero.note}
             </p>
           </div>
 
           <div class="flex flex-1 items-center">
             <div class="w-full">
-              <div x-show="currentStep === 0" x-transition.opacity.duration.300ms class="grid gap-8">
+              <div x-show="currentStep === 0" x-transition.opacity.duration.300ms class="grid gap-6 xl:gap-7">
                 <div class="max-w-4xl">
-                  <p class="mb-4 text-sm uppercase tracking-wide text-primary">{hero.eyebrow}</p>
-                  <h1 class="font-heading text-[clamp(3.25rem,9vw,8rem)] uppercase leading-[0.95] tracking-tight">
+                  <p class="mb-3 text-xs uppercase tracking-wide text-primary sm:text-sm">{hero.eyebrow}</p>
+                  <h1 class={questionHeadingClasses}>
                     {wizard.steps.projectType.title}
                   </h1>
-                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                  <p class="mt-4 max-w-2xl text-[0.95rem] leading-relaxed text-muted sm:text-lg">
                     {wizard.steps.projectType.help}
                   </p>
                 </div>
@@ -99,10 +107,10 @@ const optionButtonClasses =
                           0{index + 1}
                         </span>
                         <span class="relative block pr-12">
-                          <span class="block font-heading text-3xl uppercase leading-none sm:text-4xl">
+                          <span class={optionTitleClasses}>
                             {option.label}
                           </span>
-                          <span class="mt-3 block max-w-xl text-sm leading-relaxed text-muted">
+                          <span class="mt-3 block max-w-xl text-[0.83rem] leading-relaxed text-muted sm:text-sm">
                             {option.description}
                           </span>
                         </span>
@@ -112,12 +120,12 @@ const optionButtonClasses =
                 </div>
               </div>
 
-              <div x-show="currentStep === 1" x-transition.opacity.duration.300ms class="grid gap-8">
+              <div x-show="currentStep === 1" x-transition.opacity.duration.300ms class="grid gap-6 xl:gap-7">
                 <div class="max-w-4xl">
-                  <h2 class="font-heading text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.95] tracking-tight">
+                  <h2 class={questionHeadingClasses}>
                     {wizard.steps.stack.title}
                   </h2>
-                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                  <p class="mt-4 max-w-2xl text-[0.95rem] leading-relaxed text-muted sm:text-lg">
                     {wizard.steps.stack.help}
                   </p>
                 </div>
@@ -129,18 +137,18 @@ const optionButtonClasses =
                       x-bind:class="answers.stack === option.value ? 'border-primary bg-secondary-dark ring-1 ring-primary/40' : ''"
                       @click="selectSingle('stack', option.value)"
                     >
-                      <span class="font-heading text-4xl uppercase leading-none" x-text="option.label"></span>
+                      <span class={optionTitleClasses} x-text="option.label"></span>
                     </button>
                   </template>
                 </div>
               </div>
 
-              <div x-show="currentStep === 2" x-transition.opacity.duration.300ms class="grid gap-8">
+              <div x-show="currentStep === 2" x-transition.opacity.duration.300ms class="grid gap-6 xl:gap-7">
                 <div class="max-w-4xl">
-                  <h2 class="font-heading text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.95] tracking-tight">
+                  <h2 class={questionHeadingClasses}>
                     {wizard.steps.scope.title}
                   </h2>
-                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                  <p class="mt-4 max-w-2xl text-[0.95rem] leading-relaxed text-muted sm:text-lg">
                     {wizard.steps.scope.help}
                   </p>
                 </div>
@@ -153,10 +161,10 @@ const optionButtonClasses =
                         x-bind:class={`answers.scope === '${option.value}' ? 'border-primary bg-secondary-dark ring-1 ring-primary/40' : ''`}
                         @click={`selectSingle('scope', '${option.value}')`}
                       >
-                        <span class="block font-heading text-4xl uppercase leading-none">
+                        <span class={optionTitleClasses}>
                           {option.label}
                         </span>
-                        <span class="mt-4 block text-sm leading-relaxed text-muted">
+                        <span class="mt-3 block text-[0.83rem] leading-relaxed text-muted sm:mt-4 sm:text-sm">
                           {option.description}
                         </span>
                       </button>
@@ -165,12 +173,12 @@ const optionButtonClasses =
                 </div>
               </div>
 
-              <div x-show="currentStep === 3" x-transition.opacity.duration.300ms class="grid gap-8">
+              <div x-show="currentStep === 3" x-transition.opacity.duration.300ms class="grid gap-6 xl:gap-7">
                 <div class="max-w-4xl">
-                  <h2 class="font-heading text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.95] tracking-tight">
+                  <h2 class={questionHeadingClasses}>
                     {wizard.steps.extras.title}
                   </h2>
-                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                  <p class="mt-4 max-w-2xl text-[0.95rem] leading-relaxed text-muted sm:text-lg">
                     {wizard.steps.extras.help}
                   </p>
                 </div>
@@ -185,7 +193,7 @@ const optionButtonClasses =
                       >
                         <span class="flex min-h-14 items-center gap-3">
                           <span class="size-2 bg-primary"></span>
-                          <span class="text-sm font-medium uppercase tracking-wide">
+                          <span class="text-[0.8rem] font-medium uppercase tracking-wide sm:text-sm">
                             {option.label}
                           </span>
                         </span>
@@ -195,12 +203,12 @@ const optionButtonClasses =
                 </div>
               </div>
 
-              <div x-show="currentStep === 4" x-transition.opacity.duration.300ms class="grid gap-8">
+              <div x-show="currentStep === 4" x-transition.opacity.duration.300ms class="grid gap-6 xl:gap-7">
                 <div class="max-w-4xl">
-                  <h2 class="font-heading text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.95] tracking-tight">
+                  <h2 class={questionHeadingClasses}>
                     {wizard.steps.timeline.title}
                   </h2>
-                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                  <p class="mt-4 max-w-2xl text-[0.95rem] leading-relaxed text-muted sm:text-lg">
                     {wizard.steps.timeline.help}
                   </p>
                 </div>
@@ -213,7 +221,7 @@ const optionButtonClasses =
                         x-bind:class={`answers.timeline === '${option.value}' ? 'border-primary bg-secondary-dark ring-1 ring-primary/40' : ''`}
                         @click={`selectSingle('timeline', '${option.value}')`}
                       >
-                        <span class="font-heading text-4xl uppercase leading-none">
+                        <span class={optionTitleClasses}>
                           {option.label}
                         </span>
                       </button>
@@ -222,12 +230,12 @@ const optionButtonClasses =
                 </div>
               </div>
 
-              <div x-show="currentStep === 5" x-transition.opacity.duration.300ms class="grid gap-8">
+              <div x-show="currentStep === 5" x-transition.opacity.duration.300ms class="grid gap-6 xl:gap-7">
                 <div class="max-w-4xl">
-                  <h2 class="font-heading text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.95] tracking-tight">
+                  <h2 class={questionHeadingClasses}>
                     {wizard.steps.contact.title}
                   </h2>
-                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                  <p class="mt-4 max-w-2xl text-[0.95rem] leading-relaxed text-muted sm:text-lg">
                     {wizard.steps.contact.help}
                   </p>
                 </div>
@@ -322,7 +330,7 @@ const optionButtonClasses =
             </div>
           </div>
 
-          <div class="mt-8 flex items-center justify-between gap-4 border-t border-divider-dark pt-5">
+          <div class="mt-6 flex items-center justify-between gap-4 border-t border-divider-dark pt-5">
             <button
               type="button"
               class="inline-flex items-center gap-2 px-1 py-3 text-xs uppercase tracking-wide text-muted transition hover:text-foreground-dark"
@@ -334,7 +342,7 @@ const optionButtonClasses =
             </button>
             <button
               type="button"
-              class="ml-auto inline-flex items-center gap-3 bg-primary px-8 py-5 text-sm font-semibold uppercase text-primary-foreground transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-35"
+              class="ml-auto inline-flex items-center gap-3 bg-primary px-7 py-4 text-sm font-semibold uppercase text-primary-foreground transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-35 sm:px-8 sm:py-5"
               x-show="currentStep < 5"
               x-bind:disabled="!canContinue()"
               @click="next()"
@@ -345,16 +353,16 @@ const optionButtonClasses =
           </div>
         </div>
 
-        <aside class="grid gap-6 lg:min-h-[calc(100dvh-121px)] lg:grid-rows-[1fr_auto]">
-          <div class="border border-divider-dark bg-primary p-6 text-primary-foreground shadow-2xl sm:p-8">
+        <aside class="grid gap-5 lg:min-h-[calc(100dvh-113px)] lg:grid-rows-[auto_1fr] xl:gap-6">
+          <div class="border border-divider-dark bg-primary p-6 text-primary-foreground shadow-2xl sm:p-7 xl:p-8">
             <p class="text-xs uppercase tracking-wide">
               <span x-text="needsDiscovery() ? config.wizard.discoveryLabel : config.wizard.estimateLabel"></span>
             </p>
-            <p class="font-heading mt-4 text-[clamp(3rem,6vw,5.5rem)] uppercase leading-none" x-text="getEstimate()"></p>
+            <p class="font-heading mt-4 max-w-full text-[clamp(2.5rem,3.8vw,4.35rem)] uppercase leading-[0.95] wrap-break-word" x-text="getEstimate()"></p>
             <p class="mt-5 max-w-sm text-sm leading-relaxed" x-text="getResultText()"></p>
           </div>
 
-          <div class="border border-divider-dark bg-background-dark/70 p-6 backdrop-blur sm:p-8">
+          <div class="border border-divider-dark bg-background-dark/70 p-6 backdrop-blur sm:p-7 xl:p-8">
             <div class="mb-5 flex items-center justify-between gap-4">
               <p class="text-xs uppercase tracking-wide text-muted">{wizard.summaryLabel}</p>
               <Icon name="lucide:sparkles" class="size-5 text-primary" aria-hidden="true" />
