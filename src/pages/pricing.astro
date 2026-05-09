@@ -58,34 +58,21 @@ const splitPrice = (raw: string) => {
 <Layout title={hero.title} seo={seo}>
   <!-- HERO -->
   <section
-    class="relative overflow-hidden bg-background-dark pt-28 pb-20 text-foreground-dark sm:pt-32 lg:pt-40 lg:pb-28"
+    class="bg-background-dark pt-28 pb-20 text-foreground-dark sm:pt-32 lg:pt-40 lg:pb-28"
   >
-    <div
-      aria-hidden="true"
-      class="pointer-events-none absolute inset-0 grid grid-cols-6 opacity-[0.06] sm:grid-cols-12"
-    >
-      {Array.from({ length: 12 }).map(() => (
-        <span class="border-r border-foreground-dark last:border-r-0"></span>
-      ))}
-    </div>
-    <div
-      aria-hidden="true"
-      class="pointer-events-none absolute -right-32 top-10 hidden size-[520px] rounded-full bg-primary/15 blur-3xl lg:block"
-    ></div>
-
-    <div class="container relative mx-auto max-w-7xl px-5">
+    <div class="container mx-auto max-w-7xl px-5">
       <div
         class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-16"
       >
         <div class="flex flex-col gap-7">
           <SubHeading text={hero.eyebrow} />
           <h1
-            class="reveal-title font-heading uppercase tracking-normal leading-[0.95] text-[clamp(2.5rem,6.4vw,5.5rem)] max-w-4xl"
+            class="reveal-title font-heading uppercase tracking-normal leading-[1.05] text-[clamp(2.25rem,5.4vw,4.75rem)] max-w-4xl"
           >
             <span class="block font-heading">{hero.title}</span>
           </h1>
         </div>
-        <div class="flex flex-col gap-7 fade-in delay-200">
+        <div class="flex flex-col gap-8 fade-in delay-200">
           <p class="max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             {hero.intro}
           </p>
@@ -106,32 +93,32 @@ const splitPrice = (raw: string) => {
             />
           </div>
           <div
-            class="mt-2 grid gap-x-8 gap-y-4 border-l-2 border-primary pl-5 sm:grid-cols-3"
+            class="mt-2 grid gap-x-10 gap-y-5 border-l-2 border-primary pl-5 sm:grid-cols-3"
           >
-            <div>
+            <div class="flex flex-col gap-2">
               <p class="font-heading text-2xl leading-none">
                 {plans.items.length}
               </p>
               <p
-                class="mt-1 text-[11px] uppercase tracking-[0.18em] text-muted"
+                class="text-[11px] uppercase tracking-[0.18em] text-muted"
               >
                 Starting shapes
               </p>
             </div>
-            <div>
+            <div class="flex flex-col gap-2">
               <p class="font-heading text-2xl leading-none whitespace-nowrap">
                 $50<span class="text-base text-muted">/hr</span>
               </p>
               <p
-                class="mt-1 text-[11px] uppercase tracking-[0.18em] text-muted"
+                class="text-[11px] uppercase tracking-[0.18em] text-muted"
               >
                 Support baseline
               </p>
             </div>
-            <div>
+            <div class="flex flex-col gap-2">
               <p class="font-heading text-2xl leading-none">UK / AU</p>
               <p
-                class="mt-1 text-[11px] uppercase tracking-[0.18em] text-muted"
+                class="text-[11px] uppercase tracking-[0.18em] text-muted"
               >
                 Hours covered
               </p>
@@ -209,7 +196,7 @@ const splitPrice = (raw: string) => {
                   </div>
 
                   <div
-                    class={`flex items-baseline gap-2 border-t pt-5 ${dividerClass}`}
+                    class={`flex flex-col gap-1.5 border-t pt-5 ${dividerClass}`}
                   >
                     {prefix && (
                       <span
@@ -219,7 +206,7 @@ const splitPrice = (raw: string) => {
                       </span>
                     )}
                     <span
-                      class={`font-heading whitespace-nowrap text-3xl leading-none sm:text-4xl ${
+                      class={`font-heading break-words leading-tight text-2xl sm:text-3xl ${
                         isRecommended ? "text-primary" : "text-foreground-light"
                       }`}
                     >
