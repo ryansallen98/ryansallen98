@@ -170,7 +170,7 @@ const splitPrice = (raw: string) => {
               : "text-foreground-light";
             return (
               <article
-                class={`reveal-card relative flex min-h-[520px] flex-col justify-between gap-7 border ${cardClass} p-7 transition duration-300 lg:p-8`}
+                class={`reveal-card relative flex min-h-[520px] flex-col justify-between gap-8 border ${cardClass} p-7 transition duration-300 lg:p-8`}
                 style={`transition-delay: ${index * 80}ms`}
               >
                 <div class="flex flex-col gap-6">
@@ -194,13 +194,15 @@ const splitPrice = (raw: string) => {
                       {plan.description}
                     </p>
                   </div>
+                </div>
 
+                <div class="flex flex-col gap-6">
                   <div
-                    class={`flex flex-col gap-1.5 border-t pt-5 ${dividerClass}`}
+                    class={`flex flex-col gap-2 border-t pt-5 ${dividerClass}`}
                   >
                     {prefix && (
                       <span
-                        class={`text-[11px] uppercase tracking-[0.22em] ${descClass}`}
+                        class={`text-xs font-medium uppercase tracking-[0.22em] ${descClass}`}
                       >
                         {prefix}
                       </span>
@@ -226,16 +228,16 @@ const splitPrice = (raw: string) => {
                       </li>
                     ))}
                   </ul>
-                </div>
 
-                <Button
-                  as="a"
-                  href={plan.cta.href}
-                  text={plan.cta.text}
-                  variant={isRecommended ? "primary" : "dark"}
-                  iconEnd="lucide:arrow-right"
-                  class="w-full"
-                />
+                  <Button
+                    as="a"
+                    href={plan.cta.href}
+                    text={plan.cta.text}
+                    variant={isRecommended ? "primary" : "dark"}
+                    iconEnd="lucide:arrow-right"
+                    class="w-full"
+                  />
+                </div>
               </article>
             );
           })
