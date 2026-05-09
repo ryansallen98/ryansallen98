@@ -24,9 +24,6 @@ wizard:
         - label: Dashboard / web app / internal tool
           value: app
           description: React, Next.js, admin panels, reporting tools, operational workflows.
-        - label: Payment or reporting system
-          value: reporting
-          description: Data-heavy dashboards, payout visibility, reconciliation, APIs, or finance workflows.
         - label: Website or landing page
           value: website
           description: Fast Astro/CMS websites, portfolio sites, funnels, service pages, or brochure sites.
@@ -44,13 +41,6 @@ wizard:
           - label: Next.js / React
             value: next
           - label: Existing app or codebase
-            value: existing
-          - label: Recommend one
-            value: recommend
-        reporting:
-          - label: Next.js dashboard
-            value: next
-          - label: Existing reporting setup
             value: existing
           - label: Recommend one
             value: recommend
@@ -100,7 +90,7 @@ wizard:
           value: integrations
         - label: Auth or user accounts
           value: auth
-        - label: Payments, payouts, or sensitive data
+        - label: Sensitive data or compliance needs
           value: sensitive
         - label: Hosting, deployment, or maintenance
           value: support
@@ -133,10 +123,6 @@ estimates:
     small: From $2,500
     medium: $3,500-$5,000+
     large: Discovery first, usually $5,000+
-  reporting:
-    small: From $3,000
-    medium: $4,500-$7,500+
-    large: Discovery required
   website:
     small: From $1,000
     medium: From $2,500

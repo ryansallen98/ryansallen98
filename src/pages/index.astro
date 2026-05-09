@@ -115,24 +115,42 @@ const cta = home.cta as {
     class="relative overflow-hidden bg-background-dark pt-28 pb-16 text-foreground-dark sm:pt-32 lg:pt-36 lg:pb-24"
   >
     <div class="container relative mx-auto max-w-7xl px-5">
-      <div class="grid gap-12 lg:grid-cols-[minmax(0,1.18fr)_minmax(280px,0.55fr)] lg:items-end lg:gap-16">
-        <div class="flex flex-col gap-8">
-          <div class="flex flex-wrap items-center gap-3 fade-in">
-            <span
-              class="inline-flex items-center gap-2.5 border border-divider-dark bg-secondary-dark/60 px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-foreground-dark"
-            >
-              <span
-                class="status-dot inline-flex size-2 rounded-full bg-primary"
-              ></span>
-              {hero.status.label}
-            </span>
-            <span class="hidden h-px w-8 bg-divider-dark sm:inline-block"></span>
-            <span class="text-[11px] uppercase tracking-[0.22em] text-muted">
-              {hero.eyebrow}
-            </span>
-          </div>
+      <div class="grid gap-12 lg:grid-cols-[minmax(280px,0.55fr)_minmax(0,1.18fr)] lg:items-stretch lg:gap-16">
+        <a
+          href="/about"
+          aria-label="About Ryan Allen"
+          class="reveal-image group relative order-2 block overflow-hidden border border-divider-dark bg-secondary-dark fade-in delay-400 lg:order-1 lg:h-full"
+        >
+          <img
+            src={hero.image.src}
+            alt={hero.image.alt}
+            class="aspect-4/5 h-full w-full object-cover object-center grayscale transition duration-700 group-hover:scale-[1.04] group-hover:grayscale-0 lg:aspect-auto"
+            loading="eager"
+          />
+          {
+            hero.status.location && (
+              <div class="absolute left-4 top-4 flex items-center gap-2 border border-divider-dark bg-background-dark/70 px-2.5 py-1 backdrop-blur">
+                <span class="status-dot inline-flex size-1.5 rounded-full bg-primary" />
+                <span class="text-[10px] uppercase tracking-[0.22em] text-foreground-dark">
+                  {hero.status.location}
+                </span>
+              </div>
+            )
+          }
+          <span
+            class="absolute inset-x-0 bottom-0 flex items-center justify-between border-t border-divider-dark bg-background-dark/85 p-4 text-[11px] uppercase tracking-[0.2em] text-muted backdrop-blur transition-colors duration-300 group-hover:text-foreground-dark"
+          >
+            <span>About Ryan</span>
+            <Icon
+              name="lucide:arrow-up-right"
+              class="size-5 text-primary transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
+          </span>
+        </a>
 
-          <h1 class="reveal-title font-hero max-w-5xl">
+        <div class="order-1 flex flex-col gap-8 lg:order-2">
+          <h1 class="reveal-title font-heading uppercase tracking-normal leading-none text-[clamp(2.25rem,5.2vw,4.5rem)] max-w-4xl">
             <span class="block">{hero.title}</span>
             {
               hero.titleAccent && (
@@ -177,59 +195,6 @@ const cta = home.cta as {
             </ul>
           </div>
         </div>
-
-        <aside class="fade-in delay-400">
-          <div class="grid gap-4">
-            <figure
-              class="reveal-image group relative overflow-hidden border border-divider-dark bg-secondary-dark"
-            >
-              <img
-                src={hero.image.src}
-                alt={hero.image.alt}
-                class="aspect-[4/5] h-full w-full object-cover object-center grayscale transition duration-700 group-hover:scale-[1.04] group-hover:grayscale-0 lg:aspect-[4/4.6]"
-                loading="eager"
-              />
-              {
-                hero.status.location && (
-                  <div class="absolute left-4 top-4 flex items-center gap-2 border border-divider-dark bg-background-dark/70 px-2.5 py-1 backdrop-blur">
-                    <span class="status-dot inline-flex size-1.5 rounded-full bg-primary" />
-                    <span class="text-[10px] uppercase tracking-[0.22em] text-foreground-dark">
-                      {hero.status.location}
-                    </span>
-                  </div>
-                )
-              }
-              <figcaption
-                class="absolute inset-x-0 bottom-0 flex items-center justify-between border-t border-divider-dark bg-background-dark/85 p-4 text-[11px] uppercase tracking-[0.2em] text-muted backdrop-blur"
-              >
-                <span>R Allen Dev</span>
-                <Icon
-                  name="lucide:arrow-up-right"
-                  class="size-5 text-primary"
-                  aria-hidden="true"
-                />
-              </figcaption>
-            </figure>
-
-            <div class="grid divide-y divide-divider-dark border border-divider-dark">
-              {
-                hero.highlights.map((item: HeroHighlight, index: number) => (
-                  <div
-                    class="reveal-card p-5"
-                    style={`transition-delay: ${index * 90 + 160}ms`}
-                  >
-                    <p class="text-[11px] uppercase tracking-[0.2em] text-primary">
-                      {item.label}
-                    </p>
-                    <p class="mt-2 text-sm leading-relaxed text-muted">
-                      {item.text}
-                    </p>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        </aside>
       </div>
     </div>
   </section>
@@ -273,7 +238,7 @@ const cta = home.cta as {
           <p
             class="max-w-xl text-base leading-relaxed text-secondary-foreground-light fade-in delay-200 lg:text-lg"
           >
-            From CPA funnels to crypto payment UI to fintech dashboards, the through-line is the same: practical interfaces, calm code, and tools real teams use without a manual.
+            From CPA funnels to startup dashboards and AI-assisted product work, the through-line is the same: practical interfaces, calm code, and tools real teams use without a manual.
           </p>
         </div>
 
@@ -357,7 +322,7 @@ const cta = home.cta as {
                 </ul>
               </div>
 
-              <div class="relative aspect-[16/10] overflow-hidden border border-divider-dark bg-secondary-dark">
+              <div class="relative aspect-16/10 overflow-hidden border border-divider-dark bg-secondary-dark">
                 <img
                   src={item.image.src}
                   alt={item.image.alt}
@@ -660,7 +625,7 @@ const cta = home.cta as {
             text={cta.eyebrow}
             class="[&_span:last-child]:border-primary-foreground"
           />
-          <h2 class="reveal-title font-h1 max-w-5xl">{cta.title}</h2>
+          <h2 class="reveal-title font-h2 max-w-3xl">{cta.title}</h2>
         </div>
         <div class="flex flex-col gap-7">
           <p class="max-w-xl text-lg leading-relaxed sm:text-xl">{cta.text}</p>
