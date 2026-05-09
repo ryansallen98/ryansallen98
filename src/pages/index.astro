@@ -478,29 +478,34 @@ const cta = home.cta as {
               : "border-divider-light bg-secondary-light";
             return (
               <article
-                class={`reveal-card relative flex min-h-[460px] flex-col justify-between border ${cardClass} p-7 transition duration-300 lg:p-9`}
+                class={`reveal-card relative flex min-h-[460px] flex-col justify-between gap-8 border ${cardClass} p-7 transition duration-300 lg:p-9`}
                 style={`transition-delay: ${index * 90}ms`}
               >
-                {isRecommended && (
-                  <span class="absolute -top-3 left-7 inline-flex items-center gap-2 bg-primary px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-primary-foreground">
-                    <span class="size-1.5 rounded-full bg-primary-foreground" />
-                    Recommended
-                  </span>
-                )}
                 <div class="flex flex-col gap-5">
-                  <p class="font-h4 text-primary">{card.price}</p>
-                  <div>
-                    <h3 class="font-h3">{card.title}</h3>
-                    <p class="mt-4 leading-relaxed text-secondary-foreground-light">
-                      {card.description}
-                    </p>
+                  <div class="flex items-center justify-between gap-3">
+                    <span class="text-[11px] uppercase tracking-[0.2em] text-secondary-foreground-light">
+                      0{index + 1}
+                    </span>
+                    {isRecommended && (
+                      <span class="inline-flex items-center gap-2 bg-primary px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-primary-foreground">
+                        <span class="size-1.5 rounded-full bg-primary-foreground" />
+                        Recommended
+                      </span>
+                    )}
                   </div>
-                  <ul class="grid gap-3 text-sm">
+                  <h3 class="font-h3">{card.title}</h3>
+                  <p class="font-heading text-3xl uppercase leading-none text-primary lg:text-4xl">
+                    {card.price}
+                  </p>
+                  <p class="leading-relaxed text-secondary-foreground-light">
+                    {card.description}
+                  </p>
+                  <ul class="mt-2 grid gap-3 text-sm">
                     {card.items.map((item: string) => (
                       <li class="flex items-start gap-3">
                         <Icon
                           name="lucide:check"
-                          class="mt-0.5 size-4 text-primary"
+                          class="mt-0.5 size-4 shrink-0 text-primary"
                           aria-hidden="true"
                         />
                         <span>{item}</span>
@@ -514,7 +519,7 @@ const cta = home.cta as {
                   text={card.cta.text}
                   variant={isRecommended ? "primary" : "dark"}
                   iconEnd="lucide:arrow-right"
-                  class="mt-8 w-fit"
+                  class="w-fit"
                 />
               </article>
             );
