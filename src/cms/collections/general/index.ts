@@ -1,3 +1,4 @@
+import about from "./about";
 import faqs from "./faqs";
 import home from "./home";
 import layout from "./layout";
@@ -9,7 +10,7 @@ import socials from "./socials";
 const general: CmsCollection = {
   name: "general",
   label: "General",
-  files: [meta, layout, home, quote, faqs, socials, resume],
+  files: [meta, layout, home, about, quote, faqs, socials, resume],
 };
 
 export default general;

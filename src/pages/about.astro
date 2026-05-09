@@ -1,28 +1,160 @@
 ---
+import Button from "@components/ui/Button.astro";
+import ListItem from "@components/ui/ListItem.astro";
+import SubHeading from "@components/ui/SubHeading.astro";
 import Layout from "@layouts/BaseLayout.astro";
-import Hero from "@components/sections/Hero.astro";
+import about from "@data/general/about.yml";
+import { Icon } from "astro-icon/components";
 
-const subHeading = "More about me";
-const pageTitle = "About Me";
+type Cta = {
+  text: string;
+  href: string;
+};
+
+type TimelineItem = {
+  timeframe: string;
+  role: string;
+  company: string;
+  summary: string;
+};
+
+type Strength = {
+  title: string;
+  text: string;
+};
+
+const hero = about.hero as {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  image: { src: string; alt: string };
+  primaryCta: Cta;
+  secondaryCta: Cta;
+};
+const summary = about.summary as {
+  eyebrow: string;
+  title: string;
+  text: string;
+  highlights: string[];
+};
+const timeline = about.timeline as {
+  eyebrow: string;
+  title: string;
+  items: TimelineItem[];
+};
+const strengths = about.strengths as {
+  eyebrow: string;
+  title: string;
+  items: Strength[];
+};
+const cta = about.cta as {
+  eyebrow: string;
+  title: string;
+  text: string;
+  primaryCta: Cta;
+  secondaryCta: Cta;
+};
 ---
 
-<Layout title={pageTitle}>
-  <Hero
-    title={pageTitle}
-    subHeading={subHeading}
-    description="I'm Ryan Allen, a passionate freelance web developer and consultant with over a decade of experience in crafting high-quality web solutions. My expertise spans a wide range of technologies, including JavaScript, Python, and modern frameworks like React and Astro."
-    buttons={[
-      {
-        text: "Resume",
-        href: "/resume",
-        variant: "light",
-      },
-      {
-        text: "Hire Me",
-        href: "/contact",
-        variant: "outline",
-      },
-    ]}
-  />
-  <div class="min-h-screen"></div>
+<Layout title={hero.title}>
+  <section class="bg-background-dark pt-28 pb-16 text-foreground-dark sm:pt-32 lg:pt-36 lg:pb-24">
+    <div class="container mx-auto max-w-7xl px-5">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end">
+        <div class="flex flex-col gap-7">
+          <SubHeading text={hero.eyebrow} class="fade-in" />
+          <h1 class="reveal-title font-hero max-w-5xl">{hero.title}</h1>
+          <p class="max-w-2xl text-lg leading-relaxed text-muted">{hero.intro}</p>
+          <div class="flex flex-wrap gap-2">
+            <Button as="a" href={hero.primaryCta.href} text={hero.primaryCta.text} variant="primary" iconEnd="lucide:file-text" />
+            <Button as="a" href={hero.secondaryCta.href} text={hero.secondaryCta.text} variant="outline" iconEnd="lucide:arrow-right" />
+          </div>
+        </div>
+
+        <figure class="reveal-image hidden overflow-hidden border border-divider-dark bg-secondary-dark md:block">
+          <img src={hero.image.src} alt={hero.image.alt} class="aspect-[4/4.5] w-full object-cover grayscale" loading="eager" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-background-light py-18 text-foreground-light lg:py-28">
+    <div class="container mx-auto max-w-7xl px-5">
+      <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div class="flex flex-col gap-6">
+          <SubHeading text={summary.eyebrow} class="text-foreground-light" />
+          <h2 class="reveal-title font-h2 max-w-xl">{summary.title}</h2>
+        </div>
+        <div class="flex flex-col gap-8">
+          <p class="max-w-3xl text-lg leading-relaxed text-secondary-foreground-light">{summary.text}</p>
+          <ul class="grid gap-3 sm:grid-cols-2">
+            {summary.highlights.map((item: string) => <ListItem>{item}</ListItem>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-background-dark py-18 text-foreground-dark lg:py-28">
+    <div class="container mx-auto max-w-7xl px-5">
+      <div class="mb-10 flex flex-col gap-6">
+        <SubHeading text={timeline.eyebrow} />
+        <h2 class="reveal-title font-h2 max-w-3xl">{timeline.title}</h2>
+      </div>
+      <div class="grid border-t border-divider-dark">
+        {
+          timeline.items.map((item: TimelineItem, index: number) => (
+            <article class="reveal-card grid gap-5 border-b border-divider-dark py-7 md:grid-cols-[120px_1fr_1.3fr]" style={`transition-delay: ${index * 70}ms`}>
+              <p class="font-heading text-4xl text-primary">0{index + 1}</p>
+              <div>
+                <p class="text-xs uppercase text-muted">{item.timeframe}</p>
+                <h3 class="font-h4 mt-2">{item.role}</h3>
+                <p class="text-sm uppercase text-muted">{item.company}</p>
+              </div>
+              <p class="max-w-2xl leading-relaxed text-muted">{item.summary}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-secondary-light py-18 text-foreground-light lg:py-28">
+    <div class="container mx-auto max-w-7xl px-5">
+      <div class="mb-10 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+        <div class="flex flex-col gap-6">
+          <SubHeading text={strengths.eyebrow} class="text-foreground-light" />
+          <h2 class="reveal-title font-h2 max-w-3xl">{strengths.title}</h2>
+        </div>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {
+          strengths.items.map((item: Strength, index: number) => (
+            <article class="reveal-card border border-divider-light bg-background-light p-6" style={`transition-delay: ${index * 80}ms`}>
+              <Icon name="lucide:check-circle-2" class="mb-8 size-6 text-primary" aria-hidden="true" />
+              <h3 class="font-h4">{item.title}</h3>
+              <p class="mt-4 leading-relaxed text-secondary-foreground-light">{item.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-primary py-18 text-primary-foreground lg:py-24">
+    <div class="container mx-auto max-w-7xl px-5">
+      <div class="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+        <div class="flex flex-col gap-5">
+          <SubHeading text={cta.eyebrow} class="[&_span:last-child]:border-primary-foreground" />
+          <h2 class="font-h2 max-w-3xl">{cta.title}</h2>
+        </div>
+        <div class="flex flex-col gap-7">
+          <p class="max-w-xl text-lg leading-relaxed">{cta.text}</p>
+          <div class="flex flex-wrap gap-2">
+            <Button as="a" href={cta.primaryCta.href} text={cta.primaryCta.text} variant="dark" iconEnd="lucide:file-text" />
+            <Button as="a" href={cta.secondaryCta.href} text={cta.secondaryCta.text} variant="outline" class="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" iconEnd="lucide:arrow-right" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

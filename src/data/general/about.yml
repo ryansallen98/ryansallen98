@@ -1,0 +1,64 @@
+hero:
+  eyebrow: About Ryan
+  title: Startup-minded developer with product instincts.
+  intro: I build practical React/Next.js dashboards, payment/reporting workflows, and reliable web systems for teams that need useful software, not decorative complexity.
+  image:
+    src: /images/resume-photo.jpg
+    alt: Headshot of Ryan Allen.
+  primaryCta:
+    text: View resume
+    href: /resume
+  secondaryCta:
+    text: Start a quote
+    href: /get-a-quote
+summary:
+  eyebrow: Profile
+  title: I work where product, UX, operations, and code meet.
+  text: My background is startup-heavy. I have worked across dashboards, payment UX, reporting, support, account needs, websites, infrastructure, and AI-assisted development. That mix helps me understand the business problem before choosing the implementation.
+  highlights:
+    - React/Next.js dashboards and internal tools
+    - Payment flows, payout visibility, and reporting systems
+    - WordPress/WooCommerce as a secondary client lane
+    - AI-assisted workflows with practical engineering judgment
+timeline:
+  eyebrow: Experience
+  title: Built around startup pressure.
+  items:
+    - timeframe: 2026 - Present
+      role: Developer
+      company: Thrice Agency
+      summary: Maintaining and improving AI, RevOps, and SaaS products in a fast-moving engineering-led agency.
+    - timeframe: 2024 - 2025
+      role: Lead Developer
+      company: GatewayPay
+      summary: Built Next.js dashboards for reporting, payouts, operations, and integrations in a small fintech startup.
+    - timeframe: 2023 - 2024
+      role: Lead Developer
+      company: iCore
+      summary: Built crypto payment dashboards and clearer user-facing payment flows for less technical users.
+    - timeframe: 2019 - 2026
+      role: Independent Developer
+      company: Freelance / Client Work
+      summary: Delivered websites, ecommerce work, crypto UI, AI tools, infrastructure support, and practical business systems.
+strengths:
+  eyebrow: Working style
+  title: The useful middle between design, product, and implementation.
+  items:
+    - title: Product-minded
+      text: I care about the workflow, the user, and the business reason behind the build.
+    - title: Operational
+      text: I am comfortable with messy data, reporting needs, client support, and practical constraints.
+    - title: Implementation-led
+      text: I prefer shipping a focused useful version, then iterating with feedback.
+    - title: Clear handover
+      text: I document decisions, support the launch, and keep editable content in the CMS layer.
+cta:
+  eyebrow: Next step
+  title: Need the full background?
+  text: The resume has the detailed role history. For project work, start with the quote flow and I will help shape the scope.
+  primaryCta:
+    text: View resume
+    href: /resume
+  secondaryCta:
+    text: Start a quote
+    href: /get-a-quote
