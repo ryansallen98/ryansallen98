@@ -1,0 +1,39 @@
+hero:
+  eyebrow: Availability
+  title: Current project availability.
+  intro: I take on a limited number of freelance builds, support blocks, and selected product roles. The best next step is to share the project shape through the quote flow.
+  primaryCta:
+    text: Get a quote
+    href: /get-a-quote
+  secondaryCta:
+    text: Contact Ryan
+    href: /contact
+status:
+  eyebrow: Status
+  title: Open for focused work.
+  text: I am best suited to practical dashboard, payment/reporting, startup product, website, CMS, and support work where the scope can be kept clear.
+  items:
+    - label: Freelance builds
+      value: Available for selected scopes
+    - label: Support blocks
+      value: Available at $50/hour baseline
+    - label: Full-time roles
+      value: Selective, product-minded teams only
+fits:
+  eyebrow: Best fit
+  title: Work that is worth starting a conversation about.
+  items:
+    - Dashboards, internal tools, and reporting views
+    - Payment flows, payout visibility, and operational interfaces
+    - Startup product support, fixes, and feature delivery
+    - CMS-backed websites, WordPress, WooCommerce, and maintenance
+cta:
+  eyebrow: Check fit
+  title: Send the project shape first.
+  text: The quote flow captures enough detail for me to judge timing, scope, and whether I am the right fit.
+  primaryCta:
+    text: Get a quote
+    href: /get-a-quote
+  secondaryCta:
+    text: View pricing
+    href: /pricing
