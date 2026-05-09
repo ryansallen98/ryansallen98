@@ -1,0 +1,70 @@
+hero:
+  eyebrow: Services
+  title: Product systems, dashboards, and reliable websites.
+  intro: "Choose the service lane that matches the work: custom product systems first, websites and CMS builds when the scope is simpler."
+  primaryCta:
+    text: Get a quote
+    href: /get-a-quote
+  secondaryCta:
+    text: View pricing
+    href: /pricing
+services:
+  eyebrow: Core services
+  title: The main ways I can help.
+  items:
+    - title: Dashboards and internal tools
+      description: Admin panels, reporting views, client portals, operations tools, and workflow interfaces built around how the team actually works.
+      tags:
+        - Next.js
+        - TypeScript
+        - Reporting UX
+      cta:
+        text: Scope this
+        href: /get-a-quote
+    - title: Payment and reporting workflows
+      description: Payment-flow UX, payout visibility, PSP/integration support, reporting checks, and dashboards that make numbers easier to trust.
+      tags:
+        - Payment UX
+        - API checks
+        - Payout views
+      cta:
+        text: Plan a workflow
+        href: /get-a-quote
+    - title: Startup product support
+      description: Feature delivery, debugging, stabilisation, handover, and AI-assisted iteration for small teams that need someone adaptable.
+      tags:
+        - SaaS features
+        - Production fixes
+        - Handover
+      cta:
+        text: Ask for support
+        href: /get-a-quote
+    - title: Websites, CMS, and WooCommerce
+      description: Fast brochure sites, CMS-driven pages, WordPress/WooCommerce builds, hosting, maintenance, and practical client support.
+      tags:
+        - Astro
+        - WordPress
+        - WooCommerce
+      cta:
+        text: Start a website
+        href: /get-a-quote
+process:
+  eyebrow: Delivery shape
+  title: A simple path from messy need to usable system.
+  steps:
+    - title: Scope the real job
+      text: Clarify the user, workflow, data, constraints, budget, and risk before choosing the build shape.
+    - title: Build the focused version
+      text: Ship the smallest useful release with the right stack and a clean enough foundation to iterate.
+    - title: Stabilise and hand over
+      text: Test, document, CMS-proof editable content, and make support or next steps clear.
+cta:
+  eyebrow: Start here
+  title: Not sure which service fits?
+  text: Use the quote flow. It branches by project type and gives a better starting point than a generic contact form.
+  primaryCta:
+    text: Get a quote
+    href: /get-a-quote
+  secondaryCta:
+    text: Check pricing
+    href: /pricing

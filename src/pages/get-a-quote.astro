@@ -1,7 +1,5 @@
 ---
-import Button from "@components/ui/Button.astro";
-import ListItem from "@components/ui/ListItem.astro";
-import SubHeading from "@components/ui/SubHeading.astro";
+import LogoIcon from "@components/branding/LogoIcon.astro";
 import Layout from "@layouts/BaseLayout.astro";
 import quote from "@data/general/quote.yml";
 import { Icon } from "astro-icon/components";
@@ -20,337 +18,375 @@ const quoteConfig = JSON.stringify({
   result: quote.result,
 });
 const totalSteps = 6;
+const optionButtonClasses =
+  "group relative overflow-hidden border border-divider-dark/80 bg-background-dark/70 p-5 text-left text-foreground-dark transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-secondary-dark/90 focus-visible:border-primary sm:p-6";
 ---
 
-<Layout title={hero.title}>
-  <section class="relative overflow-hidden bg-background-dark pt-34 pb-18 text-foreground-dark sm:pt-40 lg:pt-48 lg:pb-24">
-    <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute -right-24 top-32 h-80 w-80 rounded-full border border-primary/25"></div>
-      <div class="absolute left-8 bottom-12 h-28 w-28 rounded-full border border-divider-dark"></div>
+<Layout title={hero.title} chrome={false}>
+  <main
+    class="min-h-dvh overflow-hidden bg-background-dark text-foreground-dark"
+    x-data={`quoteWizard(${quoteConfig})`}
+  >
+    <div class="fixed inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,color-mix(in_oklab,var(--primary)_20%,transparent),transparent_24%),radial-gradient(circle_at_85%_20%,color-mix(in_oklab,var(--secondary-dark)_95%,transparent),transparent_30%),linear-gradient(135deg,color-mix(in_oklab,var(--background-dark)_92%,transparent),var(--background-dark))]"></div>
+      <div class="absolute -right-28 top-24 h-96 w-96 rounded-full border border-primary/25"></div>
+      <div class="absolute -left-24 bottom-8 h-72 w-72 rounded-full border border-divider-dark"></div>
     </div>
 
-    <div class="container relative mx-auto max-w-7xl px-5">
-      <div class="grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-end">
-        <div class="flex flex-col gap-7">
-          <SubHeading text={hero.eyebrow} class="fade-in" />
-          <h1 class="font-h1 max-w-6xl fade-in delay-200">{hero.title}</h1>
-        </div>
-        <div class="flex flex-col gap-6 fade-in delay-400">
-          <p class="text-lg leading-relaxed text-muted sm:text-xl">{hero.intro}</p>
-          <p class="border-l border-primary pl-4 text-sm leading-relaxed text-muted">
-            {hero.note}
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <header class="relative z-20 border-b border-divider-dark bg-background-dark/70 backdrop-blur">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
+        <a class="group inline-flex items-center gap-3 fill-primary" href="/">
+          <LogoIcon class="size-10 transition duration-300 group-hover:scale-110" />
+          <span class="hidden text-xs uppercase tracking-wide text-muted sm:inline">
+            R Allen Dev quote studio
+          </span>
+          <span class="sr-only">R Allen Dev home</span>
+        </a>
 
-  <section class="bg-secondary-light py-18 text-foreground-light lg:py-28">
-    <div class="container mx-auto max-w-7xl px-5">
-      <div
-        class="grid gap-6 lg:grid-cols-[minmax(0,0.72fr)_minmax(320px,0.28fr)]"
-        x-data={`quoteWizard(${quoteConfig})`}
-      >
-        <div class="border border-divider-light bg-background-light">
-          <div class="border-b border-divider-light p-5 sm:p-8">
-            <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-              <div class="flex flex-col gap-4">
-                <SubHeading text={wizard.eyebrow} class="text-foreground-light" />
-                <h2 class="font-h2">{wizard.title}</h2>
-              </div>
-              <p class="text-sm uppercase text-secondary-foreground-light">
-                {wizard.progressLabel}
-                <span x-text="currentStep + 1"></span> / {totalSteps}
-              </p>
-            </div>
-            <div class="mt-6 h-1 bg-divider-light">
+        <div class="flex min-w-0 flex-1 items-center justify-end gap-4">
+          <div class="hidden w-full max-w-xs sm:block">
+            <div class="h-1 bg-divider-dark">
               <div
                 class="h-full bg-primary transition-all duration-500"
                 x-bind:style="`width: ${((currentStep + 1) / 6) * 100}%`"
               ></div>
             </div>
           </div>
+          <p class="whitespace-nowrap text-xs uppercase tracking-wide text-muted">
+            {wizard.progressLabel}
+            <span class="text-foreground-dark" x-text="currentStep + 1"></span> / {totalSteps}
+          </p>
+        </div>
+      </div>
+    </header>
 
-          <div class="p-5 sm:p-8">
-            <div x-show="currentStep === 0" class="flex flex-col gap-6">
-              <div>
-                <h3 class="font-h3">{wizard.steps.projectType.title}</h3>
-                <p class="mt-2 max-w-2xl text-secondary-foreground-light">
-                  {wizard.steps.projectType.help}
-                </p>
-              </div>
-              <div class="grid gap-3">
-                {
-                  wizard.steps.projectType.options.map((option: QuoteOption) => (
-                    <button
-                      type="button"
-                      class="group border border-divider-light p-5 text-left transition hover:border-primary hover:bg-secondary-light"
-                      x-bind:class={`answers.projectType === '${option.value}' ? 'border-primary bg-secondary-light' : ''`}
-                      @click={`selectSingle('projectType', '${option.value}')`}
-                    >
-                      <span class="flex items-start justify-between gap-5">
-                        <span>
-                          <span class="block font-heading text-2xl uppercase">{option.label}</span>
-                          <span class="mt-2 block text-sm leading-relaxed text-secondary-foreground-light">
+    <section class="relative z-10 min-h-[calc(100dvh-73px)]">
+      <div class="mx-auto grid min-h-[calc(100dvh-73px)] max-w-7xl gap-6 px-5 py-6 lg:grid-cols-[minmax(0,0.7fr)_minmax(340px,0.3fr)] lg:py-8">
+        <div class="flex min-h-[calc(100dvh-121px)] flex-col justify-between border border-divider-dark bg-background-dark/65 p-5 shadow-2xl backdrop-blur sm:p-8 lg:p-10">
+          <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+            <p class="inline-flex items-center gap-2 text-xs uppercase tracking-wide text-muted">
+              <span class="size-2 bg-primary"></span>
+              {wizard.eyebrow}
+            </p>
+            <p class="max-w-md text-right text-xs uppercase leading-relaxed tracking-wide text-muted">
+              {hero.note}
+            </p>
+          </div>
+
+          <div class="flex flex-1 items-center">
+            <div class="w-full">
+              <div x-show="currentStep === 0" x-transition.opacity.duration.300ms class="grid gap-8">
+                <div class="max-w-4xl">
+                  <p class="mb-4 text-sm uppercase tracking-wide text-primary">{hero.eyebrow}</p>
+                  <h1 class="font-heading text-[clamp(3.25rem,9vw,8rem)] uppercase leading-[0.95] tracking-tight">
+                    {wizard.steps.projectType.title}
+                  </h1>
+                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                    {wizard.steps.projectType.help}
+                  </p>
+                </div>
+
+                <div class="grid gap-3 xl:grid-cols-2">
+                  {
+                    wizard.steps.projectType.options.map((option: QuoteOption, index: number) => (
+                      <button
+                        type="button"
+                        class={optionButtonClasses}
+                        x-bind:class={`answers.projectType === '${option.value}' ? 'border-primary bg-secondary-dark ring-1 ring-primary/40' : ''`}
+                        @click={`selectSingle('projectType', '${option.value}')`}
+                      >
+                        <span class="absolute right-5 top-5 font-heading text-4xl leading-none text-divider-dark transition group-hover:text-primary/40">
+                          0{index + 1}
+                        </span>
+                        <span class="relative block pr-12">
+                          <span class="block font-heading text-3xl uppercase leading-none sm:text-4xl">
+                            {option.label}
+                          </span>
+                          <span class="mt-3 block max-w-xl text-sm leading-relaxed text-muted">
                             {option.description}
                           </span>
                         </span>
-                        <Icon
-                          name="lucide:arrow-up-right"
-                          class="size-5 text-primary transition group-hover:translate-x-1 group-hover:-translate-y-1"
-                          aria-hidden="true"
-                        />
-                      </span>
-                    </button>
-                  ))
-                }
+                      </button>
+                    ))
+                  }
+                </div>
               </div>
-            </div>
 
-            <div x-show="currentStep === 1" class="flex flex-col gap-6">
-              <div>
-                <h3 class="font-h3">{wizard.steps.stack.title}</h3>
-                <p class="mt-2 max-w-2xl text-secondary-foreground-light">
-                  {wizard.steps.stack.help}
-                </p>
+              <div x-show="currentStep === 1" x-transition.opacity.duration.300ms class="grid gap-8">
+                <div class="max-w-4xl">
+                  <h2 class="font-heading text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.95] tracking-tight">
+                    {wizard.steps.stack.title}
+                  </h2>
+                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                    {wizard.steps.stack.help}
+                  </p>
+                </div>
+                <div class="grid gap-3 md:grid-cols-2">
+                  <template x-for="option in getStackOptions()" :key="option.value">
+                    <button
+                      type="button"
+                      class={optionButtonClasses}
+                      x-bind:class="answers.stack === option.value ? 'border-primary bg-secondary-dark ring-1 ring-primary/40' : ''"
+                      @click="selectSingle('stack', option.value)"
+                    >
+                      <span class="font-heading text-4xl uppercase leading-none" x-text="option.label"></span>
+                    </button>
+                  </template>
+                </div>
               </div>
-              <template x-for="option in getStackOptions()" :key="option.value">
-                <button
-                  type="button"
-                  class="border border-divider-light p-5 text-left transition hover:border-primary hover:bg-secondary-light"
-                  x-bind:class="answers.stack === option.value ? 'border-primary bg-secondary-light' : ''"
-                  @click="selectSingle('stack', option.value)"
+
+              <div x-show="currentStep === 2" x-transition.opacity.duration.300ms class="grid gap-8">
+                <div class="max-w-4xl">
+                  <h2 class="font-heading text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.95] tracking-tight">
+                    {wizard.steps.scope.title}
+                  </h2>
+                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                    {wizard.steps.scope.help}
+                  </p>
+                </div>
+                <div class="grid gap-3 lg:grid-cols-3">
+                  {
+                    wizard.steps.scope.options.map((option: QuoteOption) => (
+                      <button
+                        type="button"
+                        class={optionButtonClasses}
+                        x-bind:class={`answers.scope === '${option.value}' ? 'border-primary bg-secondary-dark ring-1 ring-primary/40' : ''`}
+                        @click={`selectSingle('scope', '${option.value}')`}
+                      >
+                        <span class="block font-heading text-4xl uppercase leading-none">
+                          {option.label}
+                        </span>
+                        <span class="mt-4 block text-sm leading-relaxed text-muted">
+                          {option.description}
+                        </span>
+                      </button>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <div x-show="currentStep === 3" x-transition.opacity.duration.300ms class="grid gap-8">
+                <div class="max-w-4xl">
+                  <h2 class="font-heading text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.95] tracking-tight">
+                    {wizard.steps.extras.title}
+                  </h2>
+                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                    {wizard.steps.extras.help}
+                  </p>
+                </div>
+                <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                  {
+                    wizard.steps.extras.options.map((option: QuoteOption) => (
+                      <button
+                        type="button"
+                        class={optionButtonClasses}
+                        x-bind:class={`answers.extras.includes('${option.value}') ? 'border-primary bg-secondary-dark ring-1 ring-primary/40' : ''`}
+                        @click={`toggleExtra('${option.value}')`}
+                      >
+                        <span class="flex min-h-14 items-center gap-3">
+                          <span class="size-2 bg-primary"></span>
+                          <span class="text-sm font-medium uppercase tracking-wide">
+                            {option.label}
+                          </span>
+                        </span>
+                      </button>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <div x-show="currentStep === 4" x-transition.opacity.duration.300ms class="grid gap-8">
+                <div class="max-w-4xl">
+                  <h2 class="font-heading text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.95] tracking-tight">
+                    {wizard.steps.timeline.title}
+                  </h2>
+                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                    {wizard.steps.timeline.help}
+                  </p>
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                  {
+                    wizard.steps.timeline.options.map((option: QuoteOption) => (
+                      <button
+                        type="button"
+                        class={optionButtonClasses}
+                        x-bind:class={`answers.timeline === '${option.value}' ? 'border-primary bg-secondary-dark ring-1 ring-primary/40' : ''`}
+                        @click={`selectSingle('timeline', '${option.value}')`}
+                      >
+                        <span class="font-heading text-4xl uppercase leading-none">
+                          {option.label}
+                        </span>
+                      </button>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <div x-show="currentStep === 5" x-transition.opacity.duration.300ms class="grid gap-8">
+                <div class="max-w-4xl">
+                  <h2 class="font-heading text-[clamp(3rem,8vw,7rem)] uppercase leading-[0.95] tracking-tight">
+                    {wizard.steps.contact.title}
+                  </h2>
+                  <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                    {wizard.steps.contact.help}
+                  </p>
+                </div>
+
+                <form
+                  name="quote-request"
+                  method="POST"
+                  data-netlify="true"
+                  netlify-honeypot="bot-field"
+                  class="grid gap-4"
+                  @submit="handleSubmit()"
                 >
-                  <span class="font-heading text-2xl uppercase" x-text="option.label"></span>
-                </button>
-              </template>
-            </div>
+                  <input type="hidden" name="form-name" value="quote-request" />
+                  <p class="hidden">
+                    <label>Do not fill this out <input name="bot-field" /></label>
+                  </p>
+                  <input type="hidden" name="estimate" x-bind:value="getEstimate()" />
+                  <input type="hidden" name="quote_summary" x-bind:value="getSummary()" />
 
-            <div x-show="currentStep === 2" class="flex flex-col gap-6">
-              <div>
-                <h3 class="font-h3">{wizard.steps.scope.title}</h3>
-                <p class="mt-2 max-w-2xl text-secondary-foreground-light">
-                  {wizard.steps.scope.help}
-                </p>
-              </div>
-              <div class="grid gap-3 md:grid-cols-3">
-                {
-                  wizard.steps.scope.options.map((option: QuoteOption) => (
-                    <button
-                      type="button"
-                      class="border border-divider-light p-5 text-left transition hover:border-primary hover:bg-secondary-light"
-                      x-bind:class={`answers.scope === '${option.value}' ? 'border-primary bg-secondary-light' : ''`}
-                      @click={`selectSingle('scope', '${option.value}')`}
-                    >
-                      <span class="block font-heading text-2xl uppercase">{option.label}</span>
-                      <span class="mt-2 block text-sm leading-relaxed text-secondary-foreground-light">
-                        {option.description}
-                      </span>
-                    </button>
-                  ))
-                }
-              </div>
-            </div>
+                  <div class="grid gap-4 md:grid-cols-2">
+                    <label class="grid gap-2 text-xs uppercase tracking-wide text-muted">
+                      {wizard.steps.contact.fields.name}
+                      <input
+                        class="border border-divider-dark bg-background-dark/80 px-5 py-4 text-base normal-case text-foreground-dark transition focus:border-primary"
+                        name="name"
+                        required
+                        x-model="contact.name"
+                      />
+                    </label>
+                    <label class="grid gap-2 text-xs uppercase tracking-wide text-muted">
+                      {wizard.steps.contact.fields.email}
+                      <input
+                        class="border border-divider-dark bg-background-dark/80 px-5 py-4 text-base normal-case text-foreground-dark transition focus:border-primary"
+                        type="email"
+                        name="email"
+                        required
+                        x-model="contact.email"
+                      />
+                    </label>
+                  </div>
 
-            <div x-show="currentStep === 3" class="flex flex-col gap-6">
-              <div>
-                <h3 class="font-h3">{wizard.steps.extras.title}</h3>
-                <p class="mt-2 max-w-2xl text-secondary-foreground-light">
-                  {wizard.steps.extras.help}
-                </p>
-              </div>
-              <div class="grid gap-3 sm:grid-cols-2">
-                {
-                  wizard.steps.extras.options.map((option: QuoteOption) => (
-                    <button
-                      type="button"
-                      class="border border-divider-light p-5 text-left transition hover:border-primary hover:bg-secondary-light"
-                      x-bind:class={`answers.extras.includes('${option.value}') ? 'border-primary bg-secondary-light' : ''`}
-                      @click={`toggleExtra('${option.value}')`}
-                    >
-                      <span class="flex items-center gap-3">
-                        <span class="size-2 bg-primary"></span>
-                        <span class="font-medium uppercase">{option.label}</span>
-                      </span>
-                    </button>
-                  ))
-                }
-              </div>
-            </div>
+                  <div class="grid gap-4 md:grid-cols-2">
+                    <label class="grid gap-2 text-xs uppercase tracking-wide text-muted">
+                      {wizard.steps.contact.fields.phone}
+                      <input
+                        class="border border-divider-dark bg-background-dark/80 px-5 py-4 text-base normal-case text-foreground-dark transition focus:border-primary"
+                        name="phone"
+                        x-model="contact.phone"
+                      />
+                    </label>
+                    <label class="grid gap-2 text-xs uppercase tracking-wide text-muted">
+                      {wizard.steps.contact.fields.contactMethod}
+                      <select
+                        class="border border-divider-dark bg-background-dark/80 px-5 py-4 text-base normal-case text-foreground-dark transition focus:border-primary"
+                        name="preferred_contact_method"
+                        x-model="contact.contactMethod"
+                      >
+                        {
+                          wizard.steps.contact.contactMethods.map((method: string) => (
+                            <option value={method}>{method}</option>
+                          ))
+                        }
+                      </select>
+                    </label>
+                  </div>
 
-            <div x-show="currentStep === 4" class="flex flex-col gap-6">
-              <div>
-                <h3 class="font-h3">{wizard.steps.timeline.title}</h3>
-                <p class="mt-2 max-w-2xl text-secondary-foreground-light">
-                  {wizard.steps.timeline.help}
-                </p>
-              </div>
-              <div class="grid gap-3 md:grid-cols-3">
-                {
-                  wizard.steps.timeline.options.map((option: QuoteOption) => (
-                    <button
-                      type="button"
-                      class="border border-divider-light p-5 text-left transition hover:border-primary hover:bg-secondary-light"
-                      x-bind:class={`answers.timeline === '${option.value}' ? 'border-primary bg-secondary-light' : ''`}
-                      @click={`selectSingle('timeline', '${option.value}')`}
-                    >
-                      <span class="font-heading text-2xl uppercase">{option.label}</span>
-                    </button>
-                  ))
-                }
-              </div>
-            </div>
-
-            <div x-show="currentStep === 5" class="flex flex-col gap-6">
-              <div>
-                <h3 class="font-h3">{wizard.steps.contact.title}</h3>
-                <p class="mt-2 max-w-2xl text-secondary-foreground-light">
-                  {wizard.steps.contact.help}
-                </p>
-              </div>
-
-              <form
-                name="quote-request"
-                method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
-                class="grid gap-4"
-                @submit="handleSubmit()"
-              >
-                <input type="hidden" name="form-name" value="quote-request" />
-                <p class="hidden">
-                  <label>Do not fill this out <input name="bot-field" /></label>
-                </p>
-                <input type="hidden" name="estimate" x-bind:value="getEstimate()" />
-                <input type="hidden" name="quote_summary" x-bind:value="getSummary()" />
-
-                <div class="grid gap-4 sm:grid-cols-2">
-                  <label class="flex flex-col gap-2 text-sm uppercase">
-                    {wizard.steps.contact.fields.name}
-                    <input
-                      class="border border-divider-light bg-background-light px-4 py-3 text-base normal-case"
-                      name="name"
+                  <label class="grid gap-2 text-xs uppercase tracking-wide text-muted">
+                    {wizard.steps.contact.fields.message}
+                    <textarea
+                      class="min-h-36 border border-divider-dark bg-background-dark/80 px-5 py-4 text-base normal-case text-foreground-dark transition focus:border-primary"
+                      name="message"
                       required
-                      x-model="contact.name"
-                    />
+                      x-model="contact.message"
+                    ></textarea>
                   </label>
-                  <label class="flex flex-col gap-2 text-sm uppercase">
-                    {wizard.steps.contact.fields.email}
-                    <input
-                      class="border border-divider-light bg-background-light px-4 py-3 text-base normal-case"
-                      type="email"
-                      name="email"
-                      required
-                      x-model="contact.email"
-                    />
-                  </label>
-                </div>
 
-                <div class="grid gap-4 sm:grid-cols-2">
-                  <label class="flex flex-col gap-2 text-sm uppercase">
-                    {wizard.steps.contact.fields.phone}
-                    <input
-                      class="border border-divider-light bg-background-light px-4 py-3 text-base normal-case"
-                      name="phone"
-                      x-model="contact.phone"
-                    />
-                  </label>
-                  <label class="flex flex-col gap-2 text-sm uppercase">
-                    {wizard.steps.contact.fields.contactMethod}
-                    <select
-                      class="border border-divider-light bg-background-light px-4 py-3 text-base normal-case"
-                      name="preferred_contact_method"
-                      x-model="contact.contactMethod"
-                    >
-                      {
-                        wizard.steps.contact.contactMethods.map((method: string) => (
-                          <option value={method}>{method}</option>
-                        ))
-                      }
-                    </select>
-                  </label>
-                </div>
+                  <button
+                    type="submit"
+                    class="group mt-2 inline-flex w-fit items-center gap-3 bg-primary px-8 py-5 text-sm font-semibold uppercase text-primary-foreground transition hover:-translate-y-0.5"
+                  >
+                    {wizard.submitLabel}
+                    <Icon name="lucide:send" class="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
+                  </button>
 
-                <label class="flex flex-col gap-2 text-sm uppercase">
-                  {wizard.steps.contact.fields.message}
-                  <textarea
-                    class="min-h-36 border border-divider-light bg-background-light px-4 py-3 text-base normal-case"
-                    name="message"
-                    required
-                    x-model="contact.message"
-                  ></textarea>
-                </label>
-
-                <Button
-                  text={wizard.submitLabel}
-                  variant="primary"
-                  iconEnd="lucide:send"
-                  class="w-fit"
-                />
-
-                <p
-                  class="text-sm text-secondary-foreground-light"
-                  x-show="isSubmitted"
-                  x-text="config.wizard.successText"
-                ></p>
-              </form>
+                  <p
+                    class="text-sm text-muted"
+                    x-show="isSubmitted"
+                    x-text="config.wizard.successText"
+                  ></p>
+                </form>
+              </div>
             </div>
+          </div>
 
-            <div class="mt-8 flex flex-wrap gap-2 border-t border-divider-light pt-6">
-              <button
-                type="button"
-                class="px-6 py-4 text-sm uppercase text-secondary-foreground-light transition hover:text-foreground-light"
-                x-show="currentStep > 0"
-                @click="back()"
-              >
-                {wizard.backLabel}
-              </button>
-              <button
-                type="button"
-                class="bg-primary px-8 py-4 text-sm font-medium uppercase text-primary-foreground transition disabled:cursor-not-allowed disabled:opacity-40"
-                x-show="currentStep < 5"
-                x-bind:disabled="!canContinue()"
-                @click="next()"
-              >
-                {wizard.nextLabel}
-              </button>
-            </div>
+          <div class="mt-8 flex items-center justify-between gap-4 border-t border-divider-dark pt-5">
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 px-1 py-3 text-xs uppercase tracking-wide text-muted transition hover:text-foreground-dark"
+              x-show="currentStep > 0"
+              @click="back()"
+            >
+              <Icon name="lucide:arrow-left" class="size-4" aria-hidden="true" />
+              {wizard.backLabel}
+            </button>
+            <button
+              type="button"
+              class="ml-auto inline-flex items-center gap-3 bg-primary px-8 py-5 text-sm font-semibold uppercase text-primary-foreground transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-35"
+              x-show="currentStep < 5"
+              x-bind:disabled="!canContinue()"
+              @click="next()"
+            >
+              {wizard.nextLabel}
+              <Icon name="lucide:arrow-right" class="size-4" aria-hidden="true" />
+            </button>
           </div>
         </div>
 
-        <aside class="h-fit border border-divider-light bg-background-light p-5 sm:p-8 lg:sticky lg:top-28">
-          <div class="flex flex-col gap-6">
-            <SubHeading text={wizard.summaryLabel} class="text-foreground-light" />
-            <div class="border-b border-divider-light pb-5">
-              <p class="text-sm uppercase text-secondary-foreground-light" x-text="needsDiscovery() ? config.wizard.discoveryLabel : config.wizard.estimateLabel"></p>
-              <p class="font-h3 mt-2 text-primary" x-text="getEstimate()"></p>
-              <p class="mt-3 text-sm leading-relaxed text-secondary-foreground-light" x-text="getResultText()"></p>
+        <aside class="grid gap-6 lg:min-h-[calc(100dvh-121px)] lg:grid-rows-[1fr_auto]">
+          <div class="border border-divider-dark bg-primary p-6 text-primary-foreground shadow-2xl sm:p-8">
+            <p class="text-xs uppercase tracking-wide">
+              <span x-text="needsDiscovery() ? config.wizard.discoveryLabel : config.wizard.estimateLabel"></span>
+            </p>
+            <p class="font-heading mt-4 text-[clamp(3rem,6vw,5.5rem)] uppercase leading-none" x-text="getEstimate()"></p>
+            <p class="mt-5 max-w-sm text-sm leading-relaxed" x-text="getResultText()"></p>
+          </div>
+
+          <div class="border border-divider-dark bg-background-dark/70 p-6 backdrop-blur sm:p-8">
+            <div class="mb-5 flex items-center justify-between gap-4">
+              <p class="text-xs uppercase tracking-wide text-muted">{wizard.summaryLabel}</p>
+              <Icon name="lucide:sparkles" class="size-5 text-primary" aria-hidden="true" />
             </div>
-
-            <ul class="flex flex-col gap-3 text-sm">
-              <ListItem as="li">
-                <span x-text="getAnswerLabel('projectType', answers.projectType)"></span>
-              </ListItem>
-              <ListItem as="li">
-                <span x-text="getAnswerLabel('stack', answers.stack)"></span>
-              </ListItem>
-              <ListItem as="li">
-                <span x-text="getAnswerLabel('scope', answers.scope)"></span>
-              </ListItem>
-              <ListItem as="li">
-                <span x-text="getExtrasSummary()"></span>
-              </ListItem>
-              <ListItem as="li">
-                <span x-text="getAnswerLabel('timeline', answers.timeline)"></span>
-              </ListItem>
-            </ul>
-
-            <p class="border-t border-divider-light pt-5 text-sm leading-relaxed text-secondary-foreground-light">
+            <dl class="grid gap-4 text-sm">
+              <div>
+                <dt class="text-xs uppercase text-muted">Project</dt>
+                <dd class="mt-1 text-foreground-dark" x-text="getAnswerLabel('projectType', answers.projectType)"></dd>
+              </div>
+              <div>
+                <dt class="text-xs uppercase text-muted">Stack</dt>
+                <dd class="mt-1 text-foreground-dark" x-text="getAnswerLabel('stack', answers.stack)"></dd>
+              </div>
+              <div>
+                <dt class="text-xs uppercase text-muted">Scope</dt>
+                <dd class="mt-1 text-foreground-dark" x-text="getAnswerLabel('scope', answers.scope)"></dd>
+              </div>
+              <div>
+                <dt class="text-xs uppercase text-muted">Extras</dt>
+                <dd class="mt-1 text-foreground-dark" x-text="getExtrasSummary()"></dd>
+              </div>
+              <div>
+                <dt class="text-xs uppercase text-muted">Timeline</dt>
+                <dd class="mt-1 text-foreground-dark" x-text="getAnswerLabel('timeline', answers.timeline)"></dd>
+              </div>
+            </dl>
+            <p class="mt-6 border-t border-divider-dark pt-5 text-xs uppercase leading-relaxed text-muted">
               {wizard.hourlyNote}
             </p>
           </div>
         </aside>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 </Layout>

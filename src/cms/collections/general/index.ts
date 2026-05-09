@@ -5,12 +5,13 @@ import layout from "./layout";
 import meta from "./meta";
 import quote from "./quote";
 import resume from "./resume";
+import services from "./services";
 import socials from "./socials";
 
 const general: CmsCollection = {
   name: "general",
   label: "General",
-  files: [meta, layout, home, about, quote, faqs, socials, resume],
+  files: [meta, layout, home, about, services, quote, faqs, socials, resume],
 };
 
 export default general;
