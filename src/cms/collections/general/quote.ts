@@ -6,6 +6,12 @@ const optionFields = [
   { name: "description", label: "Description", widget: "text", required: false },
 ];
 
+const estimateBands = [
+  { name: "small", label: "Small scope copy" },
+  { name: "medium", label: "Medium scope copy" },
+  { name: "large", label: "Large scope copy" },
+];
+
 const quote: CmsFile = {
   name: "quote",
   label: "Get A Quote",
@@ -127,7 +133,37 @@ const quote: CmsFile = {
         },
       ],
     },
-    { name: "estimates", label: "Estimates", widget: "object" },
+    {
+      name: "estimates",
+      label: "Estimates",
+      widget: "object",
+      fields: [
+        {
+          name: "app",
+          label: "Dashboard / app / internal tool",
+          widget: "object",
+          fields: estimateBands,
+        },
+        {
+          name: "website",
+          label: "Website or landing page",
+          widget: "object",
+          fields: estimateBands,
+        },
+        {
+          name: "ecommerce",
+          label: "Ecommerce",
+          widget: "object",
+          fields: estimateBands,
+        },
+        {
+          name: "unsure",
+          label: "Not sure",
+          widget: "object",
+          fields: estimateBands,
+        },
+      ],
+    },
     {
       name: "result",
       label: "Result Copy",
