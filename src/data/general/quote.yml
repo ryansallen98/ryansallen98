@@ -1,0 +1,154 @@
+hero:
+  eyebrow: Get a quote
+  title: Scope your project without the awkward back-and-forth.
+  intro: Answer a few quick questions and I’ll give you a starting estimate or tell you when the project needs a proper discovery call.
+  note: Estimates are starting ranges, not fixed quotes. Final pricing is confirmed after discovery.
+wizard:
+  eyebrow: Project estimator
+  title: What are we building?
+  progressLabel: Step
+  backLabel: Back
+  nextLabel: Continue
+  estimateLabel: Starting estimate
+  discoveryLabel: Discovery recommended
+  hourlyNote: Support, changes, and smaller tasks are usually billed at $50/hour.
+  summaryLabel: Your quote summary
+  submitLabel: Send my quote request
+  submittingText: Sending...
+  successText: Thanks. I’ll review this and reply with next steps.
+  steps:
+    projectType:
+      title: What do you need help with?
+      help: Pick the closest fit. If you are unsure, choose “Not sure” and I’ll help shape the scope.
+      options:
+        - label: Dashboard / web app / internal tool
+          value: app
+          description: React, Next.js, admin panels, reporting tools, operational workflows.
+        - label: Payment or reporting system
+          value: reporting
+          description: Data-heavy dashboards, payout visibility, reconciliation, APIs, or finance workflows.
+        - label: Website or landing page
+          value: website
+          description: Fast Astro/CMS websites, portfolio sites, funnels, service pages, or brochure sites.
+        - label: Ecommerce / WooCommerce
+          value: ecommerce
+          description: Online stores, checkout flows, WooCommerce customisation, product/order logic.
+        - label: I’m not sure yet
+          value: unsure
+          description: You have a rough idea and want help turning it into a practical scope.
+    stack:
+      title: Do you have a preferred stack?
+      help: Choose what you already know, or let me recommend the best fit.
+      options:
+        app:
+          - label: Next.js / React
+            value: next
+          - label: Existing app or codebase
+            value: existing
+          - label: Recommend one
+            value: recommend
+        reporting:
+          - label: Next.js dashboard
+            value: next
+          - label: Existing reporting setup
+            value: existing
+          - label: Recommend one
+            value: recommend
+        website:
+          - label: Astro / static CMS site
+            value: astro
+          - label: WordPress
+            value: wordpress
+          - label: Webflow-style design, custom build
+            value: custom
+          - label: Recommend one
+            value: recommend
+        ecommerce:
+          - label: WooCommerce
+            value: woocommerce
+          - label: Existing store
+            value: existing
+          - label: Recommend one
+            value: recommend
+        unsure:
+          - label: Recommend the best fit
+            value: recommend
+          - label: I already have a platform
+            value: existing
+    scope:
+      title: How big is the scope?
+      help: This helps estimate complexity before we talk details.
+      options:
+        - label: Small and focused
+          value: small
+          description: One clear feature, landing page, small site, or a limited fix.
+        - label: Medium build
+          value: medium
+          description: Multiple pages, dashboard screens, integrations, ecommerce setup, or custom workflows.
+        - label: Larger custom project
+          value: large
+          description: Complex app, advanced reporting, many integrations, bespoke ecommerce, or ongoing product work.
+    extras:
+      title: What else is involved?
+      help: Select anything that applies.
+      options:
+        - label: UX/UI design needed
+          value: design
+        - label: Copy/content help
+          value: content
+        - label: API integrations
+          value: integrations
+        - label: Auth or user accounts
+          value: auth
+        - label: Payments, payouts, or sensitive data
+          value: sensitive
+        - label: Hosting, deployment, or maintenance
+          value: support
+    timeline:
+      title: What timeline are you aiming for?
+      help: Rush work may need a tighter discovery call before pricing is confirmed.
+      options:
+        - label: Flexible
+          value: flexible
+        - label: Within 2-4 weeks
+          value: standard
+        - label: As soon as possible
+          value: rush
+    contact:
+      title: Where should I send the follow-up?
+      help: Add enough context for me to understand what you are trying to build.
+      fields:
+        name: Name
+        email: Email
+        phone: Phone / WhatsApp
+        contactMethod: Preferred contact method
+        message: Project summary
+      contactMethods:
+        - Email
+        - WhatsApp
+        - Telegram
+        - Phone
+estimates:
+  app:
+    small: From $2,500
+    medium: $3,500-$5,000+
+    large: Discovery first, usually $5,000+
+  reporting:
+    small: From $3,000
+    medium: $4,500-$7,500+
+    large: Discovery required
+  website:
+    small: From $1,000
+    medium: From $2,500
+    large: From $4,500+
+  ecommerce:
+    small: From $3,000
+    medium: From $4,500
+    large: Discovery required
+  unsure:
+    small: From $1,000
+    medium: Discovery recommended
+    large: Discovery required
+result:
+  defaultText: This gives us a sensible starting point. I’ll confirm the final quote after reviewing your answers.
+  discoveryText: This looks custom enough that a discovery call is the right next step before giving a fixed proposal.

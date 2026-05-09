@@ -1,0 +1,71 @@
+header:
+  logoLabel: Ryan Allen - rallen.dev
+  mobileMenuLabel: Toggle navigation menu
+  mobileTagline: React, Next.js dashboards and practical product builds.
+  links:
+    - text: Home
+      href: /
+    - text: Services
+      href: /services
+    - text: Get a Quote
+      href: /get-a-quote
+    - text: About Me
+      href: /about
+    - text: Contact
+      href: /contact
+footer:
+  cta:
+    eyebrow: What I Do
+    text: Software developer building dashboards, payment/reporting workflows, startup tools, and reliable websites when a simpler lane fits.
+    button:
+      text: Let's work together
+      href: /contact
+  menus:
+    - heading: General
+      links:
+        - text: Home
+          href: /
+        - text: Services
+          href: /services
+        - text: Get a Quote
+          href: /get-a-quote
+        - text: Contact
+          href: /contact
+    - heading: About
+      links:
+        - text: About Me
+          href: /about
+        - text: Resume
+          href: /resume
+    - heading: Compliance
+      links:
+        - text: Privacy Policy
+          href: /privacy-policy
+        - text: Cookie Policy
+          href: /cookie-policy
+        - text: Terms & Conditions
+          href: /terms-and-conditions
+  locations:
+    heading: Locations
+    items:
+      - country: United Kingdom
+        locality: London, England
+      - country: United States
+        locality: Saipan, Northern Mariana Islands
+  contact:
+    heading: Contact Me
+    items:
+      - label: hello@rallendev.com
+        href: mailto:hello@rallendev.com
+        icon: mdi:email
+      - label: "@rallendev"
+        href: https://t.me/rallendev
+        icon: mdi:telegram
+      - label: +44 746 466 4178
+        href: tel:+447464664178
+        icon: mdi:telephone
+      - label: +44 746 466 4178
+        href: https://wa.me/447464664178
+        icon: mdi:whatsapp
+  socialsHeading: Socials
+  copyrightSuffix: All rights reserved.

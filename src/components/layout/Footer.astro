@@ -1,6 +1,7 @@
 ---
 import SubHeading from "@components/ui/SubHeading.astro";
 import NavLink from "@components/navigation/NavLink.astro";
+import layout from "@data/general/layout.yml";
 import meta from "@data/general/meta.yml";
 import Socials from "@components/content/Socials.astro";
 import { Icon } from "astro-icon/components";
@@ -11,6 +12,46 @@ const legalMatch = meta.legalName === meta.siteName;
 const copyrightCompany = legalMatch
   ? meta.legalName
   : `${meta.legalName} trading as ${meta.siteName}`;
+
+type FooterLink = {
+  text: string;
+  href: string;
+};
+
+type FooterMenu = {
+  heading: string;
+  links: FooterLink[];
+};
+
+type FooterLocation = {
+  country: string;
+  locality: string;
+};
+
+type FooterContact = {
+  label: string;
+  href: string;
+  icon: string;
+};
+
+const footer = layout.footer as {
+  cta: {
+    eyebrow: string;
+    text: string;
+    button: FooterLink;
+  };
+  menus: FooterMenu[];
+  locations: {
+    heading: string;
+    items: FooterLocation[];
+  };
+  contact: {
+    heading: string;
+    items: FooterContact[];
+  };
+  socialsHeading: string;
+  copyrightSuffix: string;
+};
 ---
 
 <footer class="bg-background-dark text-foreground-dark" transition:persist>
@@ -21,14 +62,13 @@ const copyrightCompany = legalMatch
         class="order-first flex w-full flex-col justify-between gap-8 lg:order-last lg:w-[45%] lg:flex-1"
       >
         <div class="flex max-w-2xl flex-col gap-6 lg:gap-8">
-          <SubHeading text="What I Do" as="h3" />
+          <SubHeading text={footer.cta.eyebrow} as="h3" />
           <p class="text-lg leading-relaxed text-muted sm:text-xl">
-            Full-Stack Developer offering UX/UI design, web development, and
-            consultancy for fast, accessible, SEO-friendly websites.
+            {footer.cta.text}
           </p>
           <Button
-            href="/contact"
-            text="Let’s work together"
+            href={footer.cta.button.href}
+            text={footer.cta.button.text}
             variant="primary"
             iconEnd="lucide:arrow-right"
           />
@@ -40,127 +80,67 @@ const copyrightCompany = legalMatch
       <div class="flex w-full flex-col justify-between gap-10 lg:w-[55%] lg:gap-15">
         <!-- Footer Menu -->
         <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 lg:gap-y-16">
-          <div class="flex flex-col gap-5 lg:gap-8">
-            <SubHeading text="General" as="h3" />
-            <ul class="flex flex-col gap-2 w-fit items-start">
-              <NavLink href="/" text="Home" />
-              <NavLink href="/services" text="Services" />
-              <NavLink href="/projects" text="Projects" />
-              <NavLink href="/blog" text="Blog" />
-              <NavLink href="/contact" text="Contact" />
-            </ul>
-          </div>
+          {
+            footer.menus.map((menu: FooterMenu) => (
+              <div class="flex flex-col gap-5 lg:gap-8">
+                <SubHeading text={menu.heading} as="h3" />
+                <ul class="flex flex-col gap-2 w-fit items-start">
+                  {menu.links.map((link: FooterLink) => (
+                    <NavLink href={link.href} text={link.text} />
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
 
           <div class="flex flex-col gap-5 lg:gap-8">
-            <SubHeading text="About" as="h3" />
-            <ul class="flex flex-col gap-2 w-fit items-start">
-              <NavLink href="/about" text="About Me" />
-              <NavLink href="/resume" text="Resume" />
-              <NavLink href="/availability" text="Availability" />
-            </ul>
-          </div>
-
-          <div class="flex flex-col gap-5 lg:gap-8">
-            <SubHeading text="Compliance" as="h3" />
-            <ul class="flex flex-col gap-2 w-fit items-start">
-              <NavLink href="/privacy-policy" text="Privacy Policy" />
-              <NavLink href="/cookie-policy" text="Cookie Policy" />
-              <NavLink href="/terms-and-conditions" text="Terms & Conditions" />
-            </ul>
-          </div>
-
-          <div class="flex flex-col gap-5 lg:gap-8">
-            <SubHeading text="Locations" as="h3" />
+            <SubHeading text={footer.locations.heading} as="h3" />
             <ul class="flex flex-col gap-4 lg:gap-6">
-              <li class="flex flex-row gap-2">
-                <Icon
-                  name="mdi:map-marker"
-                  class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
-                  aria-hidden="true"
-                />
-                <div class="text-muted">
-                  <p>United Kingdom</p>
-                  <p>London, England</p>
-                </div>
-              </li>
-              <li class="flex flex-row gap-2">
-                <Icon
-                  name="mdi:map-marker"
-                  class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
-                  aria-hidden="true"
-                />
-                <div class="text-muted">
-                  <p>United States</p>
-                  <p>Saipan, Northern Mariana Islands</p>
-                </div>
-              </li>
+              {
+                footer.locations.items.map((location: FooterLocation) => (
+                  <li class="flex flex-row gap-2">
+                    <Icon
+                      name="mdi:map-marker"
+                      class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
+                      aria-hidden="true"
+                    />
+                    <div class="text-muted">
+                      <p>{location.country}</p>
+                      <p>{location.locality}</p>
+                    </div>
+                  </li>
+                ))
+              }
             </ul>
           </div>
 
           <div class="flex flex-col gap-5 lg:gap-8">
-            <SubHeading text="Contact Me" as="h3" />
+            <SubHeading text={footer.contact.heading} as="h3" />
             <ul class="flex flex-col gap-3 lg:gap-4">
-              <li>
-                <a
-                  href="mailto:hello@rallendev.com"
-                  class="flex flex-row gap-2 transition-all duration-300 text-muted hover:text-foreground-dark focus-visible:text-foreground-dark"
-                >
-                  <Icon
-                    name="mdi:email"
-                    class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
-                    aria-hidden="true"
-                  />
-                  <span class="inline-block">hello@rallendev.com</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://t.me/rallendev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="flex flex-row gap-2 transition-all duration-300 text-muted hover:text-foreground-dark focus-visible:text-foreground-dark"
-                >
-                  <Icon
-                    name="mdi:telegram"
-                    class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
-                    aria-hidden="true"
-                  />
-                  <span>@rallendev</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+447464664178"
-                  class="flex flex-row gap-2 transition-all duration-300 text-muted hover:text-foreground-dark focus-visible:text-foreground-dark"
-                >
-                  <Icon
-                    name="mdi:telephone"
-                    class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
-                    aria-hidden="true"
-                  />
-                  <span class="inline-block">+44 746 466 4178</span>
-                </a>
-              </li>
-              <li class="flex flex-row gap-2">
-                <a
-                  href="https://wa.me/447464664178"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="flex flex-row gap-2 transition-all duration-300 text-muted hover:text-foreground-dark focus-visible:text-foreground-dark"
-                >
-                  <Icon
-                    name="mdi:whatsapp"
-                    class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
-                    aria-hidden="true"
-                  />
-                  <div class="inline-block">+44 746 466 4178</div>
-                </a>
-              </li>
+              {
+                footer.contact.items.map((item: FooterContact) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      class="flex flex-row gap-2 transition-all duration-300 text-muted hover:text-foreground-dark focus-visible:text-foreground-dark"
+                    >
+                      <Icon
+                        name={item.icon}
+                        class="inline-block w-5 h-5 mt-0.5 mr-0.5 text-primary"
+                        aria-hidden="true"
+                      />
+                      <span class="inline-block">{item.label}</span>
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </div>
 
           <div class="flex flex-col gap-5 lg:gap-8">
-            <SubHeading text="Socials" as="h3" />
+            <SubHeading text={footer.socialsHeading} as="h3" />
 
             <Socials />
           </div>
@@ -172,7 +152,7 @@ const copyrightCompany = legalMatch
         >
           <p>
             &copy; {new Date().getFullYear()}
-            {copyrightCompany}. All rights reserved.
+            {copyrightCompany}. {footer.copyrightSuffix}
           </p>
         </div>
       </div>

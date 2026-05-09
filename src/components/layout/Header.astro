@@ -2,14 +2,19 @@
 import LogoIcon from "@components/branding/LogoIcon.astro";
 import NavMenu from "@components/navigation/NavMenu.astro";
 import Socials from "@components/content/Socials.astro";
+import layout from "@data/general/layout.yml";
 
-const mobileLinks = [
-  { text: "Home", href: "/" },
-  { text: "Services", href: "/services" },
-  { text: "About Me", href: "/about" },
-  { text: "Blog", href: "/blog" },
-  { text: "Contact", href: "/contact" },
-];
+type NavItem = {
+  text: string;
+  href: string;
+};
+
+const header = layout.header as {
+  logoLabel: string;
+  mobileMenuLabel: string;
+  mobileTagline: string;
+  links: NavItem[];
+};
 ---
 
 <header
@@ -32,12 +37,12 @@ const mobileLinks = [
           <LogoIcon
             class="size-10 sm:size-12 lg:size-15 group-hover:scale-115 transition-transform duration-300"
           />
-          <span class="sr-only">Ryan Allen - rallen.dev</span>
+          <span class="sr-only">{header.logoLabel}</span>
         </a>
 
         <!-- Navigation -->
         <div class="hidden lg:flex flex-row items-center justify-start gap-15 pr-10">
-          <NavMenu />
+          <NavMenu links={header.links} />
 
           <!-- Socials -->
           <Socials />
@@ -49,12 +54,12 @@ const mobileLinks = [
           <button
             type="button"
             class="group flex h-9 w-9 items-center justify-center bg-transparent text-foreground-dark transition-colors duration-300 hover:bg-primary hover:text-primary-foreground focus-visible:bg-primary focus-visible:text-primary-foreground sm:h-10 sm:w-10"
-            aria-label="Toggle navigation menu"
+            aria-label={header.mobileMenuLabel}
             :aria-expanded="String(isOpen)"
             aria-controls="mobile-navigation"
             @click="toggle()"
           >
-            <span class="sr-only">Toggle navigation menu</span>
+            <span class="sr-only">{header.mobileMenuLabel}</span>
             <span class="relative flex h-3 w-4.5 flex-col justify-between sm:h-3.5 sm:w-5">
               <span
                 class="h-0.5 w-full bg-current transition-transform duration-300"
@@ -100,7 +105,7 @@ const mobileLinks = [
       <nav class="flex flex-1 items-center" aria-label="Mobile navigation">
         <ul class="w-full" data-menu>
           {
-            mobileLinks.map((link, index) => (
+            header.links.map((link: NavItem, index: number) => (
               <li
                 class="border-b border-divider-dark/80 transition-all duration-600 ease-out motion-reduce:translate-x-0 motion-reduce:opacity-100 motion-reduce:blur-0 motion-reduce:transition-none"
                 :class="isOpen ? 'translate-x-0 opacity-100 blur-0' : 'translate-x-8 opacity-0 blur-sm'"
@@ -110,7 +115,7 @@ const mobileLinks = [
                   href={link.href}
                   data-nav-link
                   data-href={link.href}
-                  class="group flex items-center justify-between py-3.5 font-heading text-[clamp(2.6rem,13vw,5.75rem)] uppercase leading-none text-foreground-dark transition-colors duration-300 hover:text-primary focus-visible:text-primary sm:py-4"
+                  class="group flex items-center justify-between py-3.5 font-heading text-5xl uppercase leading-none text-foreground-dark transition-colors duration-300 hover:text-primary focus-visible:text-primary sm:py-4 sm:text-7xl"
                   @click="close()"
                 >
                   <span>{link.text}</span>
@@ -129,7 +134,7 @@ const mobileLinks = [
         :class="isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'"
       >
         <p class="max-w-56 text-[0.65rem] uppercase leading-relaxed tracking-wide text-muted sm:text-xs">
-          React, Next.js dashboards and practical product builds.
+          {header.mobileTagline}
         </p>
       </div>
     </div>
