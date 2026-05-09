@@ -31,6 +31,8 @@ pnpm-debug.log*
 .cursor/
 .claude/
 .codex/
+AGENTS.md
+CLAUDE.md
 
 # Other files
 /docs
