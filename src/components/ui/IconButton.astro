@@ -47,6 +47,8 @@ const hoverIconClasses =
 ---
 
 <Tag
+  role={!isButton && !isLink ? "button" : undefined}
+  tabindex={!isButton && !isLink ? "0" : undefined}
   aria-disabled={rest.disabled ? "true" : undefined}
   class={buttonClasses}
   data-variant={variant}

@@ -163,4 +163,8 @@ if (isArticle) {
 />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 {meta.themeColor && <meta name="theme-color" content={meta.themeColor} />}
-<script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(schemaGraph)}
+/>
