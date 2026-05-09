@@ -2,6 +2,8 @@
   background-color: var(--color-background-dark);
   padding-top: calc(35 * var(--spacing));
   /* padding-bottom: calc(20 * var(--spacing)); */
+  overflow-x: hidden;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,6 +19,13 @@
   width: 210mm;
   height: 297mm;
   animation: resume-fade-up 500ms ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-body {
+  flex: 1;
+  min-height: 0;
 }
 
 .resume-toolbar {
@@ -25,6 +34,37 @@
   top: 0;
   left: 0;
   animation: resume-toolbar-fade-down 800ms ease-out;
+}
+
+.resume-pdf-fallback {
+  z-index: 9998;
+  position: fixed;
+  inset: var(--resume-toolbar-height, 0) 0 0;
+  display: none;
+  place-items: center;
+  background: color-mix(in oklab, var(--color-background-dark) 35%, transparent);
+  backdrop-filter: blur(8px);
+  padding: calc(6 * var(--spacing));
+}
+
+.resume-pdf-fallback[data-visible="true"] {
+  display: grid;
+}
+
+.resume-pdf-fallback-card {
+  width: min(100%, 380px);
+  border: 1px solid var(--color-divider-dark);
+  background: color-mix(in oklab, var(--color-background-dark) 92%, transparent);
+  box-shadow: var(--shadow-2xl);
+  color: var(--color-foreground-dark);
+  padding: calc(8 * var(--spacing));
+  text-align: center;
+}
+
+.resume-pdf-fallback p {
+  margin: 0 0 calc(5 * var(--spacing));
+  font-size: 16px;
+  line-height: 1.4;
 }
 
 ::selection {
@@ -85,6 +125,7 @@
   }
 
   .resume-toolbar,
+  .resume-pdf-fallback,
   .resume-footer {
     display: none;
   }

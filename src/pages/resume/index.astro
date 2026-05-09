@@ -6,24 +6,42 @@ import ResumeHeader from "./_components/ResumeHeader.astro";
 import ResumeExperience from "./_components/ResumeExperience.astro";
 import ResumeAdditionalInfo from "./_components/ResumeAdditionalInfo.astro";
 import ResumeFooter from "./_components/ResumeFooter.astro";
+import Button from "@components/ui/Button.astro";
+import resume from "@data/general/resume.yml";
 
-const title = "Resume";
+const title = `${resume.name} Resume`;
 ---
 
 <Layout title={title} chrome={false}>
   <div class="resume-background">
+    <div class="resume-pdf-fallback" data-resume-pdf-fallback aria-hidden="true">
+      <div class="resume-pdf-fallback-card">
+        <p>This resume is designed for A4 viewing.</p>
+        <Button
+          as="a"
+          href="/resume.pdf"
+          variant="primary"
+          text="Open PDF version"
+          iconEnd="lucide:file-text"
+          class="min-h-11 px-6 py-3 text-xs"
+        />
+      </div>
+    </div>
+
     <!-- Toolbar -->
     <ResumeToolbar />
 
     <!-- A4 Paper -->
     <article class="resume-paper">
-      <ResumeHeader />
-      <div class="flex flex-row h-full">
-        <ResumeExperience />
-        <ResumeAdditionalInfo />
+      <ResumeHeader resume={resume} />
+      <div class="resume-body flex flex-row">
+        <ResumeExperience resume={resume} />
+        <ResumeAdditionalInfo resume={resume} />
       </div>
     </article>
 
     <ResumeFooter />
   </div>
+
+  <script src="@scripts/resume"></script>
 </Layout>

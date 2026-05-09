@@ -1,0 +1,75 @@
+name: Ryan Allen
+headline: React / Next.js Developer
+location: London, United Kingdom
+photo:
+  src: /images/resume-photo.jpg
+  alt: Headshot of Ryan Allen.
+  note: Existing resume headshot. Keep this as Ryan's real portrait unless he replaces it in the CMS.
+profile: London-based software developer focused on React/Next.js dashboards, payment flows, reporting systems, and practical startup tools. I build clear, maintainable interfaces that help teams move faster, understand their data, and reduce user friction.
+contact:
+  - label: Email
+    value: ryan@rallen.dev
+    href: mailto:ryan@rallen.dev
+  - label: Website
+    value: rallen.dev
+    href: https://rallen.dev
+  - label: LinkedIn
+    value: linkedin.com/in/ryanallen98
+    href: https://www.linkedin.com/in/ryanallen98/
+  - label: GitHub
+    value: github.com/ryansallen98
+    href: https://github.com/ryansallen98
+  - label: Phone / WhatsApp
+    value: +44 746 466 4178
+    href: tel:+447464664178
+focus: React/Next.js dashboards, payment workflows, reporting tools, and AI-assisted product delivery for fast-moving teams.
+skillPills:
+  - React Dashboards
+  - Next.js
+  - TypeScript
+  - Payment UX
+  - Reporting Tools
+  - API integrations
+  - Tailwind CSS
+  - Astro
+  - AI-Assisted Delivery
+  - WordPress / WooCommerce
+  - Client Support
+education:
+  - school: The Ravensbourne School
+    qualification: Digital Television Production, BTEC Media
+    dates: 2010 - 2018
+experience:
+  - company: Thrice Agency
+    role: Developer
+    location: Denver, USA · Remote
+    dates: Mar 2026 - Present
+    bullets:
+      - Stabilize AI/RevOps and SaaS products across multiple active projects within a fast-moving agency team.
+      - Build internal tools, automations, and product features for client and agency workflows.
+      - Use Cursor, Claude, and Codex daily to increase delivery speed while keeping implementation practical.
+  - company: Freelance / Independent
+    role: Web Designer & Developer
+    location: London, UK · Remote
+    dates: Mar 2025 - Mar 2026
+    bullets:
+      - Delivered client websites, ecommerce builds, crypto UI, AI tools, and business systems across a 12-month freelance period.
+      - Matched WordPress, WooCommerce, Astro, React/Next.js, and Tailwind to each client's scope and budget.
+      - Supported coworking infrastructure, Proxmox-style setups, networking, and printing/billing systems.
+  - company: GatewayPay
+    role: Lead Developer
+    location: London, UK · Remote
+    dates: Jan 2024 - Mar 2025
+    bullets:
+      - Built Next.js/TypeScript dashboards for payment reporting, analytics, payouts, and operations in a 5-6 person fintech team.
+      - Supported client integrations for GatewayPay's P2P payment provider platform.
+      - Managed reporting, payout checks, and P&L accuracy for a multi-million AUD account.
+      - Helped manage PSP partner relationships, rate discussions, and operational reporting.
+  - company: iCore
+    role: Lead Developer
+    location: London, UK · Remote
+    dates: Jan 2023 - Jul 2024
+    bullets:
+      - Built crypto payment flows and dashboards across an 18-month CPA/crypto product period.
+      - Made wallet, dashboard, and payment language clearer for users less familiar with crypto products.
+      - Worked across development, account support, and IT support as business needs changed.

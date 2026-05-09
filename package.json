@@ -4,7 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run build:astro && npm run generate:resume-pdf",
+    "build:astro": "astro build",
+    "generate:resume-pdf": "node scripts/generate-resume-pdf.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check"
@@ -27,6 +29,7 @@
   "devDependencies": {
     "@rollup/plugin-yaml": "^4.1.2",
     "class-variance-authority": "^0.7.1",
+    "puppeteer": "^24.43.0",
     "tailwind-merge": "^3.4.0"
   }
 }

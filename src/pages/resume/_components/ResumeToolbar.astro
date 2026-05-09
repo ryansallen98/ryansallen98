@@ -1,6 +1,7 @@
 ---
 import LogoLong from "@components/branding/LongLong.astro";
 import Button from "@components/ui/Button.astro";
+import IconButton from "@components/ui/IconButton.astro";
 ---
 
 <div class="resume-toolbar w-full animate-in slide-in-from-top duration-1000 motion-reduce:animate-none motion-reduce:filter-none">
@@ -17,23 +18,38 @@ import Button from "@components/ui/Button.astro";
       </a>
 
       <Button
-        class="bg-transparent"
+        class="resume-toolbar-button bg-transparent hidden sm:inline-flex"
         variant="dark"
         as="a"
         href="/about"
         text="Go back"
         iconStart="lucide:arrow-left"
       />
+      <IconButton
+        class="sm:hidden h-16 w-16 bg-transparent"
+        variant="dark"
+        as="a"
+        href="/about"
+        icon="lucide:arrow-left"
+        label="Go back"
+      />
     </div>
 
     <div>
       <Button
-        class="border-t-0 border-b-0"
+        class="resume-toolbar-button border-t-0 border-b-0 hidden sm:inline-flex"
         variant="outline"
         onclick="window.print()"
         text="Print"
         iconEnd="lucide:printer"
         disableIconAnimation
+      />
+      <IconButton
+        class="sm:hidden h-16 w-16 border-t-0 border-b-0"
+        variant="outline"
+        onclick="window.print()"
+        icon="lucide:printer"
+        label="Print"
       />
     </div>
   </div>

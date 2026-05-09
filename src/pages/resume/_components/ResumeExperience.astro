@@ -1,7 +1,55 @@
 ---
 import ResumeSubTitle from "./ResumeSubTitle.astro";
+
+type ExperienceItem = {
+  company: string;
+  role: string;
+  location?: string;
+  dates: string;
+  description?: string;
+  bullets: string[];
+};
+
+type Resume = {
+  experience: ExperienceItem[];
+};
+
+const { resume } = Astro.props as { resume: Resume };
 ---
 
-<div class="w-2/3 pl-20 pb-20 pr-5 pt-10 flex flex-col">
+<div class="w-2/3 pl-16 pb-16 pr-10 pt-8 flex flex-col gap-6">
   <ResumeSubTitle title="Work Experience" />
+  <div class="flex flex-col gap-6">
+    {resume.experience.map((item) => (
+      <section class="break-inside-avoid">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h3 class="text-base font-semibold uppercase tracking-wide text-foreground-light leading-tight">
+              {item.role}
+            </h3>
+            <p class="text-xs font-medium text-secondary-foreground-light">
+              {item.company}{item.location ? ` · ${item.location}` : ""}
+            </p>
+          </div>
+          <p class="text-[10px] uppercase tracking-widest text-secondary-foreground-light whitespace-nowrap pt-1">
+            {item.dates}
+          </p>
+        </div>
+        {item.description && (
+          <p class="mt-1 text-[11px] leading-snug text-secondary-foreground-light">
+            {item.description}
+          </p>
+        )}
+        <ul class="mt-2 flex flex-col gap-1 text-[11px] leading-snug text-foreground-light/90">
+          {item.bullets.map((bullet) => (
+            <li class="flex gap-2">
+              <span class="mt-1.5 size-1.5 shrink-0 bg-primary"></span>
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+
 </div>
