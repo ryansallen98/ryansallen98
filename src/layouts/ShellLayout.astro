@@ -1,18 +1,28 @@
 ---
-import Posthog from "@components/analytics/Posthog.astro";
+import CookieConsent, { type CookieConsentContent } from "@components/consent/CookieConsent.tsx";
 import Meta from "@components/content/Meta.astro"
+import cookieConsent from "@data/general/cookie-consent.yml";
 
 const locale = "en-GB";
+const cookieConsentContent = cookieConsent as unknown as CookieConsentContent;
+const posthog = {
+  key: import.meta.env.PUBLIC_POSTHOG_API_KEY,
+  host: import.meta.env.PUBLIC_POSTHOG_API_HOST,
+  uiHost: import.meta.env.PUBLIC_POSTHOG_API_UI_HOST,
+  defaults: import.meta.env.PUBLIC_POSTHOG_DEFAULTS,
+  capturePageview: import.meta.env.PUBLIC_POSTHOG_CAPTURE_PAGEVIEW,
+  personProfiles: import.meta.env.PUBLIC_POSTHOG_PERSON_PROFILES,
+};
 ---
 
 <!doctype html>
 <html lang={locale}>
   <head>
     <Meta locale={locale} {...Astro.props} />
-    <Posthog />
     <slot name="head" />
   </head>
   <body>
     <slot />
+    <CookieConsent client:load content={cookieConsentContent} posthog={posthog} />
   </body>
 </html>
