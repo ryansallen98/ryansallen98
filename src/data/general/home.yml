@@ -17,6 +17,7 @@ seo:
   schemaType: ProfilePage
 hero:
   eyebrow: Ryan Allen / R Allen Dev
+  subtitle: Hi, I'm Ryan 👋
   title: Startup Dashboards.
   titleAccent: Practical Product Tools.
   intro: London-based software developer building practical React/Next.js tools for startups that need clearer workflows, reporting, and product momentum.

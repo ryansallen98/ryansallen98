@@ -30,6 +30,7 @@ const home: CmsFile = {
       widget: "object",
       fields: [
         { name: "eyebrow", label: "Eyebrow" },
+        { name: "subtitle", label: "Subtitle", required: false },
         { name: "title", label: "Title", widget: "text" },
         { name: "titleAccent", label: "Title Accent (second line, primary colour)", widget: "text", required: false },
         { name: "intro", label: "Intro", widget: "text" },
