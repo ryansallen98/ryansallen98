@@ -241,6 +241,11 @@ function isGlobalPrivacyControlEnabled() {
   return Boolean((window.navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl);
 }
 
+function isResumePdfRender() {
+  const path = window.location.pathname.replace(/\/+$/, "");
+  return path === "/resume" && new URLSearchParams(window.location.search).has("html");
+}
+
 export default function CookieConsent({
   content,
   posthog,
@@ -261,6 +266,11 @@ export default function CookieConsent({
   );
 
   useEffect(() => {
+    if (isResumePdfRender()) {
+      window.__rallen_analytics_disabled = true;
+      return;
+    }
+
     const gpcEnabled = isGlobalPrivacyControlEnabled();
     const stored = readConsent(content.storageKey, content.revision);
 
@@ -333,7 +343,7 @@ export default function CookieConsent({
         <button
           type="button"
           data-cookie-preferences
-          className="fixed bottom-4 left-4 z-50 inline-flex h-11 items-center gap-2 border border-divider-dark bg-background-dark/95 px-4 text-xs font-medium uppercase text-foreground-dark shadow-2xl shadow-black/30 backdrop-blur transition hover:border-primary hover:text-primary focus-visible:border-primary focus-visible:outline-3 focus-visible:outline-ring/50"
+          className="fixed bottom-4 left-4 z-50 inline-flex h-11 items-center gap-2 border border-divider-dark bg-background-dark/95 px-4 text-xs font-medium uppercase text-foreground-dark shadow-2xl shadow-black/30 backdrop-blur transition hover:border-primary hover:text-primary focus-visible:border-primary focus-visible:outline-3 focus-visible:outline-ring/50 print:hidden"
         >
           <ShieldCheck className="size-4 text-primary" aria-hidden="true" />
           <span className="hidden sm:inline">{content.controls.reopenLabel}</span>
@@ -343,7 +353,7 @@ export default function CookieConsent({
       {isOpen ? (
         <section
           aria-labelledby="cookie-consent-title"
-          className="fixed inset-x-0 bottom-0 z-50 px-3 pb-3 sm:px-5 sm:pb-5"
+          className="fixed inset-x-0 bottom-0 z-50 px-3 pb-3 sm:px-5 sm:pb-5 print:hidden"
         >
           <div className="mx-auto grid max-w-6xl overflow-hidden border border-divider-dark bg-background-dark text-foreground-dark shadow-2xl shadow-black/40 lg:grid-cols-[1fr_22rem]">
             <div className="relative overflow-hidden p-5 sm:p-6 lg:p-7">
