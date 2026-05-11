@@ -4,7 +4,6 @@ import { ReactButton } from "@components/ui/ReactButton";
 import { ContactForm } from "./ContactForm";
 import { ExtrasStep } from "./ExtrasStep";
 import { OptionButton } from "./OptionButton";
-import { QuoteBackground } from "./QuoteBackground";
 import { QuoteHeader } from "./QuoteHeader";
 import { StepIntro } from "./StepIntro";
 import { SummaryPanel } from "./SummaryPanel";
@@ -109,12 +108,11 @@ export default function QuoteWizard({ config }: QuoteWizardProps) {
 
   return (
     <main className="min-h-dvh overflow-hidden bg-background-dark text-foreground-dark">
-      <QuoteBackground />
       <QuoteHeader currentStep={currentStep} progressLabel={wizard.progressLabel} />
 
       <section className="relative z-10 min-h-[calc(100dvh-73px)]">
         <div className="mx-auto grid min-h-[calc(100dvh-73px)] max-w-7xl gap-5 px-5 py-5 lg:grid-cols-[minmax(0,0.72fr)_minmax(320px,0.28fr)] lg:py-6 xl:gap-6 xl:py-8">
-          <div className="flex min-h-[calc(100dvh-113px)] flex-col justify-between border border-divider-dark bg-background-dark/65 p-5 shadow-2xl backdrop-blur sm:p-7 lg:p-8 xl:p-10">
+          <div className="flex min-h-[calc(100dvh-113px)] flex-col justify-between border border-divider-dark bg-background-dark p-5 shadow-2xl sm:p-7 lg:p-8 xl:p-10">
             <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
               <p className="inline-flex items-center gap-2 text-xs uppercase tracking-wide text-muted">
                 <span className="size-2 bg-primary" />

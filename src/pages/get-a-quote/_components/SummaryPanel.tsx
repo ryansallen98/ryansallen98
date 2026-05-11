@@ -38,7 +38,7 @@ export function SummaryPanel({
         <p className="mt-5 max-w-sm text-sm leading-relaxed">{resultText}</p>
       </div>
 
-      <div className="border border-divider-dark bg-background-dark/70 p-6 backdrop-blur sm:p-7 xl:p-8">
+      <div className="border border-divider-dark bg-background-dark p-6 sm:p-7 xl:p-8">
         <div className="mb-5 flex items-center justify-between gap-4">
           <p className="text-xs uppercase tracking-wide text-muted">{summaryLabel}</p>
           <Sparkles className="size-5 text-primary" aria-hidden="true" />

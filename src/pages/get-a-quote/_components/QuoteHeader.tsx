@@ -8,7 +8,7 @@ type QuoteHeaderProps = {
 
 export function QuoteHeader({ currentStep, progressLabel }: QuoteHeaderProps) {
   return (
-    <header className="relative z-20 border-b border-divider-dark bg-background-dark/70 backdrop-blur">
+    <header className="relative z-20 border-b border-divider-dark bg-background-dark">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
         <a
           className="group inline-flex items-center gap-3 fill-primary"
