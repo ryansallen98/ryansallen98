@@ -110,7 +110,7 @@ const cta = home.cta as {
 };
 ---
 
-<Layout title={hero.title} seo={seo}>
+<Layout title={hero.title} seo={seo} preloadImage={hero.image.src}>
   <!-- HERO -->
   <section
     class="relative overflow-hidden bg-background-dark pt-28 pb-16 text-foreground-dark sm:pt-32 lg:pt-36 lg:pb-24"
@@ -127,6 +127,10 @@ const cta = home.cta as {
             alt={hero.image.alt}
             class="aspect-4/5 h-full w-full object-cover object-center grayscale transition duration-700 group-hover:scale-[1.04] group-hover:grayscale-0 lg:aspect-auto"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="960"
+            height="1280"
           />
           {
             hero.status.location && (
@@ -344,6 +348,9 @@ const cta = home.cta as {
                   alt={item.image.alt}
                   class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.06]"
                   loading="lazy"
+                  decoding="async"
+                  width="960"
+                  height="600"
                 />
                 <span class="absolute inset-0 bg-background-dark/0 transition duration-300 group-hover:bg-background-dark/45" />
                 <span class="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">

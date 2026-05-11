@@ -1,0 +1,228 @@
+---
+import { Icon } from "astro-icon/components";
+
+type ConsentCategory = {
+  title: string;
+  description: string;
+  statusLabel?: string;
+};
+
+type ConsentLink = {
+  text: string;
+  href: string;
+};
+
+type CookieConsentContent = {
+  storageKey: string;
+  revision: number;
+  banner: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  controls: {
+    acceptLabel: string;
+    rejectLabel: string;
+    customizeLabel: string;
+    saveLabel: string;
+    closeLabel: string;
+    reopenLabel: string;
+    onLabel: string;
+    offLabel: string;
+    gpcLabel: string;
+  };
+  categories: {
+    necessary: ConsentCategory;
+    analytics: ConsentCategory;
+  };
+  links: ConsentLink[];
+};
+
+type PosthogConfig = {
+  key?: string;
+  host?: string;
+  uiHost?: string;
+  defaults?: string;
+  capturePageview?: string;
+  personProfiles?: string;
+};
+
+interface Props {
+  content: CookieConsentContent;
+  posthog: PosthogConfig;
+}
+
+const { content, posthog } = Astro.props;
+
+const configJson = JSON.stringify({ content, posthog });
+---
+
+<div data-cookie-consent-root>
+  <script
+    is:inline
+    type="application/json"
+    data-cookie-consent-config
+    set:html={configJson}
+  />
+
+  <button
+    type="button"
+    data-cookie-reopen
+    hidden
+    class="fixed bottom-4 left-4 z-50 inline-flex h-11 items-center gap-2 border border-divider-dark bg-background-dark/95 px-4 text-xs font-medium uppercase text-foreground-dark shadow-2xl shadow-black/30 backdrop-blur transition hover:border-primary hover:text-primary focus-visible:border-primary focus-visible:outline-3 focus-visible:outline-ring/50 print:hidden"
+  >
+    <Icon name="lucide:shield-check" class="size-4 text-primary" aria-hidden="true" />
+    <span class="hidden sm:inline">{content.controls.reopenLabel}</span>
+  </button>
+
+  <section
+    data-cookie-banner
+    hidden
+    aria-labelledby="cookie-consent-title"
+    class="fixed inset-x-0 bottom-0 z-50 px-3 pb-3 sm:px-5 sm:pb-5 print:hidden"
+  >
+    <div class="mx-auto grid max-w-6xl overflow-hidden border border-divider-dark bg-background-dark text-foreground-dark shadow-2xl shadow-black/40 lg:grid-cols-[1fr_22rem]">
+      <div class="relative overflow-hidden p-5 sm:p-6 lg:p-7">
+        <div class="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:radial-gradient(circle_at_1px_1px,currentColor_1px,transparent_0)] [background-size:18px_18px]"></div>
+        <div class="relative">
+          <div class="mb-4 flex items-center justify-between gap-4">
+            <p class="inline-flex items-center gap-2 text-[0.7rem] font-medium uppercase tracking-[0.16em] text-primary">
+              <Icon name="lucide:cookie" class="size-4" aria-hidden="true" />
+              {content.banner.eyebrow}
+            </p>
+            <button
+              type="button"
+              data-cookie-close
+              hidden
+              aria-label={content.controls.closeLabel}
+              class="inline-flex size-9 items-center justify-center border border-divider-dark text-muted transition hover:border-primary hover:text-primary focus-visible:border-primary focus-visible:outline-3 focus-visible:outline-ring/50"
+            >
+              <Icon name="lucide:x" class="size-4" aria-hidden="true" />
+            </button>
+          </div>
+
+          <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+            <div>
+              <h2
+                id="cookie-consent-title"
+                class="font-heading text-[clamp(2rem,5vw,4.8rem)] uppercase leading-none text-foreground-dark"
+              >
+                {content.banner.title}
+              </h2>
+              <p class="mt-4 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
+                {content.banner.text}
+              </p>
+              <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted">
+                {
+                  content.links.map((link) => (
+                    <a
+                      href={link.href}
+                      class="underline decoration-divider-dark underline-offset-4 transition hover:text-primary hover:decoration-primary focus-visible:text-primary"
+                    >
+                      {link.text}
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
+
+            <div data-cookie-actions class="flex flex-col gap-2 sm:flex-row lg:flex-col">
+              <button
+                type="button"
+                data-cookie-accept
+                class="inline-flex items-center justify-center gap-2 bg-primary px-5 py-4 text-sm font-medium uppercase text-primary-foreground transition hover:bg-foreground-dark focus-visible:outline-3 focus-visible:outline-ring/50"
+              >
+                <Icon name="lucide:check" class="size-4" aria-hidden="true" />
+                {content.controls.acceptLabel}
+              </button>
+              <button
+                type="button"
+                data-cookie-reject
+                class="inline-flex items-center justify-center gap-2 border border-divider-dark px-5 py-4 text-sm font-medium uppercase text-foreground-dark transition hover:border-primary hover:text-primary focus-visible:border-primary focus-visible:outline-3 focus-visible:outline-ring/50"
+              >
+                <Icon name="lucide:x" class="size-4" aria-hidden="true" />
+                {content.controls.rejectLabel}
+              </button>
+              <button
+                type="button"
+                data-cookie-customize
+                class="inline-flex items-center justify-center gap-2 px-5 py-4 text-sm font-medium uppercase text-muted transition hover:text-primary focus-visible:text-primary focus-visible:outline-3 focus-visible:outline-ring/50"
+              >
+                <Icon name="lucide:settings-2" class="size-4" aria-hidden="true" />
+                {content.controls.customizeLabel}
+              </button>
+            </div>
+
+            <button
+              type="button"
+              data-cookie-save
+              hidden
+              class="inline-flex items-center justify-center gap-2 bg-primary px-5 py-4 text-sm font-medium uppercase text-primary-foreground transition hover:bg-foreground-dark focus-visible:outline-3 focus-visible:outline-ring/50"
+            >
+              <Icon name="lucide:check" class="size-4" aria-hidden="true" />
+              {content.controls.saveLabel}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-divider-dark bg-secondary-dark p-4 sm:p-5 lg:border-l lg:border-t-0">
+        <div class="grid gap-3">
+          <div class="border border-divider-dark bg-background-dark p-4">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-sm font-semibold uppercase text-foreground-dark">
+                  {content.categories.necessary.title}
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-muted">
+                  {content.categories.necessary.description}
+                </p>
+              </div>
+              <span class="shrink-0 bg-primary px-2 py-1 text-[0.65rem] font-medium uppercase text-primary-foreground">
+                {content.categories.necessary.statusLabel}
+              </span>
+            </div>
+          </div>
+
+          <div class="border border-divider-dark bg-background-dark p-4">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="inline-flex items-center gap-2 text-sm font-semibold uppercase text-foreground-dark">
+                  <Icon name="lucide:bar-chart-3" class="size-4 text-primary" aria-hidden="true" />
+                  {content.categories.analytics.title}
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-muted">
+                  {content.categories.analytics.description}
+                </p>
+              </div>
+              <button
+                type="button"
+                data-cookie-analytics-switch
+                role="switch"
+                aria-checked="false"
+                class="relative h-7 w-13 shrink-0 border border-divider-dark bg-secondary-dark transition enabled:hover:border-primary focus-visible:border-primary focus-visible:outline-3 focus-visible:outline-ring/50 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                <span
+                  data-cookie-switch-knob
+                  class="absolute left-1 top-1 size-5 bg-foreground-dark transition"
+                ></span>
+                <span data-cookie-switch-label class="sr-only">
+                  {content.controls.offLabel}
+                </span>
+              </button>
+            </div>
+            <p
+              data-cookie-gpc-message
+              hidden
+              class="mt-3 border-t border-divider-dark pt-3 text-xs leading-relaxed text-primary"
+            >
+              {content.controls.gpcLabel}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="@scripts/cookieConsent"></script>

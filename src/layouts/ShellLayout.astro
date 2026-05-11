@@ -1,10 +1,10 @@
 ---
-import CookieConsent, { type CookieConsentContent } from "@components/consent/CookieConsent.tsx";
+import CookieConsent from "@components/consent/CookieConsent.astro";
 import Meta from "@components/content/Meta.astro"
 import cookieConsent from "@data/general/cookie-consent.yml";
 
 const locale = "en-GB";
-const cookieConsentContent = cookieConsent as unknown as CookieConsentContent;
+const cookieConsentContent = cookieConsent as any;
 const posthog = {
   key: import.meta.env.PUBLIC_POSTHOG_API_KEY,
   host: import.meta.env.PUBLIC_POSTHOG_API_HOST,
@@ -23,6 +23,6 @@ const posthog = {
   </head>
   <body>
     <slot />
-    <CookieConsent client:load content={cookieConsentContent} posthog={posthog} />
+    <CookieConsent content={cookieConsentContent} posthog={posthog} />
   </body>
 </html>

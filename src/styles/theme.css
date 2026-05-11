@@ -23,8 +23,8 @@
     "Anton", Impact, Haettenschweiler, "Arial Narrow", "Segoe UI", sans-serif;
 
   --font-base-stack:
-    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
 
   --background-light: oklch(1 0 0);
   --foreground-light: oklch(14.5% 0 0);

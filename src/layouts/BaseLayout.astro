@@ -5,11 +5,10 @@ import ShellLayout from "@layouts/ShellLayout.astro";
 import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
 import ComingSoon from "@components/content/ComingSoon.astro";
-import { ClientRouter } from "astro:transitions";
 
 const isComingSoon = import.meta.env.COMING_SOON === "true";
 
-const { chrome = true } = Astro.props;
+const { chrome = true, preloadImage } = Astro.props;
 ---
 
 <ShellLayout {...Astro.props}>
@@ -21,21 +20,17 @@ const { chrome = true } = Astro.props;
       type="font/woff2"
       crossorigin
     />
-    <link
-      rel="preload"
-      href="/fonts/Inter_24pt-Regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/fonts/Inter_24pt-Medium.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <ClientRouter />
+    {
+      preloadImage && (
+        <link
+          rel="preload"
+          href={preloadImage}
+          as="image"
+          fetchpriority="high"
+        />
+      )
+    }
+    <slot name="head" />
   </Fragment>
   {isComingSoon ? 
     <ComingSoon />

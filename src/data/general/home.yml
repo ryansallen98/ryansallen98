@@ -36,9 +36,9 @@ hero:
     label: Available now
     location: London / UK
   image:
-    src: /images/hero-photo.jpeg
+    src: /images/hero-photo-960.webp
     alt: Headshot of Ryan Allen.
-    note: Hero portrait for the homepage.
+    note: Optimised WebP hero portrait for the homepage. Original source is retained at /images/hero-photo.jpeg.
   highlights:
     - label: Best fit
       text: Dashboards, reporting tools, workflow UX, and internal systems.
@@ -77,7 +77,7 @@ work:
         - Reporting
         - Fintech
       image:
-        src: https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80
+        src: /images/work/gatewaypay-dashboard.webp
         alt: Analytics dashboard on a laptop screen showing charts, performance metrics, and reporting data.
         note: Unsplash placeholder by Luke Chesser. Matches the reporting dashboard context until an approved GatewayPay screenshot is available.
       cta:
@@ -92,7 +92,7 @@ work:
         - Dashboards
         - Crypto
       image:
-        src: https://images.unsplash.com/photo-1768242079046-c9c633187db1?auto=format&fit=crop&w=1600&q=80
+        src: /images/work/icore-crypto.webp
         alt: Finger interacting with a tablet showing cryptocurrency market charts and trading data.
         note: Unsplash placeholder by Jakub Zerdzicki. Matches the crypto product UI and market dashboard context until an approved iCore screenshot is available.
       cta:
@@ -107,7 +107,7 @@ work:
         - AI
         - Product
       image:
-        src: https://images.unsplash.com/photo-1721506931381-3ba300ad71f4?auto=format&fit=crop&w=1600&q=80
+        src: /images/work/football-tips.webp
         alt: Football players competing for the ball during a soccer match.
         note: Unsplash placeholder by Claude Nai. Matches the football tips product context until the platform is public.
       cta:
