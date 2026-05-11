@@ -78,8 +78,8 @@ work:
         - Fintech
       image:
         src: https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80
-        alt: Placeholder dashboard analytics screenshot.
-        note: Replace with a real GatewayPay dashboard screenshot once approved for public sharing.
+        alt: Analytics dashboard on a laptop screen showing charts, performance metrics, and reporting data.
+        note: Unsplash placeholder by Luke Chesser. Matches the reporting dashboard context until an approved GatewayPay screenshot is available.
       cta:
         text: Read case
         href: /contact
@@ -92,9 +92,9 @@ work:
         - Dashboards
         - Crypto
       image:
-        src: https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1600&q=80
-        alt: Placeholder crypto wallet UI.
-        note: Replace with iCore dashboard or crypto wallet screenshot once approved for public sharing.
+        src: https://images.unsplash.com/photo-1768242079046-c9c633187db1?auto=format&fit=crop&w=1600&q=80
+        alt: Finger interacting with a tablet showing cryptocurrency market charts and trading data.
+        note: Unsplash placeholder by Jakub Zerdzicki. Matches the crypto product UI and market dashboard context until an approved iCore screenshot is available.
       cta:
         text: Read case
         href: /contact
@@ -107,9 +107,9 @@ work:
         - AI
         - Product
       image:
-        src: https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1600&q=80
-        alt: Placeholder football pitch image.
-        note: Replace with platform screenshot once it is public.
+        src: https://images.unsplash.com/photo-1721506931381-3ba300ad71f4?auto=format&fit=crop&w=1600&q=80
+        alt: Football players competing for the ball during a soccer match.
+        note: Unsplash placeholder by Claude Nai. Matches the football tips product context until the platform is public.
       cta:
         text: Read case
         href: /contact
